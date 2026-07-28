@@ -1,10 +1,12 @@
+import { Routes, Route } from "react-router-dom";
+
+import Home from "./pages/Home";
+
 function App() {
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <h1 className="text-5xl font-bold text-red-900">
-        BulSUan Connect
-      </h1>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+    </Routes>
   );
 }
 
