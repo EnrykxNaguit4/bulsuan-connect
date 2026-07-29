@@ -1,13 +1,46 @@
+import { FaCommentDots } from "react-icons/fa";
+
 function QuickActions() {
   return (
-    <section className="py-12 text-center">
-      <h2 className="text-3xl font-bold">
-        Your Voice Matters
-      </h2>
+    <section className="py-16 px-4">
+      <div className="max-w-5xl mx-auto bg-white rounded-3xl shadow-2xl p-10">
 
-      <button className="mt-6 bg-green-800 text-white px-6 py-3 rounded-xl">
-        Submit a Concern
-      </button>
+        <div className="flex flex-col items-center text-center">
+
+          <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center">
+            <FaCommentDots className="text-3xl text-green-700" />
+          </div>
+
+          <h2 className="mt-6 text-4xl font-bold text-gray-900">
+            Your Voice Matters
+          </h2>
+
+          <p className="mt-4 text-gray-600 max-w-2xl">
+            Raise concerns, report issues, or ask for assistance.
+            Your concern will be received by the Local Student Council
+            and handled confidentially.
+          </p>
+
+          <button
+            className="
+              mt-8
+              bg-green-700
+              hover:bg-green-800
+              text-white
+              px-8
+              py-4
+              rounded-xl
+              text-lg
+              font-semibold
+              transition
+            "
+          >
+            Submit a Concern
+          </button>
+
+        </div>
+
+      </div>
     </section>
   );
 }
