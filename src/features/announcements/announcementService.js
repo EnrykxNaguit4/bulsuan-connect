@@ -1,5 +1,10 @@
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../firebase/firebase";
+import {
+  collection,
+  getDocs,
+  addDoc,
+} from "firebase/firestore";
+
+import { db } from "../../firebase/firebase";
 
 export async function getAnnouncements() {
   const snapshot = await getDocs(collection(db, "announcements"));
@@ -10,7 +15,6 @@ export async function getAnnouncements() {
   }));
 }
 
-export async function getAnnouncementCount() {
-  const snapshot = await getDocs(collection(db, "announcements"));
-  return snapshot.size;
+export async function createAnnouncement(data) {
+  await addDoc(collection(db, "announcements"), data);
 }

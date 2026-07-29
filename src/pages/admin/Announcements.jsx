@@ -6,6 +6,8 @@ import AnnouncementTable from "../../features/announcements/AnnouncementTable";
 
 import { getAnnouncements } from "../../services/announcementService";
 
+import AnnouncementModal from "../../features/announcements/AnnouncementModal";
+
 function Announcements() {
   
   const [announcements, setAnnouncements] = useState([]);
@@ -18,6 +20,8 @@ useEffect(() => {
 
   loadAnnouncements();
 }, []);
+
+const [showModal, setShowModal] = useState(false);
 
     return (
     <AdminLayout>
@@ -32,14 +36,21 @@ useEffect(() => {
           </p>
         </div>
 
-        <button
-          className="bg-green-700 hover:bg-green-800 text-white px-5 py-3 rounded-xl font-semibold"
-        >
-          + New Announcement
-        </button>
+       <button
+  onClick={() => setShowModal(true)}
+  className="bg-green-700 hover:bg-green-800 text-white px-5 py-3 rounded-xl font-semibold transition"
+>
+  + New Announcement
+</button>
       </div>
       
       <AnnouncementTable announcements={announcements} />
+
+{showModal && (
+  <AnnouncementModal
+    onClose={() => setShowModal(false)}
+  />
+)}
 
     </AdminLayout>
   );
