@@ -1,31 +1,54 @@
 import AdminLayout from "../../components/admin/Layout/AdminLayout";
-
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 import AnnouncementTable from "../../features/announcements/AnnouncementTable";
-
-import { getAnnouncements } from "../../services/announcementService";
-
 import AnnouncementModal from "../../features/announcements/AnnouncementModal";
+import DeleteModal from "../../components/UI/DeleteModal";
+
+import {
+  getAnnouncements,
+  deleteAnnouncement,
+} from "../../features/announcements/announcementService";
 
 function Announcements() {
-  
   const [announcements, setAnnouncements] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [selectedAnnouncement, setSelectedAnnouncement] = useState(null);
 
-useEffect(() => {
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [announcementToDelete, setAnnouncementToDelete] = useState(null);
+
   async function loadAnnouncements() {
     const data = await getAnnouncements();
     setAnnouncements(data);
   }
 
-  loadAnnouncements();
-}, []);
+  useEffect(() => {
+    loadAnnouncements();
+  }, []);
 
-const [showModal, setShowModal] = useState(false);
+  async function handleDelete() {
+    try {
+      await deleteAnnouncement(announcementToDelete.id);
 
-    return (
+      toast.success("Announcement deleted successfully!");
+
+      setShowDeleteModal(false);
+      setAnnouncementToDelete(null);
+
+      loadAnnouncements();
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to delete announcement.");
+    }
+  }
+
+  return (
     <AdminLayout>
+
       <div className="flex items-center justify-between mb-8">
+
         <div>
           <h1 className="text-4xl font-bold">
             Announcements
@@ -36,21 +59,52 @@ const [showModal, setShowModal] = useState(false);
           </p>
         </div>
 
-       <button
-  onClick={() => setShowModal(true)}
-  className="bg-green-700 hover:bg-green-800 text-white px-5 py-3 rounded-xl font-semibold transition"
->
-  + New Announcement
-</button>
-      </div>
-      
-      <AnnouncementTable announcements={announcements} />
+        <button
+          onClick={() => {
+            setSelectedAnnouncement(null);
+            setShowModal(true);
+          }}
+          className="bg-green-700 hover:bg-green-800 text-white px-5 py-3 rounded-xl font-semibold transition"
+        >
+          + New Announcement
+        </button>
 
-{showModal && (
-  <AnnouncementModal
-    onClose={() => setShowModal(false)}
-  />
-)}
+      </div>
+
+      <AnnouncementTable
+        announcements={announcements}
+        onEdit={(announcement) => {
+          setSelectedAnnouncement(announcement);
+          setShowModal(true);
+        }}
+        onDelete={(announcement) => {
+          setAnnouncementToDelete(announcement);
+          setShowDeleteModal(true);
+        }}
+      />
+
+      {showModal && (
+        <AnnouncementModal
+          announcement={selectedAnnouncement}
+          onClose={() => {
+            setShowModal(false);
+            setSelectedAnnouncement(null);
+          }}
+          onSuccess={loadAnnouncements}
+        />
+      )}
+
+      {showDeleteModal && (
+        <DeleteModal
+          title="Delete Announcement"
+          message={`Are you sure you want to delete "${announcementToDelete?.title}"?`}
+          onCancel={() => {
+            setShowDeleteModal(false);
+            setAnnouncementToDelete(null);
+          }}
+          onConfirm={handleDelete}
+        />
+      )}
 
     </AdminLayout>
   );

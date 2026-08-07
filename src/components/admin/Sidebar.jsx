@@ -1,38 +1,153 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase/firebase";
+
+import toast from "react-hot-toast";
+
+import {
+  FaTachometerAlt,
+  FaBullhorn,
+  FaCalendarAlt,
+  FaFolderOpen,
+  FaComments,
+  FaSignOutAlt,
+  FaUserShield,
+} from "react-icons/fa";
 
 function Sidebar() {
+  const navigate = useNavigate();
+
   const menu = [
-    { name: "Dashboard", path: "/admin/dashboard" },
-    { name: "Announcements", path: "/admin/announcements" },
-    { name: "Events", path: "/admin/events" },
-    { name: "Files", path: "/admin/files" },
-    { name: "Concerns", path: "/admin/concerns" },
+    {
+      name: "Dashboard",
+      path: "/admin/dashboard",
+      icon: <FaTachometerAlt />,
+    },
+    {
+      name: "Announcements",
+      path: "/admin/announcements",
+      icon: <FaBullhorn />,
+    },
+    {
+      name: "Events",
+      path: "/admin/events",
+      icon: <FaCalendarAlt />,
+    },
+    {
+      name: "Files",
+      path: "/admin/files",
+      icon: <FaFolderOpen />,
+    },
+    {
+      name: "Concerns",
+      path: "/admin/concerns",
+      icon: <FaComments />,
+    },
   ];
 
+  async function handleLogout() {
+    const confirmLogout = window.confirm(
+      "Are you sure you want to logout?"
+    );
+
+    if (!confirmLogout) return;
+
+    try {
+      await signOut(auth);
+
+      toast.success("Logged out successfully.");
+
+      navigate("/admin/login");
+
+    } catch (error) {
+      console.error(error);
+
+      toast.error("Failed to logout.");
+    }
+  }
+
   return (
-    <aside className="w-64 h-screen bg-green-800 text-white fixed left-0 top-0">
+    <aside className="fixed left-0 top-0 h-screen w-64 bg-green-800 text-white flex flex-col">
+
+      {/* Logo */}
+
       <div className="p-6 border-b border-green-700">
-        <h1 className="text-2xl font-bold">BulSUan Connect</h1>
-        <p className="text-green-200 text-sm">
+
+        <h1 className="text-2xl font-bold">
+          BulSUan Connect
+        </h1>
+
+        <p className="text-green-200 text-sm mt-1">
           Admin Portal
         </p>
+
       </div>
 
-      <nav className="mt-6 flex flex-col">
+      {/* Menu */}
+
+      <nav className="flex-1 mt-6">
+
         {menu.map((item) => (
+
           <NavLink
             key={item.name}
             to={item.path}
             className={({ isActive }) =>
-              `px-6 py-4 hover:bg-green-700 transition ${
+              `flex items-center gap-3 px-6 py-4 transition hover:bg-green-700 ${
                 isActive ? "bg-green-700" : ""
               }`
             }
           >
-            {item.name}
+            <span className="text-lg">
+              {item.icon}
+            </span>
+
+            <span>{item.name}</span>
+
           </NavLink>
+
         ))}
+
       </nav>
+
+      {/* Bottom */}
+
+      <div className="border-t border-green-700 p-5">
+
+        <div className="flex items-center gap-3 mb-5">
+
+          <div className="w-10 h-10 rounded-full bg-green-600 flex items-center justify-center">
+
+            <FaUserShield />
+
+          </div>
+
+          <div>
+
+            <p className="font-semibold">
+              Administrator
+            </p>
+
+            <p className="text-xs text-green-200">
+              Logged In
+            </p>
+
+          </div>
+
+        </div>
+
+        <button
+          onClick={handleLogout}
+          className="w-full flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 transition rounded-xl py-3 font-semibold"
+        >
+          <FaSignOutAlt />
+
+          Logout
+
+        </button>
+
+      </div>
+
     </aside>
   );
 }

@@ -1,4 +1,8 @@
-function AnnouncementTable({ announcements }) {
+function AnnouncementTable({
+  announcements,
+  onEdit,
+  onDelete,
+}) {
   return (
     <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
       <table className="w-full">
@@ -14,9 +18,9 @@ function AnnouncementTable({ announcements }) {
           {announcements.map((announcement) => (
             <tr
               key={announcement.id}
-              className="border-t"
+              className="border-t hover:bg-gray-50 transition"
             >
-              <td className="p-4">
+              <td className="p-4 font-medium">
                 {announcement.title}
               </td>
 
@@ -24,14 +28,24 @@ function AnnouncementTable({ announcements }) {
                 {announcement.date}
               </td>
 
-              <td className="p-4 space-x-3">
-                <button className="text-blue-600">
-                  Edit
-                </button>
+              <td className="p-4">
+                <div className="flex gap-3">
 
-                <button className="text-red-600">
-                  Delete
-                </button>
+                  <button
+                    onClick={() => onEdit(announcement)}
+                    className="px-3 py-1 rounded-lg bg-blue-100 text-blue-700 hover:bg-blue-200"
+                  >
+                    Edit
+                  </button>
+
+                  <button
+                    onClick={() => onDelete(announcement)}
+                    className="px-3 py-1 rounded-lg bg-red-100 text-red-700 hover:bg-red-200"
+                  >
+                    Delete
+                  </button>
+
+                </div>
               </td>
             </tr>
           ))}

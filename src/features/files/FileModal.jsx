@@ -1,53 +1,50 @@
-
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import {
-  createAnnouncement,
-  updateAnnouncement,
-} from "./announcementService";
 
-function AnnouncementModal({
-  announcement,
+import {
+  createFile,
+  updateFile,
+} from "./fileService";
+
+function FileModal({
+  file,
   onClose,
   onSuccess,
 }) {
   const [formData, setFormData] = useState({
     title: "",
     description: "",
-    date: "",
-    image: "",
+    category: "Forms",
+    url: "",
     featured: false,
   });
 
   useEffect(() => {
-    if (announcement) {
+    if (file) {
       setFormData({
-        title: announcement.title || "",
-        description: announcement.description || "",
-        date: announcement.date || "",
-        image: announcement.image || "",
-        featured: announcement.featured || false,
+        title: file.title || "",
+        description: file.description || "",
+        category: file.category || "Forms",
+        url: file.url || "",
+        featured: file.featured || false,
       });
     } else {
       setFormData({
         title: "",
         description: "",
-        date: "",
-        image: "",
+        category: "Forms",
+        url: "",
         featured: false,
       });
     }
-  }, [announcement]);
+  }, [file]);
 
   function handleChange(e) {
     const { name, value, type, checked } = e.target;
 
     setFormData({
       ...formData,
-      [name]:
-        type === "checkbox"
-          ? checked
-          : value,
+      [name]: type === "checkbox" ? checked : value,
     });
   }
 
@@ -57,68 +54,50 @@ function AnnouncementModal({
     if (
       !formData.title ||
       !formData.description ||
-      !formData.date
+      !formData.category ||
+      !formData.url
     ) {
       toast.error("Please complete all required fields.");
       return;
     }
 
-   try {
+    try {
+      if (file) {
+        await updateFile(file.id, formData);
 
-  if (announcement) {
+        toast.success("File updated successfully!");
+      } else {
+        await createFile({
+          ...formData,
+          createdAt: new Date(),
+        });
 
-    await updateAnnouncement(
-      announcement.id,
-      formData
-    );
+        toast.success("File published successfully!");
+      }
 
-    toast.success(
-      "Announcement updated successfully!"
-    );
+      onSuccess();
+      onClose();
 
-  } else {
-
-    await createAnnouncement({
-      ...formData,
-      createdAt: new Date(),
-    });
-
-    toast.success(
-      "Announcement published successfully!"
-    );
-
-  }
-
-  onSuccess();
-  onClose();
-
-} catch (error) {
-
-  console.error(error);
-
-  toast.error(
-    "Something went wrong."
-  );
-
-}
+    } catch (error) {
+      console.error(error);
+      toast.error("Something went wrong.");
+    }
   }
 
   return (
-    <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 overflow-y-auto">
+    <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-5">
 
-      <div className="bg-white rounded-2xl w-full max-w-2xl p-8 my-10">
+      <div className="bg-white rounded-2xl w-full max-w-2xl p-8 max-h-[90vh] overflow-y-auto">
 
         <div className="flex justify-between items-center mb-8">
 
           <h2 className="text-2xl font-bold">
-            {announcement
-              ? "Edit Announcement"
-              : "New Announcement"}
+            {file ? "Edit File" : "New File"}
           </h2>
 
           <button
             onClick={onClose}
-            className="text-2xl"
+            className="text-3xl"
           >
             ×
           </button>
@@ -128,6 +107,7 @@ function AnnouncementModal({
         <form onSubmit={handleSubmit}>
 
           <div className="mb-5">
+
             <label className="font-medium">
               Title
             </label>
@@ -138,9 +118,11 @@ function AnnouncementModal({
               onChange={handleChange}
               className="w-full border rounded-xl mt-2 p-3"
             />
+
           </div>
 
           <div className="mb-5">
+
             <label className="font-medium">
               Description
             </label>
@@ -152,34 +134,45 @@ function AnnouncementModal({
               onChange={handleChange}
               className="w-full border rounded-xl mt-2 p-3"
             />
+
           </div>
 
           <div className="mb-5">
+
             <label className="font-medium">
-              Date
+              Category
             </label>
 
-            <input
-              type="date"
-              name="date"
-              value={formData.date}
+            <select
+              name="category"
+              value={formData.category}
               onChange={handleChange}
               className="w-full border rounded-xl mt-2 p-3"
-            />
+            >
+              <option>Forms</option>
+              <option>Handbook</option>
+              <option>Memorandum</option>
+              <option>Policies</option>
+              <option>Guidelines</option>
+              <option>Others</option>
+            </select>
+
           </div>
 
           <div className="mb-5">
+
             <label className="font-medium">
-              Image URL
+              Google Drive Link
             </label>
 
             <input
-              name="image"
-              value={formData.image}
+              name="url"
+              value={formData.url}
               onChange={handleChange}
+              placeholder="https://drive.google.com/..."
               className="w-full border rounded-xl mt-2 p-3"
-              placeholder="https://..."
             />
+
           </div>
 
           <div className="flex items-center gap-3 mt-6">
@@ -192,7 +185,7 @@ function AnnouncementModal({
             />
 
             <label>
-              Featured Announcement
+              Featured File
             </label>
 
           </div>
@@ -202,18 +195,16 @@ function AnnouncementModal({
             <button
               type="button"
               onClick={onClose}
-              className="px-5 py-3 rounded-xl border"
+              className="border px-5 py-3 rounded-xl"
             >
               Cancel
             </button>
 
             <button
               type="submit"
-              className="px-5 py-3 rounded-xl bg-green-700 text-white hover:bg-green-800"
+              className="bg-green-700 hover:bg-green-800 text-white px-5 py-3 rounded-xl"
             >
-              {announcement
-                ? "Save Changes"
-                : "Publish"}
+              {file ? "Save Changes" : "Publish File"}
             </button>
 
           </div>
@@ -226,4 +217,4 @@ function AnnouncementModal({
   );
 }
 
-export default AnnouncementModal;
+export default FileModal;

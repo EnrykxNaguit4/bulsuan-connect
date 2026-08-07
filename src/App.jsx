@@ -1,3 +1,5 @@
+import ProtectedRoute from "./components/auth/ProtectedRoute";
+
 import { Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
@@ -7,6 +9,8 @@ import Files from "./pages/Files";
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
 import Concern from "./pages/Concern";
+import AnnouncementDetails from "./pages/AnnouncementDetails";  
+import EventDetails from "./pages/EventDetails";
 
 import Login from "./pages/admin/Login";
 import Dashboard from "./pages/admin/Dashboard";
@@ -20,18 +24,61 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/announcements" element={<Announcements />} />
+         <Route path="/announcements/:id" element={<AnnouncementDetails />} />
       <Route path="/events" element={<Events />} />
+      <Route path="/events/:id" element={<EventDetails />} />
       <Route path="/files" element={<Files />} />
       <Route path="/faq" element={<FAQ />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/concern" element={<Concern />} />
+   
+
 
       <Route path="/admin/login" element={<Login />} />
-<Route path="/admin/dashboard" element={<Dashboard />} />
-<Route path="/admin/announcements" element={<AdminAnnouncements />} />
-<Route path="/admin/events" element={<AdminEvents />} />
-<Route path="/admin/files" element={<AdminFiles />} />
-<Route path="/admin/concerns" element={<AdminConcerns />} />
+      <Route
+  path="/admin/dashboard"
+  element={
+    <ProtectedRoute>
+      <Dashboard />
+    </ProtectedRoute>
+  }
+/>
+
+<Route
+  path="/admin/announcements"
+  element={
+    <ProtectedRoute>
+      <AdminAnnouncements />
+    </ProtectedRoute>
+  }
+/>
+
+<Route
+  path="/admin/events"
+  element={
+    <ProtectedRoute>
+      <AdminEvents />
+    </ProtectedRoute>
+  }
+/>
+
+<Route
+  path="/admin/files"
+  element={
+    <ProtectedRoute>
+      <AdminFiles />
+    </ProtectedRoute>
+  }
+/>
+
+<Route
+  path="/admin/concerns"
+  element={
+    <ProtectedRoute>
+      <AdminConcerns />
+    </ProtectedRoute>
+  }
+/>
 
     </Routes>
 

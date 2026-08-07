@@ -1,16 +1,13 @@
-import Navbar from "../components/Navbar/Navbar";
+import PublicLayout from "../components/layout/PublicLayout";
+
 import HeroSection from "../components/HeroSection/HeroSection";
 import QuickActions from "../components/QuickActions/QuickActions";
 import LatestAnnouncements from "../components/LatestAnnouncements/LatestAnnouncements";
 import UpcomingEvents from "../components/UpcomingEvents/UpcomingEvents";
-import DownloadableFiles from "../components/DownloadableFiles/DownloadableFiles";
-import Footer from "../components/Footer/Footer";
 
 function Home() {
   return (
-    <>
-      <Navbar />
-
+    <PublicLayout>
       <HeroSection />
 
       <QuickActions />
@@ -18,11 +15,7 @@ function Home() {
       <LatestAnnouncements />
 
       <UpcomingEvents />
-
-      <DownloadableFiles />
-
-      <Footer />
-    </>
+    </PublicLayout>
   );
 }
 

@@ -1,63 +1,116 @@
-import SectionHeader from "../UI/SectionHeader";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-const events = [
-  {
-    id: 1,
-    month: "AUG",
-    day: "15",
-    title: "Leadership Summit",
-    location: "Student Center",
-  },
-  {
-    id: 2,
-    month: "AUG",
-    day: "20",
-    title: "Blood Donation Drive",
-    location: "AVR Hall",
-  },
-  {
-    id: 3,
-    month: "SEP",
-    day: "05",
-    title: "Freshmen Orientation",
-    location: "Gymnasium",
-  },
-];
+import HomeSectionHeader from "../UI/HomeSectionHeader";
+import { getEvents } from "../../features/events/eventService";
 
 function UpcomingEvents() {
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    async function loadEvents() {
+      try {
+        const data = await getEvents();
+        setEvents(data);
+      } catch (error) {
+        console.error("Error loading events:", error);
+      }
+    }
+
+    loadEvents();
+  }, []);
+
   return (
     <section className="max-w-7xl mx-auto py-16 px-4">
-     <SectionHeader
-  title="Upcoming Events"
-  subtitle="Never miss activities, seminars, and campus events."
-  actionText="View All"
-/>
 
-      <div className="grid lg:grid-cols-3 gap-6">
-        {events.map((event) => (
-          <div
-            key={event.id}
-            className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition"
-          >
-            <div className="w-20 h-20 rounded-xl bg-green-700 text-white flex flex-col items-center justify-center">
-              <span className="text-sm">{event.month}</span>
-              <span className="text-3xl font-bold">{event.day}</span>
-            </div>
+      <HomeSectionHeader
+        title="Upcoming Events"
+        subtitle="Stay updated with activities and events organized by the Local Student Council."
+        buttonText="View All"
+        buttonLink="/events"
+      />
 
-            <h3 className="mt-6 text-2xl font-bold">
-              {event.title}
-            </h3>
+      {events.length === 0 ? (
+        <div className="bg-white rounded-2xl shadow-sm p-10 text-center">
 
-            <p className="text-gray-600 mt-2">
-              📍 {event.location}
-            </p>
+          <h3 className="text-2xl font-semibold">
+            No upcoming events yet.
+          </h3>
 
-            <button className="mt-6 text-green-700 font-semibold">
-              View Details →
-            </button>
+          <p className="text-gray-500 mt-2">
+            Check back soon for future events.
+          </p>
+
+        </div>
+      ) : (
+        <>
+          <div className="grid md:grid-cols-3 gap-8">
+
+            {events.slice(0, 3).map((event) => (
+              <div
+                key={event.id}
+                className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition"
+              >
+                {event.image ? (
+                  <img
+                    src={event.image}
+                    alt={event.title}
+                    className="w-full h-52 object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-52 bg-gray-200 flex items-center justify-center">
+                    🎉 No Image
+                  </div>
+                )}
+
+                <div className="p-5">
+
+                  <p className="text-sm text-gray-500">
+                    📅 {event.date}
+                  </p>
+
+                  <p className="text-sm text-gray-500 mt-1">
+                    🕒 {event.startTime} - {event.endTime}
+                  </p>
+
+                  <p className="text-sm text-gray-500 mt-1">
+                    📍 {event.venue}
+                  </p>
+
+                  <h3 className="mt-3 text-xl font-bold">
+                    {event.title}
+                  </h3>
+
+                  <p className="mt-3 text-gray-600 line-clamp-3">
+                    {event.description}
+                  </p>
+
+                  <Link
+                    to={`/events/${event.id}`}
+                    className="inline-block mt-5 text-green-700 font-semibold hover:underline"
+                  >
+                    Read More →
+                  </Link>
+
+                </div>
+              </div>
+            ))}
+
           </div>
-        ))}
-      </div>
+
+          <div className="flex justify-center mt-12">
+
+            <Link
+              to="/events"
+              className="bg-green-700 hover:bg-green-800 text-white px-8 py-3 rounded-xl font-semibold transition"
+            >
+              View All Events
+            </Link>
+
+          </div>
+        </>
+      )}
+
     </section>
   );
 }
