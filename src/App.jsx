@@ -11,6 +11,7 @@ import Contact from "./pages/Contact";
 import Concern from "./pages/Concern";
 import AnnouncementDetails from "./pages/AnnouncementDetails";  
 import EventDetails from "./pages/EventDetails";
+import TrackConcern from "./pages/TrackConcern";
 
 import Login from "./pages/admin/Login";
 import Dashboard from "./pages/admin/Dashboard";
@@ -31,10 +32,12 @@ function App() {
       <Route path="/faq" element={<FAQ />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/concern" element={<Concern />} />
+      <Route path="/track-concern" element={<TrackConcern />} />
    
 
 
       <Route path="/admin/login" element={<Login />} />
+      
       <Route
   path="/admin/dashboard"
   element={
