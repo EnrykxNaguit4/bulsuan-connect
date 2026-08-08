@@ -43,7 +43,7 @@ function Announcements() {
             placeholder="🔍 Search announcements..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full mt-8 mb-10 p-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-700"
+            className="w-full mt-8 mb-10 p-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-700"
           />
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -82,7 +82,7 @@ function Announcements() {
                     {announcement.description}
                   </p>
 
-                  <p className="mt-5 text-green-700 font-semibold">
+                  <p className="mt-5 text-purple-700 font-semibold">
                     Read More →
                   </p>
 

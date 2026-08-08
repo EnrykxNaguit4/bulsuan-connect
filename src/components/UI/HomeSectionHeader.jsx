@@ -26,7 +26,7 @@ function HomeSectionHeader({
       {buttonText && (
         <Link
           to={buttonLink}
-          className="text-green-700 font-semibold hover:underline"
+          className="text-purple-700 font-semibold hover:underline"
         >
           {buttonText} →
         </Link>

@@ -19,6 +19,7 @@ import AdminAnnouncements from "./pages/admin/Announcements";
 import AdminEvents from "./pages/admin/Events";
 import AdminFiles from "./pages/admin/Files";
 import AdminConcerns from "./pages/admin/Concerns";
+import WebsiteSettings from "./pages/admin/WebsiteSettings";
 
 function App() {
   return (
@@ -83,7 +84,15 @@ function App() {
   }
 />
 
+<Route
+  path="/admin/settings"
+  element={<WebsiteSettings />}
+/>
+
     </Routes>
+
+    
+
 
     
   );

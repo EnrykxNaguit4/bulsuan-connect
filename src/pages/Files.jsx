@@ -112,7 +112,7 @@ function Files() {
                 className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition"
               >
 
-                <p className="text-sm text-green-700 font-semibold">
+                <p className="text-sm text-purple-700 font-semibold">
                   {file.category}
                 </p>
 
@@ -137,7 +137,7 @@ function Files() {
 
                   <a
   href={getGoogleDriveDownload(file.url)}
-  className="bg-green-700 hover:bg-green-800 text-white px-5 py-2 rounded-xl transition"
+  className="bg-purple-700 hover:bg-purple-800 text-white px-5 py-2 rounded-xl transition"
 >
   ⬇ Download
 </a>

@@ -62,7 +62,7 @@ function LatestAnnouncements() {
 
               <Link
                 to={`/announcements/${announcement.id}`}
-                className="inline-block mt-5 text-green-700 font-semibold hover:underline"
+                className="inline-block mt-5 text-purple-700 font-semibold hover:underline"
               >
                 Read More →
               </Link>
@@ -74,7 +74,7 @@ function LatestAnnouncements() {
       <div className="flex justify-center mt-12">
         <Link
           to="/announcements"
-          className="bg-green-700 hover:bg-green-800 text-white px-8 py-3 rounded-xl font-semibold transition"
+          className="bg-purple-700 hover:bg-purple-800 text-white px-8 py-3 rounded-xl font-semibold transition"
         >
           View All Announcements
         </Link>

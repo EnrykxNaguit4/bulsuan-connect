@@ -72,7 +72,7 @@ function HeroSection() {
     return (
       <section className="max-w-7xl mx-auto mt-8 px-4">
 
-        <div className="h-[450px] rounded-3xl bg-green-800 flex items-center justify-center">
+        <div className="h-[450px] rounded-3xl bg-purple-800 flex items-center justify-center">
 
           <div className="text-center text-white">
 
@@ -143,7 +143,7 @@ function HeroSection() {
                                         <span
                       className={`inline-block px-4 py-2 rounded-full text-sm font-semibold ${
                         isAnnouncement
-                          ? "bg-green-600"
+                          ? "bg-purple-600"
                           : "bg-purple-600"
                       }`}
                     >
@@ -195,7 +195,7 @@ function HeroSection() {
 
                       <Link
                         to={destination}
-                        className="inline-flex items-center gap-2 bg-green-700 hover:bg-green-800 transition px-8 py-4 rounded-xl font-semibold text-lg"
+                        className="inline-flex items-center gap-2 bg-purple-700 hover:bg-purple-800 transition px-8 py-4 rounded-xl font-semibold text-lg"
                       >
                         Read More →
                       </Link>

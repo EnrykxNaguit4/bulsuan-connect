@@ -53,7 +53,7 @@ function AnnouncementDetails() {
 
           <div className="p-10">
 
-            <p className="text-green-700 font-semibold">
+            <p className="text-purple-700 font-semibold">
               {announcement.date}
             </p>
 
@@ -67,7 +67,7 @@ function AnnouncementDetails() {
 
             <Link
               to="/announcements"
-              className="inline-block mt-10 bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-xl"
+              className="inline-block mt-10 bg-purple-700 hover:bg-purple-800 text-white px-6 py-3 rounded-xl"
             >
               ← Back to Announcements
             </Link>

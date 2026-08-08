@@ -12,6 +12,7 @@ import {
   FaComments,
   FaSignOutAlt,
   FaUserShield,
+  FaTools,
 } from "react-icons/fa";
 
 function Sidebar() {
@@ -43,6 +44,11 @@ function Sidebar() {
       path: "/admin/concerns",
       icon: <FaComments />,
     },
+    {
+      name: "Website Settings",
+      path: "/admin/settings",
+      icon: <FaTools />,
+    },
   ];
 
   async function handleLogout() {
@@ -58,7 +64,6 @@ function Sidebar() {
       toast.success("Logged out successfully.");
 
       navigate("/admin/login");
-
     } catch (error) {
       console.error(error);
 
@@ -67,17 +72,17 @@ function Sidebar() {
   }
 
   return (
-    <aside className="fixed left-0 top-0 h-screen w-64 bg-green-800 text-white flex flex-col">
+    <aside className="fixed left-0 top-0 h-screen w-64 bg-purple-600 text-white flex flex-col z-40">
 
       {/* Logo */}
 
-      <div className="p-6 border-b border-green-700">
+      <div className="p-6 border-b border-purple-700">
 
         <h1 className="text-2xl font-bold">
           BulSUan Connect
         </h1>
 
-        <p className="text-green-200 text-sm mt-1">
+        <p className="text-purple-200 text-sm mt-1">
           Admin Portal
         </p>
 
@@ -93,8 +98,8 @@ function Sidebar() {
             key={item.name}
             to={item.path}
             className={({ isActive }) =>
-              `flex items-center gap-3 px-6 py-4 transition hover:bg-green-700 ${
-                isActive ? "bg-green-700" : ""
+              `flex items-center gap-3 px-6 py-4 transition hover:bg-purple-700 ${
+                isActive ? "bg-purple-700" : ""
               }`
             }
           >
@@ -112,11 +117,11 @@ function Sidebar() {
 
       {/* Bottom */}
 
-      <div className="border-t border-green-700 p-5">
+      <div className="border-t border-purple-800 p-5">
 
         <div className="flex items-center gap-3 mb-5">
 
-          <div className="w-10 h-10 rounded-full bg-green-600 flex items-center justify-center">
+          <div className="w-10 h-10 rounded-full bg-purple-800 flex items-center justify-center">
 
             <FaUserShield />
 
@@ -128,7 +133,7 @@ function Sidebar() {
               Administrator
             </p>
 
-            <p className="text-xs text-green-200">
+            <p className="text-xs text-purple-200">
               Logged In
             </p>
 
@@ -138,7 +143,7 @@ function Sidebar() {
 
         <button
           onClick={handleLogout}
-          className="w-full flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 transition rounded-xl py-3 font-semibold"
+          className="w-full flex items-center justify-center gap-2 bg-purple-900 hover:bg-purple-300 transition rounded-xl py-3 font-semibold"
         >
           <FaSignOutAlt />
 

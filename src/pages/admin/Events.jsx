@@ -64,7 +64,7 @@ function Events() {
             setSelectedEvent(null);
             setShowModal(true);
           }}
-          className="bg-green-700 hover:bg-green-800 text-white px-5 py-3 rounded-xl font-semibold transition"
+          className="bg-purple-700 hover:bg-purple-900 text-white px-5 py-3 rounded-xl font-semibold transition"
         >
           + New Event
         </button>

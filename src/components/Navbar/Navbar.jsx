@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 
+import { useSettings } from "../../context/WebsiteSettingsContext";
+
 import {
   ShieldCheckIcon,
   ChevronDownIcon,
@@ -9,6 +11,8 @@ import {
 } from "@heroicons/react/24/outline";
 
 function Navbar() {
+const { settings, loading } = useSettings();
+
   const [isConcernOpen, setIsConcernOpen] = useState(false);
 
   const dropdownRef = useRef(null);
@@ -53,13 +57,23 @@ function Navbar() {
 
         <div>
 
-          <h1 className="text-2xl font-bold text-green-900">
-            BulSUan Connect
-          </h1>
+          <h1 className="text-2xl font-bold text-purple-900">
+  {settings?.websiteName || "BulSUan Connect"}
+</h1>
 
           <p className="text-sm text-gray-500">
-            Local Student Council • Bulacan State University
-          </p>
+
+  {settings?.organizationName || "Local Student Council"}
+
+  {" • "}
+
+  {settings?.universityName || "Bulacan State University"}
+
+  {settings?.campusName
+    ? ` • ${settings.campusName}`
+    : ""}
+
+</p>
 
         </div>
 
@@ -74,8 +88,8 @@ function Navbar() {
               className={({ isActive }) =>
                 `font-medium pb-1 border-b-2 transition-all duration-200 ${
                   isActive
-                    ? "border-green-700 text-green-700"
-                    : "border-transparent text-gray-700 hover:text-green-700 hover:border-green-300"
+                    ? "border-purple-700 text-purple-700"
+                    : "border-transparent text-gray-700 hover:text-purple-700 hover:border-purple-300"
                 }`
               }
             >
@@ -138,12 +152,12 @@ function Navbar() {
                   onClick={() =>
                     setIsConcernOpen(false)
                   }
-                  className="flex gap-4 px-6 py-5 hover:bg-green-50 transition"
+                  className="flex gap-4 px-6 py-5 hover:bg-purple-50 transition"
                 >
 
-                  <div className="bg-green-100 rounded-xl p-3 h-fit">
+                  <div className="bg-purple-100 rounded-xl p-3 h-fit">
 
-                    <DocumentTextIcon className="w-6 h-6 text-green-700" />
+                    <DocumentTextIcon className="w-6 h-6 text-purple-700" />
 
                   </div>
 
@@ -169,7 +183,7 @@ function Navbar() {
                   onClick={() =>
                     setIsConcernOpen(false)
                   }
-                  className="flex gap-4 px-6 py-5 border-t hover:bg-green-50 transition"
+                  className="flex gap-4 px-6 py-5 border-t hover:bg-purple-50 transition"
                 >
 
                   <div className="bg-blue-100 rounded-xl p-3 h-fit">

@@ -16,7 +16,7 @@ function getStatusBadge(status) {
 
     case "Resolved":
       return (
-        <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+        <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">
           🟢 Resolved
         </span>
       );
@@ -125,7 +125,7 @@ function ConcernTable({
 
                   <button
                     onClick={() => onView(concern)}
-                    className="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg transition"
+                    className="bg-purple-700 hover:bg-purple-800 text-white px-4 py-2 rounded-lg transition"
                   >
                     View
                   </button>

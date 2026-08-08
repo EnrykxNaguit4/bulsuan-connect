@@ -154,7 +154,7 @@ const [isSaving, setIsSaving] = useState(false);
                     ? "bg-yellow-100 text-yellow-800"
                     : concern.status === "In Progress"
                     ? "bg-blue-100 text-blue-800"
-                    : "bg-green-100 text-green-800"
+                    : "bg-purple-100 text-purple-800"
                 }`}
               >
                 {concern.status}
@@ -417,7 +417,7 @@ const [isSaving, setIsSaving] = useState(false);
   className={`px-4 py-2 rounded-full font-medium ${
     concern.disclosurePreference === "Anonymous"
       ? "bg-purple-100 text-purple-700"
-      : "bg-green-100 text-green-700"
+      : "bg-purple-100 text-purple-700"
   }`}
 >
   {concern.disclosurePreference}
@@ -497,7 +497,7 @@ const [isSaving, setIsSaving] = useState(false);
 
             <button
               onClick={handleSave}
-              className="bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-xl transition"
+              className="bg-purple-700 hover:bg-purple-800 text-white px-6 py-3 rounded-xl transition"
             >
               {isSaving ? "Saving..." : "Save Changes"}
             </button>
