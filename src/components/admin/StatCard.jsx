@@ -55,11 +55,11 @@ function StatCard({
 
         <div
           className="
-            bg-green-100
+            bg-red-100
             rounded-xl
             p-3
             transition
-            group-hover:bg-green-700
+            group-hover:bg-red-700
           "
         >
 
@@ -69,7 +69,7 @@ function StatCard({
               className="
                 w-7
                 h-7
-                text-green-700
+                text-red-700
                 transition
                 group-hover:text-white
               "

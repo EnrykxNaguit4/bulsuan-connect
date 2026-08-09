@@ -113,7 +113,7 @@ return (
   icon={AcademicCapIcon}
   title="Organization"
   description="Basic information displayed throughout the website."
-  defaultOpen={true}
+  defaultOpen={false}
 >
 
       <div className="grid md:grid-cols-2 gap-6">

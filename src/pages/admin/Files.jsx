@@ -6,6 +6,8 @@ import FileTable from "../../features/files/FileTable";
 import FileModal from "../../features/files/FileModal";
 import DeleteModal from "../../components/UI/DeleteModal";
 
+import AdminTableToolbar from "../../components/admin/AdminTableToolbar";
+
 import {
   getFiles,
   deleteFile,
@@ -24,6 +26,29 @@ function Files() {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   const [fileToDelete, setFileToDelete] = useState(null);
+
+const [search, setSearch] = useState("");
+
+const filteredFiles =
+files.filter(file=>{
+
+const keyword=search.toLowerCase();
+
+return(
+
+file.title
+?.toLowerCase()
+.includes(keyword)
+
+||
+
+file.category
+?.toLowerCase()
+.includes(keyword)
+
+);
+
+});
 
   async function loadFiles() {
 
@@ -67,22 +92,23 @@ function Files() {
 
     <AdminLayout
       title="Files"
-      description="Manage downloadable files shown on the student website."
-      action={
-        <button
-          onClick={() => {
+      description="Manage files and downloadable resources on the website."
+      toolbar={
+        <AdminTableToolbar
+          search={search}
+          setSearch={setSearch}
+          placeholder="Search files..."
+          buttonLabel="+ New File"
+          onAdd={() => {
             setSelectedFile(null);
             setShowModal(true);
           }}
-          className="bg-red-700 hover:bg-red-800 text-white px-5 py-3 rounded-xl font-semibold transition"
-        >
-          + New File
-        </button>
+        />
       }
     >
 
-      <FileTable
-        files={files}
+<FileTable
+files={filteredFiles}
         onEdit={(file) => {
           setSelectedFile(file);
           setShowModal(true);

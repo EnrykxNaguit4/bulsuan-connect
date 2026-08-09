@@ -1,33 +1,98 @@
+import AdminTable from "../../components/admin/AdminTable";
+import TableActions from "../../components/admin/TableActions";
+
 function getStatusBadge(status) {
   switch (status) {
     case "Pending":
       return (
-        <span className="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">
-          🟡 Pending
+        <span
+          className="
+            inline-flex
+            items-center
+            rounded-full
+            bg-yellow-100
+            px-3
+            py-1
+            text-[13px]
+            font-semibold
+            text-yellow-800
+          "
+        >
+          Pending
         </span>
       );
 
     case "In Progress":
       return (
-        <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
-          🔵 In Progress
+        <span
+          className="
+            inline-flex
+            items-center
+            rounded-full
+            bg-blue-100
+            px-3
+            py-1
+            text-[13px]
+            font-semibold
+            text-blue-800
+          "
+        >
+          In Progress
         </span>
       );
 
     case "Resolved":
       return (
-        <span className="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium">
-          🟢 Resolved
+        <span
+          className="
+            inline-flex
+            items-center
+            rounded-full
+            bg-green-100
+            px-3
+            py-1
+            text-[13px]
+            font-semibold
+            text-green-800
+          "
+        >
+          Resolved
         </span>
       );
 
     default:
       return (
-        <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">
+        <span
+          className="
+            inline-flex
+            items-center
+            rounded-full
+            bg-gray-100
+            px-3
+            py-1
+            text-[13px]
+            font-semibold
+            text-gray-700
+          "
+        >
           {status}
         </span>
       );
   }
+}
+
+function formatDate(createdAt) {
+  if (!createdAt) return "-";
+
+  if (typeof createdAt?.toDate === "function") {
+    return createdAt.toDate().toLocaleDateString("en-PH", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    });
+  }
+
+  return "-";
 }
 
 function ConcernTable({
@@ -37,112 +102,173 @@ function ConcernTable({
 
   return (
 
-    <div className="bg-white rounded-2xl shadow-md overflow-hidden">
+    <AdminTable
+      columns={[
+        {
+          label: "Reference No.",
+          width: "180px",
+          className: "text-left",
+        },
+        {
+          label: "Student",
+          width: "auto",
+          className: "text-left",
+        },
+        {
+          label: "Category",
+          width: "170px",
+          className: "text-center",
+        },
+        {
+          label: "Status",
+          width: "160px",
+          className: "text-center",
+        },
+        {
+          label: "Submitted",
+          width: "150px",
+          className: "text-center",
+        },
+        {
+          label: "Actions",
+          width: "130px",
+          className: "text-center",
+        },
+      ]}
+    >
 
-      <table className="w-full">
+      {concerns.length === 0 ? (
 
-        <thead className="bg-gray-100">
+        <tr>
 
-          <tr>
+          <td
+            colSpan={6}
+            className="py-14 text-center text-gray-500"
+          >
+            No submitted concerns.
+          </td>
 
-            <th className="text-left p-4">
-              Reference No.
-            </th>
+        </tr>
 
-            <th className="text-left p-4">
-              Student
-            </th>
+      ) : (
 
-            <th className="text-left p-4">
-              Category
-            </th>
+        concerns.map((concern) => (
 
-            <th className="text-left p-4">
-              Status
-            </th>
+          <tr
+            key={concern.id}
+            className="
+              border-b
+              border-gray-200/70
+              last:border-b-0
+              hover:bg-red-50/40
+              transition-colors
+            "
+          >
 
-            <th className="text-left p-4">
-              Submitted
-            </th>
+            {/* Reference */}
 
-            <th className="text-left p-4">
-              Actions
-            </th>
+            <td className="px-6 py-5">
+
+              <span
+  className="
+    font-mono
+    text-sm
+    text-gray-700
+
+    block
+    overflow-hidden
+    whitespace-nowrap
+    text-ellipsis
+  "
+  title={concern.referenceNumber}
+>
+                {concern.referenceNumber}
+              </span>
+
+            </td>
+
+            {/* Student */}
+
+            <td className="px-6 py-5">
+
+              <div
+                className="
+                  overflow-hidden
+                  whitespace-nowrap
+                  text-ellipsis
+
+                  font-medium
+                  text-gray-800
+                "
+                title={concern.fullName}
+              >
+                {concern.fullName}
+              </div>
+
+            </td>
+
+            {/* Category */}
+
+            <td className="px-6 py-5 text-center">
+
+              <span
+                className="
+                  inline-block
+
+                  rounded-full
+
+                  bg-slate-100
+
+                  px-3
+                  py-1
+
+                  text-sm
+
+                  text-gray-700
+                "
+              >
+                {concern.category}
+              </span>
+
+            </td>
+
+            {/* Status */}
+
+            <td className="px-6 py-5 text-center">
+
+              {getStatusBadge(concern.status)}
+
+            </td>
+
+            {/* Submitted */}
+
+            <td className="px-6 py-5 text-center">
+
+              <span className="whitespace-nowrap text-sm text-gray-600">
+
+                {formatDate(concern.createdAt)}
+
+              </span>
+
+            </td>
+
+            {/* Actions */}
+
+            <td className="px-6 py-5">
+
+              <TableActions
+                onView={() => onView(concern)}
+              />
+
+            </td>
 
           </tr>
 
-        </thead>
+        ))
 
-        <tbody>
+      )}
 
-          {concerns.length === 0 ? (
-
-            <tr>
-
-              <td
-                colSpan="6"
-                className="text-center p-10 text-gray-500"
-              >
-                No submitted concerns.
-              </td>
-
-            </tr>
-
-          ) : (
-
-            concerns.map((concern) => (
-
-              <tr
-                key={concern.id}
-                className="border-t hover:bg-gray-50 transition"
-              >
-
-                <td className="p-4 font-medium">
-                  {concern.referenceNumber}
-                </td>
-
-                <td className="p-4">
-                  {concern.fullName}
-                </td>
-
-                <td className="p-4">
-                  {concern.category}
-                </td>
-
-                <td className="p-4">
-                  {getStatusBadge(concern.status)}
-                </td>
-
-                <td className="p-4">
-                  {concern.createdAt?.toDate
-                    ? concern.createdAt
-                        .toDate()
-                        .toLocaleDateString()
-                    : "-"}
-                </td>
-
-                <td className="p-4">
-
-                  <button
-                    onClick={() => onView(concern)}
-                    className="bg-red-700 hover:bg-red-800 text-white px-4 py-2 rounded-lg transition"
-                  >
-                    View
-                  </button>
-
-                </td>
-
-              </tr>
-
-            ))
-
-          )}
-
-        </tbody>
-
-      </table>
-
-    </div>
+    </AdminTable>
 
   );
 

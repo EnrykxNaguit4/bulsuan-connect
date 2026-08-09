@@ -6,6 +6,8 @@ import EventTable from "../../features/events/EventTable";
 import EventModal from "../../features/events/EventModal";
 import DeleteModal from "../../components/UI/DeleteModal";
 
+import AdminTableToolbar from "../../components/admin/AdminTableToolbar";
+
 import {
   getEvents,
   deleteEvent,
@@ -22,6 +24,25 @@ function Events() {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   const [eventToDelete, setEventToDelete] = useState(null);
+
+const [search, setSearch] = useState("");
+
+const filteredEvents =
+  events.filter((event) => {
+
+    const keyword = search.toLowerCase();
+
+    return (
+      event.title
+        ?.toLowerCase()
+        .includes(keyword) ||
+
+      event.venue
+        ?.toLowerCase()
+        .includes(keyword)
+    );
+
+});
 
   async function loadEvents() {
 
@@ -66,21 +87,22 @@ function Events() {
     <AdminLayout
       title="Events"
       description="Manage events shown on the student website."
-      action={
-        <button
-          onClick={() => {
+      toolbar={
+        <AdminTableToolbar
+          search={search}
+          setSearch={setSearch}
+          placeholder="Search events..."
+          buttonLabel="+ New Event"
+          onAdd={() => {
             setSelectedEvent(null);
             setShowModal(true);
           }}
-          className="bg-red-700 hover:bg-red-800 text-white px-5 py-3 rounded-xl font-semibold transition"
-        >
-          + New Event
-        </button>
+        />
       }
     >
 
-      <EventTable
-        events={events}
+<EventTable
+    events={filteredEvents}
         onEdit={(event) => {
           setSelectedEvent(event);
           setShowModal(true);

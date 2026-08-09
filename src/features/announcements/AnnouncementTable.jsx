@@ -1,58 +1,116 @@
+import AdminTable from "../../components/admin/AdminTable";
+import TableActions from "../../components/admin/TableActions";
+
 function AnnouncementTable({
   announcements,
   onEdit,
   onDelete,
 }) {
+
+  const columns = [
+    {
+      label: "Title",
+      width: "auto",
+      className: "text-left",
+    },
+    {
+      label: "Published",
+      width: "180px",
+      className: "text-center",
+    },
+    {
+      label: "Actions",
+      width: "120px",
+      className: "text-center",
+    },
+  ];
+
   return (
-    <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
-      <table className="w-full">
-        <thead className="bg-gray-100">
-          <tr>
-            <th className="text-left p-4">Title</th>
-            <th className="text-left p-4">Date</th>
-            <th className="text-left p-4">Actions</th>
-          </tr>
-        </thead>
 
-        <tbody>
-          {announcements.map((announcement) => (
-            <tr
-              key={announcement.id}
-              className="border-t hover:bg-gray-50 transition"
-            >
-              <td className="p-4 font-medium">
+    <AdminTable columns={columns}>
+
+      {announcements.length === 0 ? (
+
+        <tr>
+
+          <td
+            colSpan={3}
+            className="py-14 text-center text-gray-400"
+          >
+            No announcements found.
+          </td>
+
+        </tr>
+
+      ) : (
+
+        announcements.map((announcement) => (
+
+          <tr
+            key={announcement.id}
+            className="
+              border-b
+              border-gray-200/70
+              last:border-b-0
+              hover:bg-red-50/40
+              transition-colors
+            "
+          >
+
+            {/* Title */}
+
+            <td className="px-6 py-5">
+
+              <div
+                className="
+                  truncate
+                  font-medium
+                  text-gray-800
+                "
+                title={announcement.title}
+              >
                 {announcement.title}
-              </td>
+              </div>
 
-              <td className="p-4">
+            </td>
+
+            {/* Published */}
+
+            <td className="px-6 py-5 text-center">
+
+              <span
+                className="
+                  whitespace-nowrap
+                  text-sm
+                  text-gray-600
+                "
+              >
                 {announcement.date}
-              </td>
+              </span>
 
-              <td className="p-4">
-                <div className="flex gap-3">
+            </td>
 
-                  <button
-                    onClick={() => onEdit(announcement)}
-                    className="px-3 py-1 rounded-lg bg-blue-100 text-blue-700 hover:bg-blue-200"
-                  >
-                    Edit
-                  </button>
+            {/* Actions */}
 
-                  <button
-                    onClick={() => onDelete(announcement)}
-                    className="px-3 py-1 rounded-lg bg-red-100 text-red-700 hover:bg-red-200"
-                  >
-                    Delete
-                  </button>
+            <td className="px-6 py-5">
 
-                </div>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+              <TableActions
+                onEdit={() => onEdit(announcement)}
+                onDelete={() => onDelete(announcement)}
+              />
+
+            </td>
+
+          </tr>
+
+        ))
+
+      )}
+
+    </AdminTable>
+
   );
+
 }
 
 export default AnnouncementTable;

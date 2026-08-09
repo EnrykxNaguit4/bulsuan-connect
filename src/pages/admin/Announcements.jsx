@@ -1,9 +1,13 @@
-import AdminLayout from "../../components/admin/Layout/AdminLayout";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
+import AdminLayout from "../../components/admin/Layout/AdminLayout";
+import AdminTableToolbar from "../../components/admin/AdminTableToolbar";
+
+
 import AnnouncementTable from "../../features/announcements/AnnouncementTable";
 import AnnouncementModal from "../../features/announcements/AnnouncementModal";
+
 import DeleteModal from "../../components/UI/DeleteModal";
 
 import {
@@ -12,75 +16,90 @@ import {
 } from "../../features/announcements/announcementService";
 
 function Announcements() {
-
   const [announcements, setAnnouncements] = useState([]);
+  const [search, setSearch] = useState("");
 
   const [showModal, setShowModal] = useState(false);
-
   const [selectedAnnouncement, setSelectedAnnouncement] = useState(null);
 
   const [showDeleteModal, setShowDeleteModal] = useState(false);
-
   const [announcementToDelete, setAnnouncementToDelete] = useState(null);
 
+  const columns = [
+    {
+      label: "Title",
+      width: "auto",
+      className: "text-left",
+    },
+    {
+      label: "Published",
+      width: "180px",
+      className: "text-center",
+    },
+    {
+      label: "Actions",
+      width: "130px",
+      className: "text-center",
+    },
+  ];
+
   async function loadAnnouncements() {
-
     const data = await getAnnouncements();
-
     setAnnouncements(data);
-
   }
 
   useEffect(() => {
-
     loadAnnouncements();
-
   }, []);
 
   async function handleDelete() {
-
     try {
-
       await deleteAnnouncement(announcementToDelete.id);
 
       toast.success("Announcement deleted successfully!");
 
       setShowDeleteModal(false);
-
       setAnnouncementToDelete(null);
 
       loadAnnouncements();
 
     } catch (error) {
-
       console.error(error);
-
       toast.error("Failed to delete announcement.");
-
     }
-
   }
 
-  return (
+  const filteredAnnouncements = announcements.filter((announcement) => {
+    const keyword = search.toLowerCase();
 
+    return (
+      announcement.title?.toLowerCase().includes(keyword) ||
+      announcement.description?.toLowerCase().includes(keyword)
+    );
+  });
+
+  return (
     <AdminLayout
       title="Announcements"
       description="Manage announcements shown on the student website."
-      action={
-        <button
-          onClick={() => {
+      toolbar={
+        <AdminTableToolbar
+          search={search}
+          setSearch={setSearch}
+          placeholder="Search announcements..."
+          buttonLabel="+ New Announcement"
+          onAdd={() => {
             setSelectedAnnouncement(null);
             setShowModal(true);
           }}
-          className="bg-red-700 hover:bg-red-800 text-white px-5 py-3 rounded-xl font-semibold transition"
-        >
-          + New Announcement
-        </button>
+        />
       }
     >
 
+    
+
       <AnnouncementTable
-        announcements={announcements}
+        announcements={filteredAnnouncements}
         onEdit={(announcement) => {
           setSelectedAnnouncement(announcement);
           setShowModal(true);
@@ -115,9 +134,7 @@ function Announcements() {
       )}
 
     </AdminLayout>
-
   );
-
 }
 
 export default Announcements;

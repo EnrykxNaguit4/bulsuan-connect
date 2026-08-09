@@ -1,64 +1,63 @@
-function Topbar({
-  title,
-  description,
-  action,
-}) {
+function Topbar() {
+
   return (
 
     <header
       className="
         sticky
         top-0
-        z-30
-        bg-white/90
-        backdrop-blur-md
+        z-50
+
+        h-16
+
+        bg-white
+
         border-b
+
         border-gray-200
-        mb-8
       "
     >
 
-      <div className="flex items-start justify-between py-6">
-
-        {/* Left */}
+      <div className="h-full px-8 flex items-center justify-between">
 
         <div>
 
-          <h1 className="text-3xl font-bold text-gray-900">
+          <h2 className="font-bold text-lg">
 
-            {title}
+            BulSUan Connect
 
-          </h1>
+          </h2>
 
-          {description && (
+          <p className="text-xs text-gray-500">
 
-            <p className="text-gray-500 mt-2">
+            Local Student Council Admin Portal
 
-              {description}
-
-            </p>
-
-          )}
+          </p>
 
         </div>
 
-        {/* Right */}
+        <div className="text-right">
 
-        {action && (
+          <p className="font-semibold">
 
-          <div className="flex items-center">
+            Administrator
 
-            {action}
+          </p>
 
-          </div>
+          <p className="text-sm text-gray-500">
 
-        )}
+            Logged In
+
+          </p>
+
+        </div>
 
       </div>
 
     </header>
 
   );
+
 }
 
 export default Topbar;

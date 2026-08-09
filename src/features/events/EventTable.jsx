@@ -1,80 +1,126 @@
+import AdminTable from "../../components/admin/AdminTable";
+import TableActions from "../../components/admin/TableActions";
+
+function formatDate(date) {
+  if (!date) return "-";
+
+  // Firestore Timestamp
+  if (typeof date?.toDate === "function") {
+    return date.toDate().toLocaleDateString("en-PH", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    });
+  }
+
+  // String (YYYY-MM-DD)
+  return new Date(date).toLocaleDateString("en-PH", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+}
+
 function EventTable({
   events,
   onEdit,
   onDelete,
 }) {
   return (
-    <div className="bg-white rounded-2xl shadow-md overflow-hidden">
+    <AdminTable
+      columns={[
+  {
+    label: "Title",
+    width: "auto",
+    className: "text-left",
+  },
+  {
+    label: "Date",
+    width: "170px",
+    className: "text-center",
+  },
+  {
+    label: "Venue",
+    width: "190px",
+    className: "text-left",
+  },
+  {
+    label: "Actions",
+    width: "120px",
+    className: "text-center",
+  },
+]}
+    >
+      {events.length === 0 ? (
+        <tr>
+          <td
+            colSpan={4}
+            className="py-14 text-center text-gray-500"
+          >
+            No events found.
+          </td>
+        </tr>
+      ) : (
+        events.map((event) => (
+          <tr
+            key={event.id}
+            className="
+              border-b
+              border-gray-200/70
+              last:border-b-0
+              hover:bg-red-50/40
+              transition-colors
+            "
+          >
+            {/* Title */}
+            <td className="px-6 py-5">
+              <div
+                className="
+                  overflow-hidden
+                  whitespace-nowrap
+                  text-ellipsis
+                  font-semibold
+                  text-gray-800
+                "
+                title={event.title}
+              >
+                {event.title}
+              </div>
+            </td>
 
-      <table className="w-full">
+            {/* Date */}
+            <td className="px-6 py-5 text-center">
+              <span className="inline-block whitespace-nowrap text-sm text-gray-600">
+                {formatDate(event.date)}
+              </span>
+            </td>
 
-        <thead className="bg-gray-100">
-          <tr>
-            <th className="text-left p-4">Title</th>
-            <th className="text-left p-4">Date</th>
-            <th className="text-left p-4">Venue</th>
-            <th className="text-left p-4">Actions</th>
+            {/* Venue */}
+            <td className="px-6 py-5">
+              <div
+                className="
+                  overflow-hidden
+                  whitespace-nowrap
+                  text-ellipsis
+                  text-gray-700
+                "
+                title={event.venue}
+              >
+                {event.venue || "-"}
+              </div>
+            </td>
+
+            {/* Actions */}
+            <td className="px-6 py-5">
+              <TableActions
+                onEdit={() => onEdit(event)}
+                onDelete={() => onDelete(event)}
+              />
+            </td>
           </tr>
-        </thead>
-
-        <tbody>
-
-          {events.length === 0 ? (
-            <tr>
-              <td
-                colSpan="4"
-                className="text-center p-8 text-gray-500"
-              >
-                No events yet.
-              </td>
-            </tr>
-          ) : (
-            events.map((event) => (
-              <tr
-                key={event.id}
-                className="border-t hover:bg-gray-50 transition"
-              >
-                <td className="p-4 font-medium">
-                  {event.title}
-                </td>
-
-                <td className="p-4">
-                  {event.date}
-                </td>
-
-                <td className="p-4">
-                  {event.venue}
-                </td>
-
-                <td className="p-4">
-                  <div className="flex gap-3">
-
-                    <button
-                      onClick={() => onEdit(event)}
-                      className="px-3 py-1 rounded-lg bg-blue-100 text-blue-700 hover:bg-blue-200"
-                    >
-                      Edit
-                    </button>
-
-                    <button
-                      onClick={() => onDelete(event)}
-                      className="px-3 py-1 rounded-lg bg-red-100 text-red-700 hover:bg-red-200"
-                    >
-                      Delete
-                    </button>
-
-                  </div>
-                </td>
-
-              </tr>
-            ))
-          )}
-
-        </tbody>
-
-      </table>
-
-    </div>
+        ))
+      )}
+    </AdminTable>
   );
 }
 
