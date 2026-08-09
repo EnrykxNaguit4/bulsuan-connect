@@ -9,7 +9,7 @@ function SettingSection({
 
       <div className="flex items-start gap-4">
 
-        <div className="bg-purple-100 text-purple-700 p-3 rounded-xl">
+        <div className="bg-red-100 text-red-700 p-3 rounded-xl">
 
           {Icon && (
             <Icon className="w-6 h-6" />

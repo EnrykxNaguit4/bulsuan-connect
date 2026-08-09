@@ -49,7 +49,7 @@ function EventDetails() {
 
         <div className="mt-10">
 
-          <p className="text-purple-700 font-semibold">
+          <p className="text-red-700 font-semibold">
             📅 {event.date}
           </p>
 
@@ -71,7 +71,7 @@ function EventDetails() {
 
           <Link
             to="/events"
-            className="inline-block mt-10 bg-purple-700 hover:bg-purple-800 text-white px-6 py-3 rounded-xl transition"
+            className="inline-block mt-10 bg-red-700 hover:bg-red-800 text-white px-6 py-3 rounded-xl transition"
           >
             ← Back to Events
           </Link>

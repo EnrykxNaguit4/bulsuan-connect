@@ -35,23 +35,10 @@ function Concerns() {
 
   return (
 
-    <AdminLayout>
-
-      <div className="flex justify-between items-center mb-8">
-
-        <div>
-
-          <h1 className="text-4xl font-bold">
-            Student Concerns
-          </h1>
-
-          <p className="text-gray-500 mt-2">
-            Review, manage, and update submitted student concerns.
-          </p>
-
-        </div>
-
-      </div>
+    <AdminLayout
+      title="Student Concerns"
+      description="Review, manage, and update submitted student concerns."
+    >
 
       <ConcernTable
         concerns={concerns}
@@ -67,9 +54,7 @@ function Concerns() {
       {showModal && (
 
         <ConcernModal
-
           concern={selectedConcern}
-
           onClose={() => {
 
             setShowModal(false);
@@ -77,9 +62,7 @@ function Concerns() {
             setSelectedConcern(null);
 
           }}
-
           onSuccess={loadConcerns}
-
         />
 
       )}

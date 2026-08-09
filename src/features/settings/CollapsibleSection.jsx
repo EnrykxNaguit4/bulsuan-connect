@@ -21,7 +21,7 @@ function CollapsibleSection({
 
         <div className="flex items-start gap-4 text-left">
 
-          <div className="bg-purple-100 text-purple-700 rounded-xl p-3">
+          <div className="bg-red-100 text-red-700 rounded-xl p-3">
 
             <Icon className="w-6 h-6" />
 

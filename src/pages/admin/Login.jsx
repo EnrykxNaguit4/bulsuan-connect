@@ -60,13 +60,13 @@ function Login() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-600 via-purple-500 to-purple-400 flex items-center justify-center px-4">
+    <div className="min-h-screen bg-gradient-to-br from-red-600 via-red-500 to-red-400 flex items-center justify-center px-4">
 
       <div className="bg-white rounded-3xl shadow-2xl w-full max-w-md p-10">
 
         <div className="text-center">
 
-          <h1 className="text-4xl font-bold text-purple-800">
+          <h1 className="text-4xl font-bold text-red-800">
             BulSUan Connect
           </h1>
 
@@ -141,7 +141,7 @@ function Login() {
 
           <button
             disabled={loading}
-            className="w-full bg-purple-700 hover:bg-purple-900 text-white rounded-xl py-3 font-semibold transition disabled:opacity-60"
+            className="w-full bg-red-700 hover:bg-red-900 text-white rounded-xl py-3 font-semibold transition disabled:opacity-60"
           >
             {loading
               ? "Signing In..."

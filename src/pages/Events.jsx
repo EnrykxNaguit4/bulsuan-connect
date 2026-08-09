@@ -88,7 +88,7 @@ function Events() {
 
                   <Link
                     to={`/events/${event.id}`}
-                    className="inline-block mt-5 text-purple-700 font-semibold hover:underline"
+                    className="inline-block mt-5 text-red-700 font-semibold hover:underline"
                   >
                     Read More →
                   </Link>

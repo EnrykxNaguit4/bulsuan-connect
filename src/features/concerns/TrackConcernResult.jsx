@@ -167,7 +167,7 @@ function TrackConcernResult({
 
       <button
         onClick={onTrackAnother}
-        className="w-full mt-12 border-2 border-green-700 text-green-700 hover:bg-green-50 rounded-xl py-4 font-semibold transition"
+        className="w-full mt-12 border-2 border--700 text-green-700 hover:bg-green-50 rounded-xl py-4 font-semibold transition"
       >
         Track Another Concern
       </button>

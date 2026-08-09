@@ -732,7 +732,7 @@ function Concern() {
 
             <button
               type="submit"
-              className="bg-purple-700 hover:bg-purple-800 text-white px-8 py-4 rounded-xl font-semibold transition"
+              className="bg-red-700 hover:bg-red-800 text-white px-8 py-4 rounded-xl font-semibold transition"
             >
               Submit Concern
             </button>
@@ -785,7 +785,7 @@ function Concern() {
 
               <button
                 onClick={handleSubmitConcern}
-                className="bg-purple-700 hover:bg-purple-800 text-white px-5 py-3 rounded-xl"
+                className="bg-red-700 hover:bg-red-800 text-white px-5 py-3 rounded-xl"
               >
                 Submit
               </button>
@@ -840,7 +840,7 @@ function Concern() {
               onClick={() =>
                 setShowSuccessModal(false)
               }
-              className="mt-8 bg-purple-700 hover:bg-purple-800 text-white px-8 py-3 rounded-xl"
+              className="mt-8 bg-red-700 hover:bg-red-800 text-white px-8 py-3 rounded-xl"
             >
               Done
             </button>

@@ -72,17 +72,17 @@ function Sidebar() {
   }
 
   return (
-    <aside className="fixed left-0 top-0 h-screen w-64 bg-purple-600 text-white flex flex-col z-40">
+    <aside className="fixed left-0 top-0 h-screen w-64 bg-red-600 text-white flex flex-col z-40">
 
       {/* Logo */}
 
-      <div className="p-6 border-b border-purple-700">
+      <div className="p-6 border-b border-red-700">
 
         <h1 className="text-2xl font-bold">
           BulSUan Connect
         </h1>
 
-        <p className="text-purple-200 text-sm mt-1">
+        <p className="text-red-200 text-sm mt-1">
           Admin Portal
         </p>
 
@@ -98,8 +98,8 @@ function Sidebar() {
             key={item.name}
             to={item.path}
             className={({ isActive }) =>
-              `flex items-center gap-3 px-6 py-4 transition hover:bg-purple-700 ${
-                isActive ? "bg-purple-700" : ""
+              `flex items-center gap-3 px-6 py-4 transition hover:bg-red-700 ${
+                isActive ? "bg-red-700" : ""
               }`
             }
           >
@@ -117,11 +117,11 @@ function Sidebar() {
 
       {/* Bottom */}
 
-      <div className="border-t border-purple-800 p-5">
+      <div className="border-t border-red-800 p-5">
 
         <div className="flex items-center gap-3 mb-5">
 
-          <div className="w-10 h-10 rounded-full bg-purple-800 flex items-center justify-center">
+          <div className="w-10 h-10 rounded-full bg-red-800 flex items-center justify-center">
 
             <FaUserShield />
 
@@ -133,7 +133,7 @@ function Sidebar() {
               Administrator
             </p>
 
-            <p className="text-xs text-purple-200">
+            <p className="text-xs text-red-200">
               Logged In
             </p>
 
@@ -143,7 +143,7 @@ function Sidebar() {
 
         <button
           onClick={handleLogout}
-          className="w-full flex items-center justify-center gap-2 bg-purple-900 hover:bg-purple-300 transition rounded-xl py-3 font-semibold"
+          className="w-full flex items-center justify-center gap-2 bg-red-900 hover:bg-red-300 transition rounded-xl py-3 font-semibold"
         >
           <FaSignOutAlt />
 

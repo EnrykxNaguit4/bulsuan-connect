@@ -258,7 +258,7 @@ return (
 
           <button
             type="submit"
-            className="bg-purple-700 hover:bg-purple-800 text-white px-5 py-3 rounded-xl"
+            className="bg-red-700 hover:bg-red-800 text-white px-5 py-3 rounded-xl"
           >
             {event ? "Save Changes" : "Publish Event"}
           </button>

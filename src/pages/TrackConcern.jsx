@@ -111,7 +111,7 @@ function TrackConcern() {
                       e.target.value.toUpperCase()
                     )
                   }
-                  className="w-full border rounded-xl p-4 focus:ring-2 focus:ring-purple-600 outline-none"
+                  className="w-full border rounded-xl p-4 focus:ring-2 focus:ring-red-600 outline-none"
                 />
 
               </div>
@@ -129,7 +129,7 @@ function TrackConcern() {
                   onChange={(e) =>
                     setStudentNumber(e.target.value)
                   }
-                  className="w-full border rounded-xl p-4 focus:ring-2 focus:ring-purple-600 outline-none"
+                  className="w-full border rounded-xl p-4 focus:ring-2 focus:ring-red-600 outline-none"
                 />
 
               </div>
@@ -137,7 +137,7 @@ function TrackConcern() {
               <button
                 onClick={handleTrack}
                 disabled={loading}
-                className="w-full bg-purple-700 hover:bg-purple-800 disabled:bg-gray-400 text-white py-4 rounded-xl font-semibold transition"
+                className="w-full bg-red-700 hover:bg-red-800 disabled:bg-gray-400 text-white py-4 rounded-xl font-semibold transition"
               >
                 {loading
                   ? "Searching..."

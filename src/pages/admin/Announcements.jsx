@@ -12,64 +12,72 @@ import {
 } from "../../features/announcements/announcementService";
 
 function Announcements() {
+
   const [announcements, setAnnouncements] = useState([]);
+
   const [showModal, setShowModal] = useState(false);
+
   const [selectedAnnouncement, setSelectedAnnouncement] = useState(null);
 
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+
   const [announcementToDelete, setAnnouncementToDelete] = useState(null);
 
   async function loadAnnouncements() {
+
     const data = await getAnnouncements();
+
     setAnnouncements(data);
+
   }
 
   useEffect(() => {
+
     loadAnnouncements();
+
   }, []);
 
   async function handleDelete() {
+
     try {
+
       await deleteAnnouncement(announcementToDelete.id);
 
       toast.success("Announcement deleted successfully!");
 
       setShowDeleteModal(false);
+
       setAnnouncementToDelete(null);
 
       loadAnnouncements();
+
     } catch (error) {
+
       console.error(error);
+
       toast.error("Failed to delete announcement.");
+
     }
+
   }
 
   return (
-    <AdminLayout>
 
-      <div className="flex items-center justify-between mb-8">
-
-        <div>
-          <h1 className="text-4xl font-bold">
-            Announcements
-          </h1>
-
-          <p className="text-gray-500 mt-2">
-            Manage announcements shown on the student website.
-          </p>
-        </div>
-
+    <AdminLayout
+      title="Announcements"
+      description="Manage announcements shown on the student website."
+      action={
         <button
           onClick={() => {
             setSelectedAnnouncement(null);
             setShowModal(true);
           }}
-          className="bg-purple-700 hover:bg-purple-900 text-white px-5 py-3 rounded-xl font-semibold transition"
+          className="bg-red-700 hover:bg-red-800 text-white px-5 py-3 rounded-xl font-semibold transition"
         >
           + New Announcement
         </button>
-
-      </div>
+      }
+    >
 
       <AnnouncementTable
         announcements={announcements}
@@ -107,7 +115,9 @@ function Announcements() {
       )}
 
     </AdminLayout>
+
   );
+
 }
 
 export default Announcements;

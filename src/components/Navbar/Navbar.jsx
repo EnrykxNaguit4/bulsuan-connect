@@ -57,7 +57,7 @@ const { settings, loading } = useSettings();
 
         <div>
 
-          <h1 className="text-2xl font-bold text-purple-900">
+          <h1 className="text-2xl font-bold text-red-900">
   {settings?.websiteName || "BulSUan Connect"}
 </h1>
 
@@ -88,8 +88,8 @@ const { settings, loading } = useSettings();
               className={({ isActive }) =>
                 `font-medium pb-1 border-b-2 transition-all duration-200 ${
                   isActive
-                    ? "border-purple-700 text-purple-700"
-                    : "border-transparent text-gray-700 hover:text-purple-700 hover:border-purple-300"
+                    ? "border-red-700 text-red-700"
+                    : "border-transparent text-gray-700 hover:text-red-700 hover:border-red-300"
                 }`
               }
             >
@@ -108,7 +108,7 @@ const { settings, loading } = useSettings();
               onClick={() =>
                 setIsConcernOpen((prev) => !prev)
               }
-              className="flex items-center gap-2 bg-purple-600 hover:bg-purple-800 text-white px-5 py-3 rounded-xl transition shadow-sm"
+              className="flex items-center gap-2 bg-red-600 hover:bg-red-800 text-white px-5 py-3 rounded-xl transition shadow-sm"
             >
 
               <ShieldCheckIcon className="w-5 h-5" />
@@ -152,12 +152,12 @@ const { settings, loading } = useSettings();
                   onClick={() =>
                     setIsConcernOpen(false)
                   }
-                  className="flex gap-4 px-6 py-5 hover:bg-purple-50 transition"
+                  className="flex gap-4 px-6 py-5 hover:bg-red-50 transition"
                 >
 
-                  <div className="bg-purple-100 rounded-xl p-3 h-fit">
+                  <div className="bg-red-100 rounded-xl p-3 h-fit">
 
-                    <DocumentTextIcon className="w-6 h-6 text-purple-700" />
+                    <DocumentTextIcon className="w-6 h-6 text-red-700" />
 
                   </div>
 
@@ -183,7 +183,7 @@ const { settings, loading } = useSettings();
                   onClick={() =>
                     setIsConcernOpen(false)
                   }
-                  className="flex gap-4 px-6 py-5 border-t hover:bg-purple-50 transition"
+                  className="flex gap-4 px-6 py-5 border-t hover:bg-red-50 transition"
                 >
 
                   <div className="bg-blue-100 rounded-xl p-3 h-fit">

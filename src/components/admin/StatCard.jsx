@@ -1,17 +1,33 @@
-import {
-  ArrowTrendingUpIcon,
-} from "@heroicons/react/24/outline";
+import { useNavigate } from "react-router-dom";
 
 function StatCard({
   title,
   value,
   description,
   icon: Icon,
+  path,
 }) {
+
+  const navigate = useNavigate();
 
   return (
 
-    <div className="bg-white rounded-2xl border shadow-sm p-6 hover:shadow-md transition">
+    <div
+      onClick={() => navigate(path)}
+      className="
+        group
+        bg-white
+        rounded-2xl
+        border
+        shadow-sm
+        p-6
+        cursor-pointer
+        transition-all
+        duration-300
+        hover:-translate-y-1
+        hover:shadow-lg
+      "
+    >
 
       <div className="flex justify-between items-start">
 
@@ -37,11 +53,27 @@ function StatCard({
 
         </div>
 
-        <div className="bg-purple-100 rounded-xl p-3">
+        <div
+          className="
+            bg-green-100
+            rounded-xl
+            p-3
+            transition
+            group-hover:bg-green-700
+          "
+        >
 
           {Icon && (
 
-            <Icon className="w-7 h-7 text-purple-700" />
+            <Icon
+              className="
+                w-7
+                h-7
+                text-green-700
+                transition
+                group-hover:text-white
+              "
+            />
 
           )}
 

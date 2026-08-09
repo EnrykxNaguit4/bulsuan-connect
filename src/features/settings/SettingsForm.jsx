@@ -416,7 +416,7 @@ return (
 
   <button
     type="submit"
-    className="bg-purple-700 hover:bg-purple-800 text-white px-8 py-3 rounded-xl font-semibold transition"
+    className="bg-red-700 hover:bg-red-800 text-white px-8 py-3 rounded-xl font-semibold transition"
   >
     Save Website Settings
   </button>

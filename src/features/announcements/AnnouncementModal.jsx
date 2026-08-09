@@ -209,7 +209,7 @@ function AnnouncementModal({
 
             <button
               type="submit"
-              className="px-5 py-3 rounded-xl bg-purple-700 text-white hover:bg-purple-800"
+              className="px-5 py-3 rounded-xl bg-red-700 text-white hover:bg-red-800"
             >
               {announcement
                 ? "Save Changes"

@@ -16,7 +16,7 @@ function SectionHeader({ title, subtitle, actionText, onAction }) {
       {actionText && (
         <button
           onClick={onAction}
-          className="mt-4 md:mt-0 text-purple-700 font-semibold hover:text-purple-800 transition"
+          className="mt-4 md:mt-0 text-red-700 font-semibold hover:text-red-800 transition"
         >
           {actionText} →
         </button>

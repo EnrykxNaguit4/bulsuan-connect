@@ -7,8 +7,8 @@ function QuickActions() {
 
         <div className="flex flex-col items-center text-center">
 
-          <div className="w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center">
-            <FaCommentDots className="text-3xl text-purple-700" />
+          <div className="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center">
+            <FaCommentDots className="text-3xl text-red-700" />
           </div>
 
           <h2 className="mt-6 text-4xl font-bold text-gray-900">
@@ -24,8 +24,8 @@ function QuickActions() {
           <button
             className="
               mt-8
-              bg-purple-700
-              hover:bg-purple-800
+              bg-red-700
+              hover:bg-red-800
               text-white
               px-8
               py-4

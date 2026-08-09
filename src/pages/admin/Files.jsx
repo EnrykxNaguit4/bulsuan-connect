@@ -14,66 +14,72 @@ import {
 import toast from "react-hot-toast";
 
 function Files() {
+
   const [files, setFiles] = useState([]);
 
   const [showModal, setShowModal] = useState(false);
+
   const [selectedFile, setSelectedFile] = useState(null);
 
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+
   const [fileToDelete, setFileToDelete] = useState(null);
 
   async function loadFiles() {
+
     const data = await getFiles();
+
     setFiles(data);
+
   }
 
   useEffect(() => {
+
     loadFiles();
+
   }, []);
 
   async function handleDelete() {
+
     try {
+
       await deleteFile(fileToDelete.id);
 
       toast.success("File deleted successfully!");
 
       setShowDeleteModal(false);
+
       setFileToDelete(null);
 
       loadFiles();
 
     } catch (error) {
+
       console.error(error);
+
       toast.error("Failed to delete file.");
+
     }
+
   }
 
   return (
-    <AdminLayout>
 
-      <div className="flex justify-between items-center mb-8">
-
-        <div>
-          <h1 className="text-4xl font-bold">
-            Files
-          </h1>
-
-          <p className="text-gray-500 mt-2">
-            Manage downloadable files shown on the student website.
-          </p>
-        </div>
-
+    <AdminLayout
+      title="Files"
+      description="Manage downloadable files shown on the student website."
+      action={
         <button
           onClick={() => {
             setSelectedFile(null);
             setShowModal(true);
           }}
-          className="bg-purple-700 hover:bg-purple-900 text-white px-5 py-3 rounded-xl font-semibold transition"
+          className="bg-red-700 hover:bg-red-800 text-white px-5 py-3 rounded-xl font-semibold transition"
         >
           + New File
         </button>
-
-      </div>
+      }
+    >
 
       <FileTable
         files={files}
@@ -111,7 +117,9 @@ function Files() {
       )}
 
     </AdminLayout>
+
   );
+
 }
 
 export default Files;

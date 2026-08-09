@@ -1,17 +1,40 @@
 import Sidebar from "../Sidebar";
 import Topbar from "../Topbar";
 
-function AdminLayout({ children }) {
+function AdminLayout({
+  title,
+  description,
+  action,
+  children,
+}) {
   return (
-    <div className="min-h-screen bg-gray-100">
+
+    <div className="min-h-screen bg-gray-50">
+
       <Sidebar />
 
-      <main className="ml-64 p-8 min-h-screen">
-        <Topbar />
+      <main className="ml-64 min-h-screen">
 
-        {children}
+        <div className="px-8">
+
+          <Topbar
+            title={title}
+            description={description}
+            action={action}
+          />
+
+          <div className="pb-8">
+
+            {children}
+
+          </div>
+
+        </div>
+
       </main>
+
     </div>
+
   );
 }
 

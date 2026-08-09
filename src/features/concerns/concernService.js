@@ -141,6 +141,19 @@ export async function getConcernCount() {
   return snapshot.size;
 }
 
+export async function getPendingConcernCount() {
+
+  const q = query(
+    collection(db, "concerns"),
+    where("status", "==", "Pending")
+  );
+
+  const snapshot = await getDocs(q);
+
+  return snapshot.size;
+
+}
+
 /* -------------------------------------------------------------------------- */
 /* Track Concern                                                              */
 /* -------------------------------------------------------------------------- */
@@ -166,4 +179,21 @@ export async function trackConcern(
     id: snapshot.docs[0].id,
     ...snapshot.docs[0].data(),
   };
+}
+
+export async function getRecentConcerns() {
+
+  const q = query(
+    collection(db, "concerns"),
+    orderBy("createdAt", "desc"),
+    limit(3)
+  );
+
+  const snapshot = await getDocs(q);
+
+  return snapshot.docs.map((docSnap) => ({
+    id: docSnap.id,
+    ...docSnap.data(),
+  }));
+
 }
