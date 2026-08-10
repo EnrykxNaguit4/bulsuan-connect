@@ -127,7 +127,7 @@ function HeroSection() {
             <SwiperSlide
               key={slide.id}
             >
-              <div className="relative h-[500px]">
+              <div className="relative h-[420px] md:h-[500px]">
 
                 <img
                   src={
@@ -140,7 +140,7 @@ function HeroSection() {
 
                 <div className="absolute inset-0 bg-black/55 flex items-center">
 
-                  <div className="ml-16 max-w-2xl text-white">
+                  <div className="mx-auto w-full max-w-2xl px-5 sm:px-0 sm:ml-16 text-white">
                                         <span
                       className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold ${
                         isAnnouncement

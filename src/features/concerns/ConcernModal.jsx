@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 
 import { updateConcern } from "./concernService";
 
@@ -334,9 +335,10 @@ const [isSaving, setIsSaving] = useState(false);
                 href={concern.supportingEvidence}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block mt-5 bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-xl transition"
+                className="inline-flex items-center gap-2 mt-5 bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-xl transition"
               >
-                🔗 Open Supporting Evidence
+                <ArrowTopRightOnSquareIcon className="w-5 h-5" aria-hidden="true" />
+                Open Supporting Evidence
               </a>
 
             ) : (

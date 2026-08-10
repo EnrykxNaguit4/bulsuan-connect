@@ -1,3 +1,5 @@
+import { CheckCircleIcon } from "@heroicons/react/24/outline";
+
 function TrackConcernResult({
   concern,
   onTrackAnother,
@@ -42,8 +44,8 @@ function TrackConcernResult({
 
       <div className="text-center">
 
-        <div className="text-5xl">
-          ✅
+        <div className="mx-auto inline-flex h-20 w-20 items-center justify-center rounded-full bg-green-100 text-green-700">
+          <CheckCircleIcon className="w-10 h-10" aria-hidden="true" />
         </div>
 
         <h1 className="text-4xl font-bold mt-4">

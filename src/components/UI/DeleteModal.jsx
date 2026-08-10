@@ -1,3 +1,5 @@
+import { FaTrashAlt } from "react-icons/fa";
+
 function DeleteModal({
   title,
   message,
@@ -11,8 +13,8 @@ function DeleteModal({
 
         <div className="text-center">
 
-          <div className="text-5xl mb-4">
-            🗑️
+          <div className="text-5xl mb-4 text-red-600">
+            <FaTrashAlt className="mx-auto" aria-hidden="true" />
           </div>
 
           <h2 className="text-2xl font-bold text-red-600">

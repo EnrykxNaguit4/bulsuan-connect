@@ -1,5 +1,6 @@
 import AdminTable from "../../components/admin/AdminTable";
 import TableActions from "../../components/admin/TableActions";
+import { FaStar } from "react-icons/fa";
 
 function FileTable({
   files,
@@ -88,9 +89,7 @@ function FileTable({
                     className="text-yellow-500"
                     title="Featured"
                   >
-
-                    ⭐
-
+                    <FaStar className="inline-block" aria-hidden="true" />
                   </span>
 
                 )}

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
+import { CheckCircleIcon } from "@heroicons/react/24/outline";
 
 import PublicLayout from "../components/layout/PublicLayout";
 
@@ -799,8 +800,8 @@ function Concern() {
 
           <div className="bg-white rounded-3xl shadow-xl w-full max-w-xl p-10 text-center">
 
-            <div className="text-6xl mb-5">
-              ✅
+            <div className="mx-auto inline-flex h-24 w-24 items-center justify-center rounded-full bg-green-100 text-green-700 mb-5">
+              <CheckCircleIcon className="w-12 h-12" aria-hidden="true" />
             </div>
 
             <h2 className="text-3xl font-bold">
