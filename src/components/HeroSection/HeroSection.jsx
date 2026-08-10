@@ -95,136 +95,273 @@ function HeroSection() {
   }
 
   return (
-    <section className="max-w-7xl mx-auto mt-8 px-4">
+  <section className="max-w-7xl mx-auto px-4 pt-8">
 
-      <Swiper
-        modules={[
-          Autoplay,
-          Pagination,
-          Navigation,
-        ]}
-        autoplay={{
-          delay: 4500,
-          disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true,
-        }}
-        navigation
-        loop={slides.length > 1}
-        className="rounded-3xl overflow-hidden shadow-xl hero-swiper"
-      >
-        {slides.map((slide) => {
-          const isAnnouncement =
-            slide.type === "announcement";
+    <Swiper
+      modules={[
+        Autoplay,
+        Pagination,
+        Navigation,
+      ]}
+      autoplay={{
+        delay: 4500,
+        disableOnInteraction: false,
+      }}
+      pagination={{
+        clickable: true,
+      }}
+      navigation
+      loop={slides.length > 1}
+      className="rounded-3xl overflow-hidden shadow-xl hero-swiper"
+    >
 
-          const destination =
-            isAnnouncement
-              ? `/announcements/${slide.id}`
-              : `/events/${slide.id}`;
+      {slides.map((slide) => {
 
-          return (
-            <SwiperSlide
-              key={slide.id}
-            >
-              <div className="relative h-[420px] md:h-[500px]">
+        const isAnnouncement =
+          slide.type === "announcement";
 
-                <img
-                  src={
-                    slide.image ||
-                    "https://placehold.co/1400x700?text=BulSUan+Connect"
-                  }
-                  alt={slide.title}
-                  className="w-full h-full object-cover"
-                />
+        const destination =
+          isAnnouncement
+            ? `/announcements/${slide.id}`
+            : `/events/${slide.id}`;
 
-                <div className="absolute inset-0 bg-black/55 flex items-center">
+        return (
 
-                  <div className="mx-auto w-full max-w-2xl px-5 sm:px-0 sm:ml-16 text-white">
-                                        <span
-                      className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold ${
-                        isAnnouncement
-                          ? "bg-red-600"
-                          : "bg-red-600"
-                      }`}
+          <SwiperSlide key={slide.id}>
+
+            <div className="relative h-[460px] sm:h-[500px] md:h-[520px]">
+
+              <img
+                src={
+                  slide.image ||
+                  "https://placehold.co/1400x700?text=BulSUan+Connect"
+                }
+                alt={slide.title}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+
+              <div className="absolute inset-0 bg-black/60" />
+
+              <div
+                className="
+                  relative
+                  z-10
+
+                  flex
+                  items-end
+                  md:items-center
+
+                  h-full
+                "
+              >
+
+                <div
+                  className="
+                    w-full
+                    max-w-3xl
+
+px-7
+sm:px-10
+md:pl-16
+md:pr-8
+
+                    py-8
+md:pt-12
+md:pb-0
+
+                    text-white
+                  "
+                >
+
+                  {/* Badge */}
+
+                  <span
+                    className="
+                      inline-flex
+                      items-center
+                      gap-2
+
+                      rounded-full
+
+                      bg-red-700
+
+                      px-4
+                      py-2
+
+                      text-xs
+                      sm:text-sm
+
+                      font-semibold
+
+                      shadow-lg
+                    "
+                  >
+
+                    {isAnnouncement ? (
+                      <>
+                        <FaBullhorn />
+                        Announcement
+                      </>
+                    ) : (
+                      <>
+                        <FaCalendarAlt />
+                        Event
+                      </>
+                    )}
+
+                  </span>
+
+                  {/* Title */}
+
+                  <h1
+                    className="
+                      mt-5
+
+                      text-3xl
+                      sm:text-4xl
+                      lg:text-5xl
+
+                      font-bold
+
+                      leading-tight
+                    "
+                  >
+                    {slide.title}
+                  </h1>
+
+                  {/* Description */}
+
+                  <p
+                    className="
+                      mt-5
+
+                      max-w-2xl
+
+                      text-sm
+                      sm:text-base
+                      lg:text-lg
+
+                      leading-7
+
+                      text-gray-100
+
+                      line-clamp-2
+                    "
+                  >
+                    {slide.description}
+                  </p>
+                                      {!isAnnouncement ? (
+
+                    <div
+                      className="
+                        mt-7
+
+                        space-y-1
+
+                        text-sm
+                        sm:text-base
+
+                        text-gray-100
+                      "
                     >
-                      {isAnnouncement ? (
-                        <>
-                          <FaBullhorn className="text-base" />
-                          Announcement
-                        </>
-                      ) : (
-                        <>
-                          <FaCalendarAlt className="text-base" />
-                          Event
-                        </>
-                      )}
-                    </span>
 
-                    <h1 className="mt-6 text-4xl md:text-5xl font-bold leading-tight">
-                      {slide.title}
-                    </h1>
-
-                    <p className="mt-6 text-base md:text-xl text-gray-100 line-clamp-3">
-                      {slide.description}
-                    </p>
-
-                    {!isAnnouncement && (
-                      <div className="mt-8 space-y-2 text-lg">
-
-                        <p className="flex items-center gap-3 text-base">
-                          <FaCalendarAlt className="text-white" />
-                          <span className="font-semibold">Date:</span>
-                          <span>{slide.date}</span>
-                        </p>
-
-                        <p className="flex items-center gap-3 text-base">
-                          <FaClock className="text-white" />
-                          <span className="font-semibold">Time:</span>
-                          <span>{slide.startTime} - {slide.endTime}</span>
-                        </p>
-
-                        <p className="flex items-center gap-3 text-base">
-                          <FaMapMarkerAlt className="text-white" />
-                          <span className="font-semibold">Venue:</span>
-                          <span>{slide.venue}</span>
-                        </p>
-
+                      <div className="flex items-center gap-3">
+                        <FaCalendarAlt className="text-white shrink-0" />
+                        <span className="font-semibold">Date:</span>
+                        <span>{slide.date}</span>
                       </div>
-                    )}
 
-                    {isAnnouncement && (
-                      <div className="mt-8">
-                        <p className="mt-2 flex items-center gap-3 text-lg">
-                          <FaCalendarAlt className="text-white" />
-                          {slide.date}
-                        </p>
+                      <div className="flex items-center gap-3">
+                        <FaClock className="text-white shrink-0" />
+                        <span className="font-semibold">Time:</span>
+                        <span>
+                          {slide.startTime} - {slide.endTime}
+                        </span>
                       </div>
-                    )}
 
-                    <div className="mt-8">
-                      <Link
-                        to={destination}
-                        className="inline-flex items-center gap-2 bg-red-700 hover:bg-red-800 transition px-6 py-3 rounded-xl font-semibold text-base"
-                      >
-                        Read More <FaArrowRight className="inline-block" aria-hidden="true" />
-                      </Link>
+                      <div className="flex items-center gap-3">
+                        <FaMapMarkerAlt className="text-white shrink-0" />
+                        <span className="font-semibold">Venue:</span>
+                        <span>{slide.venue}</span>
+                      </div>
+
                     </div>
+
+                  ) : (
+
+                    <div className="mt-7">
+
+                      <div className="flex items-center gap-3 text-sm sm:text-base text-gray-100">
+
+                        <FaCalendarAlt className="text-white shrink-0" />
+
+                        <span>{slide.date}</span>
+
+                      </div>
+
+                    </div>
+
+                  )}
+
+                  {/* Button */}
+
+                  <div className="mt-5 md:mt-6">
+
+                    <Link
+                      to={destination}
+                      className="
+                        inline-flex
+                        items-center
+                        gap-2
+
+                        rounded-xl
+
+                        bg-red-700
+
+                        px-6
+                        py-3
+
+                        text-sm
+                        sm:text-base
+
+                        font-semibold
+
+                        transition-all
+                        duration-200
+
+                        hover:bg-red-800
+                        hover:translate-x-1
+                      "
+                    >
+
+                      Read More
+
+                      <FaArrowRight
+                        className="text-sm"
+                        aria-hidden="true"
+                      />
+
+                    </Link>
 
                   </div>
 
                 </div>
 
-
               </div>
 
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
+            </div>
 
-    </section>
-  );
+          </SwiperSlide>
+
+        );
+
+      })}
+
+    </Swiper>
+
+  </section>
+
+);
 }
 
 export default HeroSection;
