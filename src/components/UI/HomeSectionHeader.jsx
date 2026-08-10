@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
 
 function HomeSectionHeader({
   title,
@@ -26,9 +27,10 @@ function HomeSectionHeader({
       {buttonText && (
         <Link
           to={buttonLink}
-          className="text-red-700 font-semibold hover:underline"
+          className="inline-flex items-center gap-2 text-red-700 font-semibold hover:underline"
         >
-          {buttonText} →
+          {buttonText}
+          <FaArrowRight className="inline-block" aria-hidden="true" />
         </Link>
       )}
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { FaArrowLeft, FaCalendarAlt, FaClock, FaMapMarkerAlt } from "react-icons/fa";
 
 import PublicLayout from "../components/layout/PublicLayout";
 import { getEvents } from "../features/events/eventService";
@@ -49,16 +50,19 @@ function EventDetails() {
 
         <div className="mt-10">
 
-          <p className="text-red-700 font-semibold">
-            📅 {event.date}
+          <p className="flex items-center gap-3 text-red-700 font-semibold">
+            <FaCalendarAlt />
+            {event.date}
           </p>
 
-          <p className="text-gray-600 mt-2">
-            🕒 {event.startTime} - {event.endTime}
+          <p className="flex items-center gap-3 text-gray-600 mt-2">
+            <FaClock />
+            {event.startTime} - {event.endTime}
           </p>
 
-          <p className="text-gray-600 mt-2">
-            📍 {event.venue}
+          <p className="flex items-center gap-3 text-gray-600 mt-2">
+            <FaMapMarkerAlt />
+            {event.venue}
           </p>
 
           <h1 className="text-5xl font-bold mt-6">
@@ -71,9 +75,10 @@ function EventDetails() {
 
           <Link
             to="/events"
-            className="inline-block mt-10 bg-red-700 hover:bg-red-800 text-white px-6 py-3 rounded-xl transition"
+            className="inline-flex items-center gap-2 mt-10 bg-red-700 hover:bg-red-800 text-white px-6 py-3 rounded-xl transition"
           >
-            ← Back to Events
+            <FaArrowLeft aria-hidden="true" />
+            Back to Events
           </Link>
 
         </div>

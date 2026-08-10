@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import PublicLayout from "../components/layout/PublicLayout";
+import { FaSearch, FaEye, FaDownload } from "react-icons/fa";
 
 import { getFiles } from "../features/files/fileService";
 
@@ -61,7 +62,7 @@ function Files() {
 
           <div className="relative">
             <span className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-gray-400">
-              🔍
+              <FaSearch />
             </span>
             <input
               type="text"
@@ -135,16 +136,18 @@ function Files() {
   href={getGoogleDrivePreview(file.url)}
   target="_blank"
   rel="noopener noreferrer"
-  className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-xl transition"
+  className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-xl transition inline-flex items-center gap-2"
 >
-  👁 Preview
+  <FaEye aria-hidden="true" />
+  Preview
 </a>
 
                   <a
   href={getGoogleDriveDownload(file.url)}
-  className="bg-red-700 hover:bg-red-800 text-white px-5 py-2 rounded-xl transition"
+  className="bg-red-700 hover:bg-red-800 text-white px-5 py-2 rounded-xl transition inline-flex items-center gap-2"
 >
-  ⬇ Download
+  <FaDownload aria-hidden="true" />
+  Download
 </a>
 
                 </div>

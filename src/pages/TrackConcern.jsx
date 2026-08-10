@@ -1,5 +1,6 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
+import { FaSearch } from "react-icons/fa";
 
 import PublicLayout from "../components/layout/PublicLayout";
 
@@ -89,11 +90,9 @@ function TrackConcern() {
           <div className="bg-white rounded-3xl shadow-lg border p-10">
 
             <div className="text-center">
-
-              <div className="text-5xl">
-                🔍
+              <div className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-red-100 text-red-700 mx-auto text-4xl">
+                <FaSearch aria-hidden="true" />
               </div>
-
             </div>
 
             <div className="mt-10 space-y-6">

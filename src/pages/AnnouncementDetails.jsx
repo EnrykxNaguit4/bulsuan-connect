@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 
 import PublicLayout from "../components/layout/PublicLayout";
 
@@ -67,9 +68,10 @@ function AnnouncementDetails() {
 
             <Link
               to="/announcements"
-              className="inline-block mt-10 bg-red-700 hover:bg-red-800 text-white px-6 py-3 rounded-xl"
+              className="inline-flex items-center gap-2 mt-10 bg-red-700 hover:bg-red-800 text-white px-6 py-3 rounded-xl"
             >
-              ← Back to Announcements
+              <FaArrowLeft aria-hidden="true" />
+              Back to Announcements
             </Link>
 
           </div>

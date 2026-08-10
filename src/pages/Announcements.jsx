@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { FaSearch, FaImage, FaArrowRight } from "react-icons/fa";
 
 import PublicLayout from "../components/layout/PublicLayout";
 
@@ -42,13 +43,18 @@ function Announcements() {
 
         <div className="max-w-7xl mx-auto px-4">
 
-          <input
-            type="text"
-            placeholder="🔍 Search announcements..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-full mb-8 rounded-xl border border-gray-300 bg-white p-4 shadow-sm focus:border-red-700 focus:outline-none focus:ring-2 focus:ring-red-700"
-          />
+          <div className="relative mb-8">
+            <span className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-gray-400">
+              <FaSearch />
+            </span>
+            <input
+              type="text"
+              placeholder="Search announcements..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="w-full rounded-xl border border-gray-300 bg-white p-4 pl-12 shadow-sm focus:border-red-700 focus:outline-none focus:ring-2 focus:ring-red-700"
+            />
+          </div>
 
           <div className="grid md:grid-cols-3 gap-8">
 
@@ -67,8 +73,9 @@ function Announcements() {
                     className="w-full h-52 object-cover"
                   />
                 ) : (
-                  <div className="w-full h-52 bg-gray-200 flex items-center justify-center text-gray-500">
-                    📢 No Image
+                  <div className="w-full h-52 bg-gray-200 flex flex-col items-center justify-center text-gray-500">
+                    <FaImage className="text-4xl" />
+                    <span className="mt-3 text-sm">No Image</span>
                   </div>
                 )}
 
@@ -86,8 +93,8 @@ function Announcements() {
                     {announcement.description}
                   </p>
 
-                  <p className="mt-5 text-red-700 font-semibold">
-                    Read More →
+                  <p className="mt-5 inline-flex items-center gap-2 text-red-700 font-semibold">
+                    Read More <FaArrowRight className="inline-block" aria-hidden="true" />
                   </p>
 
                 </div>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { FaSearch, FaCalendarAlt, FaClock, FaMapMarkerAlt, FaImage, FaArrowRight } from "react-icons/fa";
 
 import PublicLayout from "../components/layout/PublicLayout";
 import { getEvents } from "../features/events/eventService";
@@ -43,13 +44,16 @@ function Events() {
 
       <section className="max-w-7xl mx-auto py-10 px-4">
 
-        <div className="mb-8">
+        <div className="relative mb-8">
+          <span className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-gray-400">
+            <FaSearch />
+          </span>
           <input
             type="text"
-            placeholder="🔍 Search events..."
+            placeholder="Search events..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full rounded-xl border border-gray-400 bg-white p-4 focus:border-red-700 focus:outline-none focus:ring-2 focus:ring-red-700"
+            className="w-full rounded-xl border border-gray-400 bg-white p-4 pl-12 focus:border-red-700 focus:outline-none focus:ring-2 focus:ring-red-700"
           />
         </div>
 
@@ -78,23 +82,27 @@ function Events() {
                     className="w-full h-56 object-cover"
                   />
                 ) : (
-                  <div className="w-full h-56 bg-gray-200 flex items-center justify-center text-gray-500">
-                    🎉 No Image
+                  <div className="w-full h-56 bg-gray-200 flex flex-col items-center justify-center text-gray-500">
+                    <FaImage className="text-4xl" />
+                    <span className="mt-3 text-sm">No Image</span>
                   </div>
                 )}
 
                 <div className="p-5">
 
-                  <p className="text-sm text-gray-500">
-                    📅 {event.date}
+                  <p className="text-sm text-gray-500 flex items-center gap-2">
+                    <FaCalendarAlt className="inline-block" />
+                    {event.date}
                   </p>
 
-                  <p className="text-sm text-gray-500 mt-1">
-                    🕒 {event.startTime} - {event.endTime}
+                  <p className="text-sm text-gray-500 mt-1 flex items-center gap-2">
+                    <FaClock className="inline-block" />
+                    {event.startTime} - {event.endTime}
                   </p>
 
-                  <p className="text-sm text-gray-500 mt-1">
-                    📍 {event.venue}
+                  <p className="text-sm text-gray-500 mt-1 flex items-center gap-2">
+                    <FaMapMarkerAlt className="inline-block" />
+                    {event.venue}
                   </p>
 
                   <h2 className="mt-3 text-xl font-bold">
@@ -107,9 +115,9 @@ function Events() {
 
                   <Link
                     to={`/events/${event.id}`}
-                    className="inline-block mt-5 text-red-700 font-semibold hover:underline"
+                    className="inline-flex items-center gap-2 mt-5 text-red-700 font-semibold hover:underline"
                   >
-                    Read More →
+                    Read More <FaArrowRight className="inline-block" aria-hidden="true" />
                   </Link>
 
                 </div>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { FaBullhorn, FaCalendarAlt, FaClock, FaMapMarkerAlt, FaArrowRight } from "react-icons/fa";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
@@ -111,7 +112,7 @@ function HeroSection() {
         }}
         navigation
         loop={slides.length > 1}
-        className="rounded-3xl overflow-hidden shadow-xl"
+        className="rounded-3xl overflow-hidden shadow-xl hero-swiper"
       >
         {slides.map((slide) => {
           const isAnnouncement =
@@ -141,41 +142,52 @@ function HeroSection() {
 
                   <div className="ml-16 max-w-2xl text-white">
                                         <span
-                      className={`inline-block px-4 py-2 rounded-full text-sm font-semibold ${
+                      className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold ${
                         isAnnouncement
                           ? "bg-red-600"
                           : "bg-red-600"
                       }`}
                     >
-                      {isAnnouncement
-                        ? "📢 Announcement"
-                        : "🎉 Event"}
+                      {isAnnouncement ? (
+                        <>
+                          <FaBullhorn className="text-base" />
+                          Announcement
+                        </>
+                      ) : (
+                        <>
+                          <FaCalendarAlt className="text-base" />
+                          Event
+                        </>
+                      )}
                     </span>
 
-                    <h1 className="mt-6 text-5xl font-bold leading-tight">
+                    <h1 className="mt-6 text-4xl md:text-5xl font-bold leading-tight">
                       {slide.title}
                     </h1>
 
-                    <p className="mt-6 text-xl text-gray-100 line-clamp-3">
+                    <p className="mt-6 text-base md:text-xl text-gray-100 line-clamp-3">
                       {slide.description}
                     </p>
 
                     {!isAnnouncement && (
                       <div className="mt-8 space-y-2 text-lg">
 
-                        <p>
-                          📅 <span className="font-semibold">Date:</span>{" "}
-                          {slide.date}
+                        <p className="flex items-center gap-3 text-base">
+                          <FaCalendarAlt className="text-white" />
+                          <span className="font-semibold">Date:</span>
+                          <span>{slide.date}</span>
                         </p>
 
-                        <p>
-                          🕒 <span className="font-semibold">Time:</span>{" "}
-                          {slide.startTime} - {slide.endTime}
+                        <p className="flex items-center gap-3 text-base">
+                          <FaClock className="text-white" />
+                          <span className="font-semibold">Time:</span>
+                          <span>{slide.startTime} - {slide.endTime}</span>
                         </p>
 
-                        <p>
-                          📍 <span className="font-semibold">Venue:</span>{" "}
-                          {slide.venue}
+                        <p className="flex items-center gap-3 text-base">
+                          <FaMapMarkerAlt className="text-white" />
+                          <span className="font-semibold">Venue:</span>
+                          <span>{slide.venue}</span>
                         </p>
 
                       </div>
@@ -183,55 +195,26 @@ function HeroSection() {
 
                     {isAnnouncement && (
                       <div className="mt-8">
-
-                        <p className="text-lg">
-                          📅 {slide.date}
+                        <p className="mt-2 flex items-center gap-3 text-lg">
+                          <FaCalendarAlt className="text-white" />
+                          {slide.date}
                         </p>
-
                       </div>
                     )}
 
-                    <div className="mt-10">
-
+                    <div className="mt-8">
                       <Link
                         to={destination}
-                        className="inline-flex items-center gap-2 bg-red-700 hover:bg-red-800 transition px-8 py-4 rounded-xl font-semibold text-lg"
+                        className="inline-flex items-center gap-2 bg-red-700 hover:bg-red-800 transition px-6 py-3 rounded-xl font-semibold text-base"
                       >
-                        Read More →
+                        Read More <FaArrowRight className="inline-block" aria-hidden="true" />
                       </Link>
-
                     </div>
 
                   </div>
 
                 </div>
 
-                <div className="absolute top-6 right-6">
-                                    <div className="bg-white/15 backdrop-blur-md border border-white/20 rounded-2xl px-5 py-4 text-white shadow-lg">
-
-                    <p className="text-sm uppercase tracking-wider opacity-80">
-                      Featured
-                    </p>
-
-                    <p className="text-3xl font-bold mt-1">
-                      {isAnnouncement ? "Announcement" : "Event"}
-                    </p>
-
-                    <div className="mt-4 border-t border-white/20 pt-4">
-
-                      <p className="text-sm opacity-80">
-                        Published
-                      </p>
-
-                      <p className="font-semibold">
-                        {slide.date}
-                      </p>
-
-                    </div>
-
-                  </div>
-
-                </div>
 
               </div>
 

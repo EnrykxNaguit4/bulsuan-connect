@@ -27,3 +27,32 @@ html {
 body {
     font-family: 'Inter', sans-serif;
 }
+
+.hero-swiper {
+  --swiper-navigation-color: #ffffff;
+  --swiper-navigation-size: 1.4rem;
+}
+
+.hero-swiper .swiper-button-prev,
+.hero-swiper .swiper-button-next {
+  background: transparent;
+  border: none;
+  width: 46px;
+  height: 46px;
+  color: #ffffff;
+}
+
+.hero-swiper .swiper-button-prev:hover,
+.hero-swiper .swiper-button-next:hover {
+  background: transparent;
+  color: #f8fafc;
+}
+
+.hero-swiper .swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.55);
+  opacity: 1;
+}
+
+.hero-swiper .swiper-pagination-bullet-active {
+  background: #ffffff;
+}

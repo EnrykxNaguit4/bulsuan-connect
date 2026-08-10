@@ -1,3 +1,5 @@
+import { FaArrowRight } from "react-icons/fa";
+
 function SectionHeader({ title, subtitle, actionText, onAction }) {
   return (
     <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-8">
@@ -16,9 +18,10 @@ function SectionHeader({ title, subtitle, actionText, onAction }) {
       {actionText && (
         <button
           onClick={onAction}
-          className="mt-4 md:mt-0 text-red-700 font-semibold hover:text-red-800 transition"
+          className="mt-4 md:mt-0 inline-flex items-center gap-2 text-red-700 font-semibold hover:text-red-800 transition"
         >
-          {actionText} →
+          {actionText}
+          <FaArrowRight className="inline-block" aria-hidden="true" />
         </button>
       )}
     </div>
