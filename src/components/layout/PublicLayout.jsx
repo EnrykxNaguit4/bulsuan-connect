@@ -5,7 +5,7 @@ function PublicLayout({ children }) {
   return (
     <>
       <Navbar />
-      <div className="h-[96px] sm:h-[96px]" aria-hidden="true" />
+      <div className="h-20 sm:h-20" aria-hidden="true" />
 
       {children}
 

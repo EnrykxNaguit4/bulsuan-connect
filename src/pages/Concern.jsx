@@ -1,7 +1,7 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 
-import Navbar from "../components/Navbar/Navbar";
+import PublicLayout from "../components/layout/PublicLayout";
 
 import { createConcern } from "../features/concerns/concernService";
 
@@ -200,23 +200,20 @@ function Concern() {
   }
 
   return (
+    <PublicLayout>
+      <section className="bg-red-900 text-white">
+        <div className="max-w-7xl mx-auto px-6 py-16 min-h-[260px] flex flex-col justify-center">
+          <h1 className="text-3xl font-bold">
+            Submit a Concern
+          </h1>
 
-    <>
-  <Navbar />
+          <p className="mt-5 max-w-2xl text-red-200 text-lg leading-8">
+            The Local Student Council is committed to handling all student concerns fairly, professionally, and confidentially. Please complete the form below. Fields marked with <span className="font-semibold text-red-200">*</span> are required.
+          </p>
+        </div>
+      </section>
 
-  <section className="bg-red-900 text-white">
-    <div className="max-w-7xl mx-auto px-6 py-12">
-      <h1 className="text-3xl font-bold">
-        Submit a Concern
-      </h1>
-
-      <p className="mt-5 max-w-2xl text-red-200 text-lg leading-8">
-        The Local Student Council is committed to handling all student concerns fairly, professionally, and confidentially. Please complete the form below. Fields marked with <span className="font-semibold text-red-200">*</span> are required.
-      </p>
-    </div>
-  </section>
-
-  <div className="bg-gray-50 min-h-screen py-12">
+      <div className="bg-gray-50 min-h-screen py-12">
 
     <div className="max-w-5xl mx-auto px-5">
 
@@ -849,10 +846,8 @@ function Concern() {
 
         </div>
       )}
-</>
-
+    </PublicLayout>
   );
-
 }
 
 export default Concern;
