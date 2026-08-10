@@ -6,6 +6,13 @@ import { getEvents } from "../features/events/eventService";
 
 function Events() {
   const [events, setEvents] = useState([]);
+  const [search, setSearch] = useState("");
+
+  const filteredEvents = events.filter((event) =>
+    event.title.toLowerCase().includes(search.toLowerCase()) ||
+    event.description.toLowerCase().includes(search.toLowerCase()) ||
+    event.venue.toLowerCase().includes(search.toLowerCase())
+  );
 
   useEffect(() => {
     async function loadEvents() {
@@ -22,20 +29,32 @@ function Events() {
 
   return (
     <PublicLayout>
-      <section className="max-w-7xl mx-auto py-16 px-4">
-
-        <div className="mb-10">
-          <h1 className="text-4xl font-bold">
+      <section className="bg-red-900 text-white">
+        <div className="max-w-7xl mx-auto px-6 py-12 min-h-[240px] flex flex-col justify-center">
+          <h1 className="text-3xl font-bold">
             Events
           </h1>
 
-          <p className="text-gray-500 mt-3">
+          <p className="mt-5 max-w-2xl text-red-200 text-lg leading-8">
             Stay updated with the latest activities and events organized by the Local Student Council.
           </p>
         </div>
+      </section>
 
-        {events.length === 0 ? (
-          <div className="bg-white rounded-2xl shadow-sm p-10 text-center">
+      <section className="max-w-7xl mx-auto py-10 px-4">
+
+        <div className="mb-8">
+          <input
+            type="text"
+            placeholder="🔍 Search events..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="w-full rounded-xl border border-gray-400 bg-white p-4 focus:border-red-700 focus:outline-none focus:ring-2 focus:ring-red-700"
+          />
+        </div>
+
+        {filteredEvents.length === 0 ? (
+          <div className="border border-gray-200/70 bg-white rounded-2xl shadow-sm p-10 text-center">
             <h2 className="text-2xl font-semibold">
               No events available.
             </h2>
@@ -50,7 +69,7 @@ function Events() {
             {events.map((event) => (
               <div
                 key={event.id}
-                className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition"
+                className="border border-gray-200/70 bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition"
               >
                 {event.image ? (
                   <img

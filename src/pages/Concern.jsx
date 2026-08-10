@@ -204,23 +204,23 @@ function Concern() {
     <>
   <Navbar />
 
-  <div className="bg-gray-50 min-h-screen py-14">
+  <section className="bg-red-900 text-white">
+    <div className="max-w-7xl mx-auto px-6 py-12">
+      <h1 className="text-3xl font-bold">
+        Submit a Concern
+      </h1>
+
+      <p className="mt-5 max-w-2xl text-red-200 text-lg leading-8">
+        The Local Student Council is committed to handling all student concerns fairly, professionally, and confidentially. Please complete the form below. Fields marked with <span className="font-semibold text-red-200">*</span> are required.
+      </p>
+    </div>
+  </section>
+
+  <div className="bg-gray-50 min-h-screen py-12">
 
     <div className="max-w-5xl mx-auto px-5">
 
       <div className="bg-white rounded-3xl shadow-sm p-8 md:p-12">
-
-        <h1 className="text-4xl font-bold text-gray-900">
-          Submit a Concern
-        </h1>
-
-        <p className="mt-4 text-gray-600 leading-7">
-          The Local Student Council is committed to handling all student
-          concerns fairly, professionally, and confidentially. Please
-          complete the form below. Fields marked with
-          <span className="font-semibold text-red-600"> *</span>
-          are required.
-        </p>
 
         <div className="mt-8 rounded-2xl border border-blue-200 bg-blue-50 p-6">
 

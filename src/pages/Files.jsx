@@ -43,31 +43,36 @@ function Files() {
   return (
     <PublicLayout>
 
-      <section className="max-w-7xl mx-auto py-16 px-4">
-
-        <div className="mb-10">
-
-          <h1 className="text-4xl font-bold">
+      <section className="bg-red-900 text-white">
+        <div className="max-w-7xl mx-auto px-6 py-12 min-h-[240px] flex flex-col justify-center">
+          <h1 className="text-3xl font-bold">
             Files
           </h1>
 
-          <p className="text-gray-500 mt-3">
+          <p className="mt-5 max-w-2xl text-red-200 text-lg leading-8">
             Download official files and documents released by the Local Student Council.
           </p>
-
         </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto py-10 px-4">
 
         <div className="grid md:grid-cols-2 gap-5 mb-10">
 
-          <input
-            type="text"
-            placeholder="Search files..."
-            value={search}
-            onChange={(e) =>
-              setSearch(e.target.value)
-            }
-            className="border rounded-xl p-3"
-          />
+          <div className="relative">
+            <span className="pointer-events-none absolute inset-y-0 left-4 flex items-center text-gray-400">
+              🔍
+            </span>
+            <input
+              type="text"
+              placeholder="Search files..."
+              value={search}
+              onChange={(e) =>
+                setSearch(e.target.value)
+              }
+              className="w-full rounded-xl border border-gray-400 bg-white p-3 pl-11 focus:border-red-700 focus:outline-none focus:ring-2 focus:ring-red-700"
+            />
+          </div>
 
           <select
             value={category}
@@ -109,7 +114,7 @@ function Files() {
 
               <div
                 key={file.id}
-                className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition"
+                className="border border-gray-200/70 bg-white rounded-2xl shadow-sm p-6 hover:shadow-lg transition"
               >
 
                 <p className="text-sm text-red-700 font-semibold">

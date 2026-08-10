@@ -1,15 +1,597 @@
-import Navbar from "../components/Navbar/Navbar";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
+import PublicLayout from "../components/layout/PublicLayout";
+
+import {
+  getWebsiteSettings,
+} from "../features/settings/websiteSettingsService";
+
+import {
+  ChatBubbleLeftRightIcon,
+  MagnifyingGlassCircleIcon,
+  EnvelopeIcon,
+  PhoneIcon,
+  BuildingOffice2Icon,
+  MapPinIcon,
+  ClockIcon,
+  ArrowTopRightOnSquareIcon,
+} from "@heroicons/react/24/outline";
 
 function Contact() {
+  const [loading, setLoading] = useState(true);
+  const [settings, setSettings] = useState(null);
+
+  useEffect(() => {
+    loadSettings();
+  }, []);
+
+  async function loadSettings() {
+    try {
+      const data = await getWebsiteSettings();
+      setSettings(data);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  if (loading) {
+    return (
+      <PublicLayout>
+        <div className="max-w-7xl mx-auto px-6 py-24">
+          <p className="text-center text-gray-500 text-lg">
+            Loading contact information...
+          </p>
+        </div>
+      </PublicLayout>
+    );
+  }
+
   return (
-    <>
-      <Navbar />
-      <div className="max-w-7xl mx-auto py-20">
-        <h1 className="text-5xl font-bold">
-          Contact
-        </h1>
+    <PublicLayout>
+
+      {/* HERO */}
+
+      <section className="bg-red-900 text-white">
+
+        <div className="max-w-7xl mx-auto px-6 py-12 min-h-[240px] flex flex-col justify-center">
+
+          <h1 className="text-3xl font-bold">
+            Contact Us
+          </h1>
+
+          <p className="mt-5 max-w-2xl text-red-200 text-lg leading-8">
+            Need assistance? We're here to help with your questions,
+            concerns, and student government services.
+          </p>
+
+        </div>
+
+      </section>
+
+      <section className="max-w-7xl mx-auto px-6 py-10">
+
+        {/* ABOUT */}
+
+        <div className="mb-12">
+
+          <h2 className="text-3xl font-bold text-gray-900 mb-5">
+            About
+          </h2>
+
+          <p className="text-gray-600 leading-8">
+            {settings.about}
+          </p>
+
+        </div>
+
+        {/* NEED ASSISTANCE */}
+
+        <div className="mb-12">
+
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">
+            Need Assistance?
+          </h2>
+
+          <div className="grid lg:grid-cols-2 gap-8">
+
+            {/* SUBMIT CONCERN */}
+
+<div
+  className="
+    bg-white
+    rounded-2xl
+    p-8
+    border
+    border-gray-300/90
+
+    shadow-sm
+    hover:shadow-lg
+
+    transition-all
+    duration-300
+
+    hover:-translate-y-1
+  "
+>
+
+  <div
+    className="
+      w-14
+      h-14
+
+      rounded-2xl
+
+      bg-red-100
+
+      flex
+      items-center
+      justify-center
+
+      mb-6
+    "
+  >
+
+    <ChatBubbleLeftRightIcon className="w-7 h-7 text-red-700" />
+
+  </div>
+
+  <h3 className="text-2xl font-semibold text-gray-900 mb-3">
+    Submit a Concern
+  </h3>
+
+  <p className="text-gray-600 leading-7 mb-8">
+    Share your concerns, suggestions, or feedback with the student
+    government. We'll make sure your concern reaches the appropriate office.
+  </p>
+
+  <Link
+    to="/concern"
+    className="
+      inline-flex
+      items-center
+      justify-center
+
+      rounded-xl
+
+      bg-red-700
+      hover:bg-red-800
+
+      text-white
+      font-semibold
+
+      px-6
+      py-3
+
+      transition
+    "
+  >
+    Submit Concern
+  </Link>
+
+</div>
+
+{/* TRACK CONCERN */}
+
+<div
+  className="
+    bg-white
+    rounded-2xl
+    p-8
+    border
+    border-gray-300/90
+
+    shadow-sm
+    hover:shadow-lg
+
+    transition-all
+    duration-300
+
+    hover:-translate-y-1
+  "
+>
+
+  <div
+    className="
+      w-14
+      h-14
+
+      rounded-2xl
+
+      bg-blue-100
+
+      flex
+      items-center
+      justify-center
+
+      mb-6
+    "
+  >
+
+    <MagnifyingGlassCircleIcon className="w-7 h-7 text-blue-700" />
+
+  </div>
+
+  <h3 className="text-2xl font-semibold text-gray-900 mb-3">
+    Track a Concern
+  </h3>
+
+  <p className="text-gray-600 leading-7 mb-8">
+    Already submitted a concern? Use your reference number to check its
+    latest status and monitor any updates.
+  </p>
+
+  <Link
+    to="/track-concern"
+    className="
+      inline-flex
+      items-center
+      justify-center
+
+      rounded-xl
+
+      bg-blue-600
+      hover:bg-blue-700
+
+      text-white
+      font-semibold
+
+      px-6
+      py-3
+
+      transition
+    "
+  >
+    Track Concern
+  </Link>
+
+</div>
+
+</div>
+
+</div>
+
+{/* CONTACT INFORMATION */}
+
+<div className="mb-12">
+
+  <h2 className="text-3xl font-bold text-gray-900 mb-6">
+    Contact Information
+  </h2>
+
+  <div className="grid lg:grid-cols-2 gap-8">
+
+    {/* Contact Card */}
+
+    <div
+      className="
+        bg-white
+        rounded-2xl
+        p-8
+        border
+        border-gray-300/90
+
+        shadow-sm
+        hover:shadow-lg
+
+        transition-all
+        duration-300
+
+        hover:-translate-y-1
+      "
+    >
+
+      <h3 className="text-2xl font-semibold text-gray-900 mb-8">
+        Get in Touch
+      </h3>
+
+      <div className="space-y-8">
+
+        {/* Email */}
+
+        <div className="flex items-start gap-4">
+
+          <div
+            className="
+              w-12
+              h-12
+
+              rounded-xl
+
+              bg-red-100
+
+              flex
+              items-center
+              justify-center
+
+              flex-shrink-0
+            "
+          >
+
+            <EnvelopeIcon className="w-6 h-6 text-red-700" />
+
+          </div>
+
+          <div>
+
+            <p className="text-sm text-gray-500 mb-1">
+              Email
+            </p>
+
+            <a
+              href={`mailto:${settings.contactEmail}`}
+              className="
+                font-semibold
+                text-gray-800
+
+                hover:text-red-700
+                transition
+              "
+            >
+              {settings.contactEmail}
+            </a>
+
+          </div>
+
+        </div>
+
+        {/* Phone */}
+
+        <div className="flex items-start gap-4">
+
+          <div
+            className="
+              w-12
+              h-12
+
+              rounded-xl
+
+              bg-green-100
+
+              flex
+              items-center
+              justify-center
+
+              flex-shrink-0
+            "
+          >
+
+            <PhoneIcon className="w-6 h-6 text-green-700" />
+
+          </div>
+
+          <div>
+
+            <p className="text-sm text-gray-500 mb-1">
+              Phone
+            </p>
+
+            <a
+              href={`tel:${settings.contactPhone}`}
+              className="
+                font-semibold
+                text-gray-800
+
+                hover:text-red-700
+                transition
+              "
+            >
+              {settings.contactPhone}
+            </a>
+
+          </div>
+
+        </div>
+
+        {/* Facebook */}
+
+        <div className="flex items-start gap-4">
+
+          <div
+            className="
+              w-12
+              h-12
+
+              rounded-xl
+
+              bg-blue-100
+
+              flex
+              items-center
+              justify-center
+
+              flex-shrink-0
+            "
+          >
+
+            <ArrowTopRightOnSquareIcon className="w-6 h-6 text-blue-700" />
+
+          </div>
+
+          <div>
+
+            <p className="text-sm text-gray-500 mb-1">
+              Facebook
+            </p>
+
+            <a
+              href={settings.facebookPageUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                font-semibold
+
+                text-red-700
+                hover:underline
+              "
+            >
+              {settings.facebookPageName}
+            </a>
+
+          </div>
+
+        </div>
+
       </div>
-    </>
+
+    </div>
+
+    {/* Office Card */}
+
+    <div
+      className="
+        bg-white
+        rounded-2xl
+        p-8
+        border
+        border-gray-300/90
+
+        shadow-sm
+        hover:shadow-lg
+
+        transition-all
+        duration-300
+
+        hover:-translate-y-1
+      "
+    >
+
+      <h3 className="text-2xl font-semibold text-gray-900 mb-8">
+        Office Information
+      </h3>
+
+      <div className="space-y-8">
+
+        {/* Office */}
+
+        <div className="flex items-start gap-4">
+
+          <div
+            className="
+              w-12
+              h-12
+
+              rounded-xl
+
+              bg-gray-100
+
+              flex
+              items-center
+              justify-center
+
+              flex-shrink-0
+            "
+          >
+
+            <BuildingOffice2Icon className="w-6 h-6 text-gray-700" />
+
+          </div>
+
+          <div>
+
+            <p className="text-sm text-gray-500 mb-1">
+              Office
+            </p>
+
+            <p className="font-semibold text-gray-800">
+              {settings.officeName}
+            </p>
+
+          </div>
+
+        </div>
+
+        {/* Location */}
+
+        <div className="flex items-start gap-4">
+
+          <div
+            className="
+              w-12
+              h-12
+
+              rounded-xl
+
+              bg-red-100
+
+              flex
+              items-center
+              justify-center
+
+              flex-shrink-0
+            "
+          >
+
+            <MapPinIcon className="w-6 h-6 text-red-700" />
+
+          </div>
+
+          <div>
+
+            <p className="text-sm text-gray-500 mb-1">
+              Location
+            </p>
+
+            <p className="font-semibold text-gray-800">
+              {settings.officeLocation}
+            </p>
+
+          </div>
+
+        </div>
+
+        {/* Office Hours */}
+
+        <div className="flex items-start gap-4">
+
+          <div
+            className="
+              w-12
+              h-12
+
+              rounded-xl
+
+              bg-amber-100
+
+              flex
+              items-center
+              justify-center
+
+              flex-shrink-0
+            "
+          >
+
+            <ClockIcon className="w-6 h-6 text-amber-700" />
+
+          </div>
+
+          <div>
+
+            <p className="text-sm text-gray-500 mb-1">
+              Office Hours
+            </p>
+
+            <p className="font-semibold text-gray-800">
+              {settings.officeHours}
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+      </section>
+
+    </PublicLayout>
   );
 }
 

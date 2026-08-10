@@ -26,24 +26,28 @@ function Announcements() {
   return (
     <PublicLayout>
 
-      <section className="min-h-screen bg-slate-50 py-16">
-
-        <div className="max-w-7xl mx-auto px-4">
-
-          <h1 className="text-5xl font-bold">
+      <section className="bg-red-900 text-white">
+        <div className="max-w-7xl mx-auto px-6 py-12 min-h-[240px] flex flex-col justify-center">
+          <h1 className="text-3xl font-bold">
             Announcements
           </h1>
 
-          <p className="text-gray-600 mt-3">
+          <p className="mt-5 max-w-2xl text-red-200 text-lg leading-8">
             Stay updated with the latest announcements from the Local Student Council.
           </p>
+        </div>
+      </section>
+
+      <section className="min-h-screen bg-slate-50 py-10">
+
+        <div className="max-w-7xl mx-auto px-4">
 
           <input
             type="text"
             placeholder="🔍 Search announcements..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full mt-8 mb-10 p-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-700"
+            className="w-full mb-8 rounded-xl border border-gray-300 bg-white p-4 shadow-sm focus:border-red-700 focus:outline-none focus:ring-2 focus:ring-red-700"
           />
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -53,7 +57,7 @@ function Announcements() {
               <Link
                 key={announcement.id}
                 to={`/announcements/${announcement.id}`}
-                className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition block"
+                className="border border-gray-200/70 bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition block"
               >
 
                 {announcement.image ? (

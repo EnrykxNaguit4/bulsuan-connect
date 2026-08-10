@@ -70,7 +70,19 @@ function TrackConcern() {
 
   return (
     <PublicLayout>
-      <section className="max-w-3xl mx-auto py-20 px-4">
+      <section className="bg-red-900 text-white">
+        <div className="max-w-7xl mx-auto px-6 py-12">
+          <h1 className="text-3xl font-bold">
+            Track Your Concern
+          </h1>
+
+          <p className="mt-5 max-w-2xl text-red-200 text-lg leading-8">
+            Enter your reference number and student number to check the latest progress of your submitted concern.
+          </p>
+        </div>
+      </section>
+
+      <section className="max-w-3xl mx-auto py-12 px-4">
 
         {!searched ? (
 
@@ -81,16 +93,6 @@ function TrackConcern() {
               <div className="text-5xl">
                 🔍
               </div>
-
-              <h1 className="text-4xl font-bold mt-5">
-                Track Your Concern
-              </h1>
-
-              <p className="text-gray-500 mt-4 leading-7">
-                Enter your reference number and student number
-                to check the latest progress of your submitted
-                concern.
-              </p>
 
             </div>
 
