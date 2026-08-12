@@ -439,48 +439,51 @@ function Concern() {
 
               </div>
 
+              </div>
+
               <div className="grid md:grid-cols-2 gap-6">
 
                 <div>
 
-                  <label className="text-sm md:text-base font-medium">
-                    Date of Incident
-                    <span className="text-gray-400 text-sm ml-2">
-                      (Optional)
-                    </span>
-                  </label>
+  <label className="text-sm md:text-base font-medium">
+    Date of Incident
+    <span className="text-gray-400 text-sm ml-2">
+      (Optional)
+    </span>
+  </label>
 
-                  <input
-                    type="date"
-                    name="incidentDate"
-                    value={formData.incidentDate}
-                    onChange={handleChange}
-                    className="w-full border rounded-xl mt-2 px-3 py-2.5 md:p-3"
-                  />
+  <div className="w-5/6 md:w-full">
+    <input
+      type="date"
+      name="incidentDate"
+      value={formData.incidentDate}
+      onChange={handleChange}
+      className="w-full border rounded-xl mt-2 px-3 py-2.5 md:p-3"
+    />
+  </div>
 
-                </div>
+</div>
 
-                <div>
+               <div>
 
-                  <label className="text-sm md:text-base font-medium">
-                    Approximate Time
-                    <span className="text-gray-400 text-sm ml-2">
-                      (Optional)
-                    </span>
-                  </label>
+  <label className="text-sm md:text-base font-medium">
+    Approximate Time
+    <span className="text-gray-400 text-sm ml-2">
+      (Optional)
+    </span>
+  </label>
 
-                  <input
-                    type="time"
-                    name="incidentTime"
-                    value={formData.incidentTime}
-                    onChange={handleChange}
-                    className="w-full border rounded-xl mt-2 px-3 py-2.5 md:p-3"
-                  />
+  <div className="w-5/6 md:w-full">
+    <input
+      type="time"
+      name="incidentTime"
+      value={formData.incidentTime}
+      onChange={handleChange}
+      className="w-full border rounded-xl mt-2 px-3 py-2.5 md:p-3"
+    />
+  </div>
 
-                </div>
-
-              </div>
-
+</div>
               <div>
 
                 <label className="text-sm md:text-base font-medium">
