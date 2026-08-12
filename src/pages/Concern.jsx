@@ -203,25 +203,24 @@ function Concern() {
   return (
     <PublicLayout>
       <section className="bg-red-900 text-white">
-        <div className="max-w-7xl mx-auto px-6 py-16 min-h-[260px] flex flex-col justify-center">
-          <h1 className="text-3xl font-bold">
-            Submit a Concern
-          </h1>
+  <div className="max-w-7xl mx-auto px-6 py-10 md:py-8 min-h-[180px] md:min-h-[190px] flex flex-col justify-center">
+    <h1 className="text-3xl md:text-4xl font-bold">
+      Submit a Concern
+    </h1>
 
-          <p className="mt-5 max-w-2xl text-red-200 text-lg leading-8">
-            The Local Student Council is committed to handling all student concerns fairly, professionally, and confidentially. Please complete the form below. Fields marked with <span className="font-semibold text-red-200">*</span> are required.
-          </p>
-        </div>
-      </section>
+    <p className="mt-4 max-w-2xl text-red-200 text-base md:text-lg leading-7 md:leading-8">
+      Share your concern with the Local Student Council and help us improve student services and campus life.
+    </p>
+  </div>
+</section>
 
-      <div className="bg-gray-50 min-h-screen py-12">
+      <div className="bg-gray-50 min-h-screen pt-6 pb-10 md:pt-8 md:pb-12">
 
     <div className="max-w-5xl mx-auto px-5">
 
-      <div className="bg-white rounded-3xl shadow-sm p-8 md:p-12">
+      <div className="bg-white rounded-3xl shadow-sm p-5 sm:p-6 md:p-12">
 
-        <div className="mt-8 rounded-2xl border border-blue-200 bg-blue-50 p-6">
-
+        <div className="mt-2 md:mt-4 rounded-2xl border border-blue-200 bg-blue-50 p-6">
           <h2 className="font-semibold text-blue-900 text-lg">
             Confidentiality Notice
           </h2>
@@ -245,21 +244,21 @@ function Concern() {
               STUDENT INFORMATION
           ======================================================= */}
 
-          <section className="bg-white border rounded-2xl p-8">
+          <section className="bg-white border rounded-2xl p-5 sm:p-6 md:p-8">
 
-            <h2 className="text-2xl font-bold">
+            <h2 className="text-xl md:text-2xl font-bold">
               Student Information
             </h2>
 
-            <p className="text-gray-500 mt-2">
+            <p className="text-sm md:text-base text-gray-500 mt-2">
               Please provide your basic student information.
             </p>
 
-            <div className="grid md:grid-cols-2 gap-6 mt-8">
+            <div className="grid md:grid-cols-2 gap-5 mt-6 md:mt-8">
 
               <div>
 
-                <label className="font-medium">
+                <label className="text-sm md:text-base font-medium">
                   Full Name
                   <span className="text-red-600">
                     *
@@ -271,14 +270,14 @@ function Concern() {
                   name="fullName"
                   value={formData.fullName}
                   onChange={handleChange}
-                  className="w-full border rounded-xl mt-2 p-3"
+                  className="w-full border rounded-xl mt-2 px-3 py-2.5 md:p-3"
                 />
 
               </div>
 
               <div>
 
-                <label className="font-medium">
+                <label className="text-sm md:text-base font-medium">
                   Student Number
                   <span className="text-red-600">
                     *
@@ -290,14 +289,14 @@ function Concern() {
                   name="studentNumber"
                   value={formData.studentNumber}
                   onChange={handleChange}
-                  className="w-full border rounded-xl mt-2 p-3"
+                  className="w-full border rounded-xl mt-2 px-3 py-2.5 md:p-3"
                 />
 
               </div>
 
               <div>
 
-                <label className="font-medium">
+                <label className="text-sm md:text-base font-medium">
                   Email Address
                   <span className="text-red-600">
                     *
@@ -309,14 +308,14 @@ function Concern() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full border rounded-xl mt-2 p-3"
+                  className="w-full border rounded-xl mt-2 px-3 py-2.5 md:p-3"
                 />
 
               </div>
 
               <div>
 
-                <label className="font-medium">
+                <label className="text-sm md:text-base font-medium">
                   Course
                   <span className="text-red-600">
                     *
@@ -329,14 +328,14 @@ function Concern() {
                   value={formData.course}
                   onChange={handleChange}
                   placeholder="Example: BSIT"
-                  className="w-full border rounded-xl mt-2 p-3"
+                  className="w-full border rounded-xl mt-2 px-3 py-2.5 md:p-3"
                 />
 
               </div>
 
               <div>
 
-                <label className="font-medium">
+                <label className="text-sm md:text-base font-medium">
                   Year Level
                   <span className="text-red-600">
                     *
@@ -349,7 +348,7 @@ function Concern() {
                   value={formData.yearLevel}
                   onChange={handleChange}
                   placeholder="Example: 3rd Year"
-                  className="w-full border rounded-xl mt-2 p-3"
+                  className="w-full border rounded-xl mt-2 px-3 py-2.5 md:p-3"
                 />
 
               </div>
@@ -362,21 +361,21 @@ function Concern() {
               CONCERN DETAILS
           ======================================================= */}
 
-          <section className="bg-white border rounded-2xl p-8">
+          <section className="bg-white border rounded-2xl p-5 sm:p-6 md:p-8">
 
-            <h2 className="text-2xl font-bold">
+            <h2 className="text-xl md:text-2xl font-bold">
               Concern Details
             </h2>
 
-            <p className="text-gray-500 mt-2">
+            <p className="text-sm md:text-base text-gray-500 mt-2">
               Tell us about your concern. Please provide accurate and complete information.
             </p>
 
-            <div className="mt-8 space-y-6">
+            <div className="mt-6 md:mt-8 space-y-5 md:space-y-6">
 
               <div>
 
-                <label className="font-medium">
+                <label className="text-sm md:text-base font-medium">
                   Category
                   <span className="text-red-600">*</span>
                 </label>
@@ -385,7 +384,7 @@ function Concern() {
                   name="category"
                   value={formData.category}
                   onChange={handleChange}
-                  className="w-full border rounded-xl mt-2 p-3"
+                  className="w-full border rounded-xl mt-2 px-3 py-2.5 md:p-3"
                 >
                   <option value="">
                     Select Category
@@ -406,7 +405,7 @@ function Concern() {
 
               <div>
 
-                <label className="font-medium">
+                <label className="text-sm md:text-base font-medium">
                   Subject
                   <span className="text-red-600">*</span>
                 </label>
@@ -417,20 +416,20 @@ function Concern() {
                   value={formData.subject}
                   onChange={handleChange}
                   placeholder="Enter a short subject"
-                  className="w-full border rounded-xl mt-2 p-3"
+                  className="w-full border rounded-xl mt-2 px-3 py-2.5 md:p-3"
                 />
 
               </div>
 
               <div>
 
-                <label className="font-medium">
+                <label className="text-sm md:text-base font-medium">
                   Concern Details
                   <span className="text-red-600">*</span>
                 </label>
 
                 <textarea
-                  rows="7"
+                  rows={5}
                   name="concern"
                   value={formData.concern}
                   onChange={handleChange}
@@ -444,7 +443,7 @@ function Concern() {
 
                 <div>
 
-                  <label className="font-medium">
+                  <label className="text-sm md:text-base font-medium">
                     Date of Incident
                     <span className="text-gray-400 text-sm ml-2">
                       (Optional)
@@ -456,14 +455,14 @@ function Concern() {
                     name="incidentDate"
                     value={formData.incidentDate}
                     onChange={handleChange}
-                    className="w-full border rounded-xl mt-2 p-3"
+                    className="w-full border rounded-xl mt-2 px-3 py-2.5 md:p-3"
                   />
 
                 </div>
 
                 <div>
 
-                  <label className="font-medium">
+                  <label className="text-sm md:text-base font-medium">
                     Approximate Time
                     <span className="text-gray-400 text-sm ml-2">
                       (Optional)
@@ -475,7 +474,7 @@ function Concern() {
                     name="incidentTime"
                     value={formData.incidentTime}
                     onChange={handleChange}
-                    className="w-full border rounded-xl mt-2 p-3"
+                    className="w-full border rounded-xl mt-2 px-3 py-2.5 md:p-3"
                   />
 
                 </div>
@@ -484,7 +483,7 @@ function Concern() {
 
               <div>
 
-                <label className="font-medium">
+                <label className="text-sm md:text-base font-medium">
                   Supporting Evidence
                   <span className="text-gray-400 text-sm ml-2">
                     (Optional)
@@ -497,7 +496,7 @@ function Concern() {
                   value={formData.supportingEvidence}
                   onChange={handleChange}
                   placeholder="Google Drive link or other accessible link"
-                  className="w-full border rounded-xl mt-2 p-3"
+                  className="w-full border rounded-xl mt-2 px-3 py-2.5 md:p-3"
                 />
 
                 <p className="text-sm text-gray-500 mt-2">
@@ -515,21 +514,21 @@ function Concern() {
               CONTACT INFORMATION
           ======================================================= */}
 
-          <section className="bg-white border rounded-2xl p-8">
+          <section className="bg-white border rounded-2xl p-5 sm:p-6 md:p-8">
 
-            <h2 className="text-2xl font-bold">
+            <h2 className="text-xl md:text-2xl font-bold">
               Contact Information
             </h2>
 
-            <p className="text-gray-500 mt-2">
+            <p className="text-sm md:text-base text-gray-500 mt-2">
               Your email address will be used to send updates regarding your concern.
             </p>
 
-            <div className="mt-8 space-y-6">
+            <div className="mt-6 md:mt-8 space-y-5 md:space-y-6">
 
               <div>
 
-                <label className="font-medium">
+                <label className="text-sm md:text-base font-medium">
                   Other Contact Method
                 </label>
 
@@ -537,7 +536,7 @@ function Concern() {
                   name="otherContactType"
                   value={formData.otherContactType}
                   onChange={handleChange}
-                  className="w-full border rounded-xl mt-2 p-3"
+                  className="w-full border rounded-xl mt-2 px-3 py-2.5 md:p-3"
                 >
                   <option>None</option>
                   <option>Facebook Messenger</option>
@@ -550,7 +549,7 @@ function Concern() {
 
                 <div>
 
-                  <label className="font-medium">
+                  <label className="text-sm md:text-base font-medium">
 
                     {formData.otherContactType ===
                     "Facebook Messenger"
@@ -568,7 +567,7 @@ function Concern() {
                     name="otherContact"
                     value={formData.otherContact}
                     onChange={handleChange}
-                    className="w-full border rounded-xl mt-2 p-3"
+                    className="w-full border rounded-xl mt-2 px-3 py-2.5 md:p-3"
                   />
 
                 </div>
@@ -583,13 +582,13 @@ function Concern() {
               PRIVACY PREFERENCE
           ======================================================= */}
 
-          <section className="bg-white border rounded-2xl p-8">
+          <section className="bg-white border rounded-2xl p-5 sm:p-6 md:p-8">
 
-            <h2 className="text-2xl font-bold">
+            <h2 className="text-xl md:text-2xl font-bold">
               Privacy Preference
             </h2>
 
-            <p className="text-gray-500 mt-2">
+            <p className="text-sm md:text-base text-gray-500 mt-2">
               Choose how your identity should be handled when your concern
               is forwarded to the appropriate office.
             </p>
@@ -663,9 +662,9 @@ function Concern() {
               AGREEMENTS
           ======================================================= */}
 
-          <section className="bg-white border rounded-2xl p-8">
+          <section className="bg-white border rounded-2xl p-5 sm:p-6 md:p-8">
 
-            <h2 className="text-2xl font-bold">
+            <h2 className="text-xl md:text-2xl font-bold">
               Agreements
             </h2>
 
@@ -710,7 +709,7 @@ function Concern() {
 
           </section>
 
-            <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
+            <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5 md:p-6">
 
   <h3 className="font-semibold text-amber-900">
     Response Time
@@ -726,11 +725,11 @@ function Concern() {
 
 </div>
 
-          <div className="flex justify-end">
+          <div className="flex justify-center md:justify-end">
 
             <button
               type="submit"
-              className="bg-red-700 hover:bg-red-800 text-white px-8 py-4 rounded-xl font-semibold transition"
+              className="w-full md:w-auto bg-red-700 hover:bg-red-800 text-white px-8 py-3 rounded-xl font-semibold transition"
             >
               Submit Concern
             </button>
@@ -756,7 +755,7 @@ function Concern() {
 
           <div className="bg-white rounded-3xl shadow-xl w-full max-w-lg p-8">
 
-            <h2 className="text-2xl font-bold">
+            <h2 className="text-xl md:text-2xl font-bold">
               Submit Concern?
             </h2>
 

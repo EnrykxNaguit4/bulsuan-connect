@@ -25,7 +25,7 @@ function LatestAnnouncements() {
     <section className="relative bg-slate-50 py-4 overflow-hidden">
       <div className="pointer-events-none absolute inset-x-5 top-5 bottom-5 rounded-[2.5rem] bg-slate-900/10 blur-2xl" />
       <div className="relative z-10 max-w-7xl mx-auto">
-        <div className="rounded-[2.5rem] bg-white p-10 shadow-[0_30px_100px_-40px_rgba(15,23,42,0.20)] ring-1 ring-gray-200/50">
+        <div className="rounded-[2rem] bg-white p-5 sm:p-8 md:p-10 shadow-[0_30px_100px_-40px_rgba(15,23,42,0.20)] ring-1 ring-gray-200/50">
           <HomeSectionHeader
             title="Latest Announcements"
             subtitle="Stay updated with the latest announcements from the Local Student Council."
@@ -33,7 +33,7 @@ function LatestAnnouncements() {
             buttonLink="/announcements"
           />
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid gap-4 sm:gap-6 md:grid-cols-3 md:gap-8">
             {announcements.slice(0, 3).map((announcement) => (
               <div
                 key={announcement.id}
@@ -43,7 +43,7 @@ function LatestAnnouncements() {
                     <img
                       src={announcement.image}
                       alt={announcement.title}
-                      className="w-full h-52 object-cover"
+                      className="w-full h-40 sm:h-48 md:h-52 object-cover"
                     />
                   ) : (
                     <div className="w-full h-52 bg-gray-200 flex flex-col items-center justify-center text-gray-500">
@@ -52,16 +52,16 @@ function LatestAnnouncements() {
                     </div>
                   )}
 
-                  <div className="p-5">
+                  <div className="p-4 sm:p-5">
                     <p className="text-sm text-gray-500">
                       {announcement.date}
                     </p>
 
-                    <h3 className="mt-2 text-xl font-bold">
+                    <h3 className="mt-2 text-lg sm:text-xl font-bold">
                       {announcement.title}
                     </h3>
 
-                    <p className="mt-3 text-gray-600 line-clamp-3">
+                    <p className="mt-2 text-sm sm:text-base text-gray-600 line-clamp-2 sm:line-clamp-3">
                       {announcement.description}
                     </p>
 

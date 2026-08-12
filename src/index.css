@@ -56,3 +56,26 @@ body {
 .hero-swiper .swiper-pagination-bullet-active {
   background: #ffffff;
 }
+
+@media (max-width: 768px) {
+
+  .hero-swiper {
+    --swiper-navigation-size: 0.9rem;
+  }
+
+  .hero-swiper .swiper-button-prev,
+  .hero-swiper .swiper-button-next {
+    width: 32px;
+    height: 32px;
+    color: #fff;
+  }
+
+  .hero-swiper .swiper-button-prev {
+    left: 8px;
+  }
+
+  .hero-swiper .swiper-button-next {
+    right: 8px;
+  }
+
+}

@@ -55,23 +55,18 @@ function Contact() {
       {/* HERO */}
 
       <section className="bg-red-900 text-white">
+  <div className="max-w-7xl mx-auto px-6 py-10 md:py-8 min-h-[180px] md:min-h-[190px] flex flex-col justify-center">
+    <h1 className="text-3xl md:text-4xl font-bold">
+      Contact Us
+    </h1>
 
-        <div className="max-w-7xl mx-auto px-6 py-12 min-h-[240px] flex flex-col justify-center">
+    <p className="mt-4 max-w-2xl text-red-200 text-base md:text-lg leading-7 md:leading-8">
+      Get in touch with the Local Student Council through our official communication channels.
+    </p>
+  </div>
+</section>
 
-          <h1 className="text-3xl font-bold">
-            Contact Us
-          </h1>
-
-          <p className="mt-5 max-w-2xl text-red-200 text-lg leading-8">
-            Need assistance? We're here to help with your questions,
-            concerns, and student government services.
-          </p>
-
-        </div>
-
-      </section>
-
-      <section className="max-w-7xl mx-auto px-6 py-10">
+      <section className="max-w-7xl mx-auto px-6 py-8">
 
         {/* ABOUT */}
 
@@ -87,169 +82,217 @@ function Contact() {
 
         </div>
 
-        {/* NEED ASSISTANCE */}
+       {/* NEED ASSISTANCE */}
 
-        <div className="mb-12">
+<div className="mb-12">
 
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">
-            Need Assistance?
-          </h2>
+  <h2 className="text-3xl font-bold text-gray-900 mb-6">
+    Need Assistance?
+  </h2>
 
-          <div className="grid lg:grid-cols-2 gap-8">
+  <div className="grid grid-cols-2 lg:grid-cols-2 gap-4 md:gap-8">
 
-            {/* SUBMIT CONCERN */}
+    {/* SUBMIT CONCERN */}
 
-<div
-  className="
-    bg-white
-    rounded-2xl
-    p-8
-    border
-    border-gray-300/90
+    <Link
+      to="/concern"
+      className="
+        bg-white
+        rounded-2xl
 
-    shadow-sm
-    hover:shadow-lg
+        p-4
+        md:p-8
 
-    transition-all
-    duration-300
+        border
+        border-gray-300/90
 
-    hover:-translate-y-1
-  "
->
+        shadow-sm
+        hover:shadow-lg
 
-  <div
-    className="
-      w-14
-      h-14
+        transition-all
+        duration-300
 
-      rounded-2xl
+        hover:-translate-y-1
 
-      bg-red-100
+        flex
+        flex-col
 
-      flex
-      items-center
-      justify-center
+        items-center
+        md:items-start
 
-      mb-6
-    "
-  >
+        text-center
+        md:text-left
+      "
+    >
 
-    <ChatBubbleLeftRightIcon className="w-7 h-7 text-red-700" />
+      <div
+        className="
+          w-20 h-20
+          md:w-16 md:h-16
+
+          rounded-2xl
+
+          bg-red-100
+
+          flex
+          items-center
+          justify-center
+
+          mb-4
+          md:mb-6
+        "
+      >
+
+        <ChatBubbleLeftRightIcon
+          className="w-11 h-11 md:w-8 md:h-8 text-red-700"
+        />
+
+      </div>
+
+      <h3
+        className="
+          text-base
+          md:text-2xl
+
+          font-semibold
+          text-gray-900
+
+          mb-3
+        "
+      >
+        Submit a Concern
+      </h3>
+
+      <p className="hidden md:block text-gray-600 leading-7 mb-8">
+        Share your concerns, suggestions, or feedback with the student
+        government. We'll make sure your concern are heard.
+      </p>
+
+      <span
+        className="
+          hidden
+          md:inline-flex
+
+          items-center
+          justify-center
+
+          rounded-xl
+
+          bg-red-700
+
+          text-white
+          font-semibold
+
+          px-6
+          py-3
+        "
+      >
+        Submit Concern
+      </span>
+
+    </Link>
+
+    {/* TRACK CONCERN */}
+
+    <Link
+      to="/track-concern"
+      className="
+        bg-white
+        rounded-2xl
+
+        p-4
+        md:p-8
+
+        border
+        border-gray-300/90
+
+        shadow-sm
+        hover:shadow-lg
+
+        transition-all
+        duration-300
+
+        hover:-translate-y-1
+
+        flex
+        flex-col
+
+        items-center
+        md:items-start
+
+        text-center
+        md:text-left
+      "
+    >
+
+      <div
+        className="
+          w-20 h-20
+          md:w-16 md:h-16
+
+          rounded-2xl
+
+          bg-blue-100
+
+          flex
+          items-center
+          justify-center
+
+          mb-4
+          md:mb-6
+        "
+      >
+
+        <MagnifyingGlassCircleIcon
+          className="w-11 h-11 md:w-8 md:h-8 text-blue-700"
+        />
+
+      </div>
+
+      <h3
+        className="
+          text-base
+          md:text-2xl
+
+          font-semibold
+          text-gray-900
+
+          mb-3
+        "
+      >
+        Track a Concern
+      </h3>
+
+      <p className="hidden md:block text-gray-600 leading-7 mb-8">
+        Already submitted a concern? Use your reference number to check its
+        latest status and monitor any updates.
+      </p>
+
+      <span
+        className="
+          hidden
+          md:inline-flex
+
+          items-center
+          justify-center
+
+          rounded-xl
+
+          bg-blue-600
+
+          text-white
+          font-semibold
+
+          px-6
+          py-3
+        "
+      >
+        Track Concern
+      </span>
+
+    </Link>
 
   </div>
-
-  <h3 className="text-2xl font-semibold text-gray-900 mb-3">
-    Submit a Concern
-  </h3>
-
-  <p className="text-gray-600 leading-7 mb-8">
-    Share your concerns, suggestions, or feedback with the student
-    government. We'll make sure your concern reaches the appropriate office.
-  </p>
-
-  <Link
-    to="/concern"
-    className="
-      inline-flex
-      items-center
-      justify-center
-
-      rounded-xl
-
-      bg-red-700
-      hover:bg-red-800
-
-      text-white
-      font-semibold
-
-      px-6
-      py-3
-
-      transition
-    "
-  >
-    Submit Concern
-  </Link>
-
-</div>
-
-{/* TRACK CONCERN */}
-
-<div
-  className="
-    bg-white
-    rounded-2xl
-    p-8
-    border
-    border-gray-300/90
-
-    shadow-sm
-    hover:shadow-lg
-
-    transition-all
-    duration-300
-
-    hover:-translate-y-1
-  "
->
-
-  <div
-    className="
-      w-14
-      h-14
-
-      rounded-2xl
-
-      bg-blue-100
-
-      flex
-      items-center
-      justify-center
-
-      mb-6
-    "
-  >
-
-    <MagnifyingGlassCircleIcon className="w-7 h-7 text-blue-700" />
-
-  </div>
-
-  <h3 className="text-2xl font-semibold text-gray-900 mb-3">
-    Track a Concern
-  </h3>
-
-  <p className="text-gray-600 leading-7 mb-8">
-    Already submitted a concern? Use your reference number to check its
-    latest status and monitor any updates.
-  </p>
-
-  <Link
-    to="/track-concern"
-    className="
-      inline-flex
-      items-center
-      justify-center
-
-      rounded-xl
-
-      bg-blue-600
-      hover:bg-blue-700
-
-      text-white
-      font-semibold
-
-      px-6
-      py-3
-
-      transition
-    "
-  >
-    Track Concern
-  </Link>
-
-</div>
-
-</div>
 
 </div>
 

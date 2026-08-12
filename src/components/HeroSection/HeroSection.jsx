@@ -129,7 +129,17 @@ function HeroSection() {
 
           <SwiperSlide key={slide.id}>
 
-            <div className="relative h-[460px] sm:h-[500px] md:h-[520px]">
+            <div
+  className="
+    relative
+
+    aspect-[13/9]
+sm:aspect-[18/8]
+
+md:aspect-auto
+md:h-[520px]
+  "
+>
 
               <img
                 src={
@@ -143,68 +153,72 @@ function HeroSection() {
               <div className="absolute inset-0 bg-black/60" />
 
               <div
-                className="
-                  relative
-                  z-10
+  className="
+    relative
+    z-10
 
-                  flex
-                  items-end
-                  md:items-center
+    flex
+    items-center
 
-                  h-full
-                "
-              >
+    h-full
+
+    px-2
+  "
+>
 
                 <div
-                  className="
-                    w-full
-                    max-w-3xl
+                 className="
+    w-full
+    max-w-5xl
 
-px-7
-sm:px-10
-md:pl-16
-md:pr-8
+    px-7
+    sm:px-10
+    md:pl-16
+    md:pr-10
 
-                    py-8
-md:pt-12
-md:pb-0
+    pt-10
+    pb-12
+    sm:py-8
+    md:py-0
 
-                    text-white
-                  "
+    text-white
+"
                 >
 
                   {/* Badge */}
 
                   <span
                     className="
-                      inline-flex
-                      items-center
-                      gap-2
+  inline-flex
+  items-center
+  gap-1.5
 
-                      rounded-full
+  rounded-full
 
-                      bg-red-700
+  bg-red-700
 
-                      px-4
-                      py-2
+  px-2.5
+  py-1
 
-                      text-xs
-                      sm:text-sm
+  text-[10px]
+  sm:px-4
+  sm:py-2
+  sm:text-sm
 
-                      font-semibold
+  font-semibold
 
-                      shadow-lg
-                    "
+  shadow-lg
+"
                   >
 
                     {isAnnouncement ? (
                       <>
-                        <FaBullhorn />
+                        <FaBullhorn className="text-xs sm:text-sm" />
                         Announcement
                       </>
                     ) : (
                       <>
-                        <FaCalendarAlt />
+                        <FaCalendarAlt className="text-xs sm:text-sm" />
                         Event
                       </>
                     )}
@@ -215,16 +229,19 @@ md:pb-0
 
                   <h1
                     className="
-                      mt-5
+    mt-3
 
-                      text-3xl
-                      sm:text-4xl
-                      lg:text-5xl
+    text-xl
+    sm:text-4xl
+    lg:text-5xl
 
-                      font-bold
+    font-bold
 
-                      leading-tight
-                    "
+    leading-tight
+
+    line-clamp-2
+    sm:line-clamp-none
+  "
                   >
                     {slide.title}
                   </h1>
@@ -232,21 +249,23 @@ md:pb-0
                   {/* Description */}
 
                   <p
-                    className="
-                      mt-5
+  className="
+    mt-2
 
-                      max-w-2xl
+    max-w-3xl
 
-                      text-sm
-                      sm:text-base
-                      lg:text-lg
+    text-xs
+    sm:text-base
+    lg:text-lg
 
-                      leading-7
+  leading-5
+  sm:leading-7
 
-                      text-gray-100
+  text-gray-100
 
-                      line-clamp-2
-                    "
+  line-clamp-2
+  sm:line-clamp-2
+"
                   >
                     {slide.description}
                   </p>
@@ -254,32 +273,33 @@ md:pb-0
 
                     <div
                       className="
-                        mt-7
+                        mt-5
 
                         space-y-1
-
-                        text-sm
-                        sm:text-base
+text-[11px]
+sm:text-sm
+md:text-base
 
                         text-gray-100
                       "
                     >
 
-                      <div className="flex items-center gap-3">
-                        <FaCalendarAlt className="text-white shrink-0" />
-                        <span className="font-semibold">Date:</span>
-                        <span>{slide.date}</span>
-                      </div>
+                      <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm sm:text-base">
 
-                      <div className="flex items-center gap-3">
-                        <FaClock className="text-white shrink-0" />
-                        <span className="font-semibold">Time:</span>
-                        <span>
-                          {slide.startTime} - {slide.endTime}
-                        </span>
-                      </div>
+  <div className="flex items-center gap-2">
+    <FaCalendarAlt className="text-white" />
+    <span>{slide.date}</span>
+  </div>
 
-                      <div className="flex items-center gap-3">
+  <div className="flex items-center gap-2">
+    <FaClock className="text-white" />
+    <span>
+      {slide.startTime} - {slide.endTime}
+    </span>
+  </div>
+
+</div>
+                      <div className="flex items-center gap-2">
                         <FaMapMarkerAlt className="text-white shrink-0" />
                         <span className="font-semibold">Venue:</span>
                         <span>{slide.venue}</span>
@@ -291,7 +311,7 @@ md:pb-0
 
                     <div className="mt-7">
 
-                      <div className="flex items-center gap-3 text-sm sm:text-base text-gray-100">
+                      <div className="flex items-center gap-2 text-sm sm:text-base text-gray-100">
 
                         <FaCalendarAlt className="text-white shrink-0" />
 
@@ -305,7 +325,7 @@ md:pb-0
 
                   {/* Button */}
 
-                  <div className="mt-5 md:mt-6">
+                  <div className="mt-2 md:mt-6">
 
                     <Link
                       to={destination}
@@ -314,15 +334,18 @@ md:pb-0
                         items-center
                         gap-2
 
-                        rounded-xl
+                        rounded-lg md:rounded-xl
 
                         bg-red-700
 
-                        px-6
-                        py-3
+                      px-3
+sm:px-6
 
-                        text-sm
-                        sm:text-base
+py-1.5
+sm:py-3
+
+text-[11px]
+sm:text-base
 
                         font-semibold
 
@@ -337,9 +360,9 @@ md:pb-0
                       Read More
 
                       <FaArrowRight
-                        className="text-sm"
-                        aria-hidden="true"
-                      />
+  className="text-[10px] sm:text-sm"
+  aria-hidden="true"
+/>
 
                     </Link>
 

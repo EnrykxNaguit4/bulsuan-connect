@@ -38,53 +38,66 @@ function EventDetails() {
 
   return (
     <PublicLayout>
-      <section className="max-w-5xl mx-auto py-16 px-4">
 
-        {event.image && (
-          <img
-            src={event.image}
-            alt={event.title}
-            className="w-full h-[450px] object-cover rounded-2xl shadow-md"
-          />
-        )}
+<section className="bg-slate-50 pt-6 pb-13 md:pb-16">
 
-        <div className="mt-10">
+    <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">
 
-          <p className="flex items-center gap-3 text-red-700 font-semibold">
-            <FaCalendarAlt />
-            {event.date}
-          </p>
+      {event.image && (
+        <img
+          src={event.image}
+          alt={event.title}
+          className="
+            w-full
+            max-h-[500px]
+            object-cover
 
-          <p className="flex items-center gap-3 text-gray-600 mt-2">
-            <FaClock />
-            {event.startTime} - {event.endTime}
-          </p>
+            md:max-h-[500px]
+            max-h-[240px]
+          "
+        />
+      )}
 
-          <p className="flex items-center gap-3 text-gray-600 mt-2">
-            <FaMapMarkerAlt />
-            {event.venue}
-          </p>
+      <div className="p-6 md:p-10">
 
-          <h1 className="text-5xl font-bold mt-6">
-            {event.title}
-          </h1>
+        <p className="flex items-center gap-3 text-red-700 font-semibold">
+          <FaCalendarAlt />
+          {event.date}
+        </p>
 
-          <p className="mt-8 text-lg leading-8 text-gray-700 whitespace-pre-line">
-            {event.description}
-          </p>
+        <p className="flex items-center gap-3 text-gray-600 mt-2">
+          <FaClock />
+          {event.startTime} - {event.endTime}
+        </p>
 
-          <Link
-            to="/events"
-            className="inline-flex items-center gap-2 mt-10 bg-red-700 hover:bg-red-800 text-white px-6 py-3 rounded-xl transition"
-          >
-            <FaArrowLeft aria-hidden="true" />
-            Back to Events
-          </Link>
+        <p className="flex items-center gap-3 text-gray-600 mt-2">
+          <FaMapMarkerAlt />
+          {event.venue}
+        </p>
 
-        </div>
+        <h1 className="text-3xl md:text-5xl font-bold mt-6">
+          {event.title}
+        </h1>
 
-      </section>
-    </PublicLayout>
+        <p className="mt-8 text-base md:text-lg leading-8 text-gray-700 whitespace-pre-line">
+          {event.description}
+        </p>
+
+        <Link
+          to="/events"
+          className="inline-flex items-center gap-2 mt-10 bg-red-700 hover:bg-red-800 text-white px-6 py-3 rounded-xl transition"
+        >
+          <FaArrowLeft />
+          Back to Events
+        </Link>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</PublicLayout>
   );
 }
 

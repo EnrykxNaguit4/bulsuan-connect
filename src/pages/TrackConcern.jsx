@@ -72,16 +72,16 @@ function TrackConcern() {
   return (
     <PublicLayout>
       <section className="bg-red-900 text-white">
-        <div className="max-w-7xl mx-auto px-6 py-12">
-          <h1 className="text-3xl font-bold">
-            Track Your Concern
-          </h1>
+  <div className="max-w-7xl mx-auto px-6 py-6 md:py-8 min-h-[180px] md:min-h-[190px] flex flex-col justify-center">
+    <h1 className="text-3xl md:text-4xl font-bold">
+      Track Your Concern
+    </h1>
 
-          <p className="mt-5 max-w-2xl text-red-200 text-lg leading-8">
-            Enter your reference number and student number to check the latest progress of your submitted concern.
-          </p>
-        </div>
-      </section>
+    <p className="mt-4 max-w-2xl text-red-200 text-base md:text-lg leading-7 md:leading-8">
+      Enter your reference number and student number to check the latest progress of your submitted concern.
+    </p>
+  </div>
+</section>
 
       <section className="max-w-3xl mx-auto py-12 px-4">
 
@@ -126,7 +126,7 @@ function TrackConcern() {
                 <input
                   type="text"
                   value={studentNumber}
-                  placeholder="e.g. 2023-12345"
+                  placeholder="e.g. 2023600***"
                   onChange={(e) =>
                     setStudentNumber(e.target.value)
                   }

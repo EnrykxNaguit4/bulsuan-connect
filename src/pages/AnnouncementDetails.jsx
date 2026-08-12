@@ -40,7 +40,7 @@ function AnnouncementDetails() {
   return (
     <PublicLayout>
 
-      <section className="min-h-screen bg-slate-50 py-16">
+  <section className="bg-slate-50 pt-6 pb-13 md:pb-16">
 
         <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden">
 

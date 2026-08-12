@@ -65,18 +65,18 @@ function FAQ() {
       {/* HERO */}
 
       <section className="bg-red-900 text-white">
-        <div className="max-w-7xl mx-auto px-6 py-12 min-h-[240px] flex flex-col justify-center">
-          <h1 className="text-3xl font-bold">
+        <div className="max-w-7xl mx-auto px-6 py-10 md:py-8 min-h-[180px] md:min-h-[190px] flex flex-col justify-center">
+          <h1 className="text-3xl md:text-4xl font-bold">
             FAQs
           </h1>
 
-          <p className="mt-5 max-w-2xl text-red-200 text-lg leading-8">
+          <p className="mt-4 max-w-2xl text-red-200 text-base md:text-lg leading-7 md:leading-8">
             Find answers to common questions about BulSUan Connect and the services provided by the Local Student Council.
           </p>
         </div>
       </section>
 
-      <section className="max-w-5xl mx-auto px-6 py-14">
+      <section className="max-w-5xl mx-auto px-6 pt-6 pb-14">
 
         {/* SEARCH */}
 
@@ -229,27 +229,44 @@ function FAQ() {
 
         <div
           className="
-            mt-16
+  mt-14
 
-            rounded-3xl
+  rounded-3xl
 
-            bg-gradient-to-r
-            from-red-700
-            to-red-800
+  bg-gradient-to-r
+  from-red-700
+  to-red-800
 
-            px-10
-            py-12
+  px-6
+  py-8
 
-            text-center
-            text-white
-          "
+  md:px-10
+  md:py-12
+
+  text-center
+  text-white
+"
         >
 
-          <h2 className="text-3xl font-bold">
+          <h2 className="text-2xl md:text-3xl font-bold">
             Still need help?
           </h2>
 
-          <p className="mt-4 max-w-2xl mx-auto text-red-100 leading-8">
+          <p className="
+mt-3
+md:mt-4
+
+max-w-2xl
+mx-auto
+
+text-sm
+md:text-base
+
+text-red-100
+
+leading-6
+md:leading-8
+">
             If you couldn't find the answer you're looking for, our Local
             Student Council is ready to assist you. Reach out to us or submit
             your concern through BulSUan Connect.
@@ -257,40 +274,48 @@ function FAQ() {
 
           <div
             className="
-              mt-8
+mt-6
+md:mt-8
 
-              flex
-              flex-col
-              sm:flex-row
+flex
+flex-col
+sm:flex-row
 
-              justify-center
+justify-center
 
-              gap-4
-            "
+gap-3
+md:gap-4
+"
           >
 
             <Link
               to="/contact"
               className="
-                inline-flex
-                items-center
-                justify-center
+inline-flex
+items-center
+justify-center
 
-                rounded-xl
+w-full
+sm:w-auto
 
-                bg-white
+rounded-xl
 
-                px-7
-                py-3
+bg-white
 
-                font-semibold
+px-6
+py-3
 
-                text-red-700
+text-sm
+md:text-base
 
-                transition
+font-semibold
 
-                hover:bg-gray-100
-              "
+text-red-700
+
+transition
+
+hover:bg-gray-100
+"
             >
               Contact Us
             </Link>
@@ -298,27 +323,33 @@ function FAQ() {
             <Link
               to="/concern"
               className="
-                inline-flex
-                items-center
-                justify-center
+inline-flex
+items-center
+justify-center
 
-                rounded-xl
+w-full
+sm:w-auto
 
-                border
-                border-white
+rounded-xl
 
-                px-7
-                py-3
+border
+border-white
 
-                font-semibold
+px-6
+py-3
 
-                text-white
+text-sm
+md:text-base
 
-                transition
+font-semibold
 
-                hover:bg-white
-                hover:text-red-700
-              "
+text-white
+
+transition
+
+hover:bg-white
+hover:text-red-700
+"
             >
               Submit a Concern
             </Link>

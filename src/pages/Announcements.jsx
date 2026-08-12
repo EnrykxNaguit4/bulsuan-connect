@@ -28,18 +28,18 @@ function Announcements() {
     <PublicLayout>
 
       <section className="bg-red-900 text-white">
-        <div className="max-w-7xl mx-auto px-6 py-12 min-h-[240px] flex flex-col justify-center">
-          <h1 className="text-3xl font-bold">
-            Announcements
-          </h1>
+  <div className="max-w-7xl mx-auto px-6 py-10 md:py-8 min-h-[180px] md:min-h-[190px] flex flex-col justify-center">
+    <h1 className="text-3xl md:text-4xl font-bold">
+      Announcements
+    </h1>
 
-          <p className="mt-5 max-w-2xl text-red-200 text-lg leading-8">
-            Stay updated with the latest announcements from the Local Student Council.
-          </p>
-        </div>
-      </section>
+    <p className="mt-4 max-w-2xl text-red-200 text-base md:text-lg leading-7 md:leading-8">
+      Stay informed with the latest announcements, advisories, and updates from the Local Student Council.
+    </p>
+  </div>
+</section>
 
-      <section className="min-h-screen bg-slate-50 py-10">
+      <section className="min-h-screen bg-slate-50 py-8">
 
         <div className="max-w-7xl mx-auto px-4">
 
