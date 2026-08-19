@@ -63,8 +63,7 @@ function Concern() {
 
     disclosurePreference: "Confidential",
 
-    dataPrivacyConsent: false,
-    goodFaithDeclaration: false,
+    consentAcknowledgement: false,
   });
 
   const [showConfirmModal, setShowConfirmModal] =
@@ -120,25 +119,12 @@ function Concern() {
 
     }
 
-    if (!formData.dataPrivacyConsent) {
-
-      toast.error(
-        "You must agree to the Data Privacy Consent."
-      );
-
-      return false;
-
-    }
-
-    if (!formData.goodFaithDeclaration) {
-
-      toast.error(
-        "You must agree to the Good Faith Declaration."
-      );
-
-      return false;
-
-    }
+   if (!formData.consentAcknowledgement) {
+  toast.error(
+    "Please agree to the consent and acknowledgement before submitting."
+  );
+  return false;
+}
 
     if (
       formData.otherContactType !== "None" &&
@@ -205,8 +191,7 @@ function Concern() {
 
         disclosurePreference: "Confidential",
 
-        dataPrivacyConsent: false,
-        goodFaithDeclaration: false,
+        consentAcknowledgement: false,
 
       });
 
@@ -238,7 +223,7 @@ function Concern() {
           </h1>
 
           <p className="mt-4 max-w-2xl text-[#FAEAEA] text-base md:text-lg leading-7 md:leading-8">
-            Share your concern with the Local Student Council and help us improve student services and campus life.
+           We want to hear what matters to you and help address concerns that affect your student experience.
           </p>
 
         </div>
@@ -255,19 +240,23 @@ function Concern() {
                 CONFIDENTIALITY NOTICE
             ====================================================== */}
 
-            <div className="mt-0 md:mt-2 rounded-2xl border border-[#9A1C27]/30 bg-[#FAEAEA] p-5 md:p-6">
+            <div className="mt-3 md:mt-6 rounded-2xl border border-[#9A1C27]/30 bg-[#FAEAEA]/35 p-5 md:p-6">
 
               <h2 className="font-semibold text-[#5E1017] text-lg">
-                Confidentiality Notice
+                Data Privacy Notice
               </h2>
 
               <p className="mt-3 text-[#5E1017] leading-7">
-                Your identity will be handled according to your selected
-                <strong> Confidentiality Preference</strong>. If you choose
-                <strong> Confidential</strong>, your identity will only be accessible
-                to authorized members of the Local Student Council and will not be
-                disclosed when your concern is forwarded, except when disclosure is
-                required or necessary for the proper resolution of the concern.
+                Your privacy matters to us. Any personal information you share 
+                through this form will be used only by the CSSP LSC to understand 
+                and properly address your grievances, requests for assistance, 
+                concerns, and other student-related matters. In accordance with 
+                the <strong>Data Privacy Act of 2012 (RA 10173)</strong>, your information will 
+                be kept secure and accessed only by authorized individuals when 
+                necessary to assist you. Once your concern has been resolved 
+                and your information is no longer needed, the corresponding 
+                records will be securely deleted or disposed of, unless 
+                retention is required by law.
               </p>
 
             </div>
@@ -960,58 +949,41 @@ function Concern() {
 
               <section className="bg-white border border-gray-200 rounded-2xl p-5 sm:p-6 md:p-8">
 
-                <h2 className="text-xl md:text-2xl font-bold text-[#5E1017]">
-                  Consent and Acknowledgement
-                </h2>
+  <h2 className="text-xl md:text-2xl font-bold text-[#5E1017]">
+    Consent and Acknowledgement
+  </h2>
 
-                <div className="space-y-6 mt-8">
+  <div className="mt-8">
 
-                  <label className="flex items-start gap-4 cursor-pointer">
+    <label className="flex items-start gap-4 cursor-pointer">
 
-                    <input
-                      type="checkbox"
-                      name="dataPrivacyConsent"
-                      checked={formData.dataPrivacyConsent}
-                      onChange={handleChange}
-                      className="mt-1 accent-[#9A1C27]"
-                    />
+      <input
+        type="checkbox"
+        name="consentAcknowledgement"
+        checked={formData.consentAcknowledgement}
+        onChange={handleChange}
+        className="mt-1 accent-[#9A1C27]"
+      />
 
-                    <p className="text-gray-700 leading-7">
-                      I consent to the collection, processing, and storing of
-                      my personal information for the purpose of addressing
-                      this concern in accordance with applicable data privacy
-                      laws (Data Privacy Act of 2012).
-                    </p>
+      <p className="text-gray-700 leading-7">
+        I consent to the collection, processing, and storing of my personal
+        information for the purpose of addressing this concern in accordance
+        with applicable data privacy laws, including the Data Privacy Act of
+        2012. I also affirm that the information I have provided is true and
+        accurate to the best of my knowledge and is submitted in good faith.
+      </p>
 
-                  </label>
+    </label>
 
-                  <label className="flex items-start gap-4 cursor-pointer">
+  </div>
 
-                    <input
-                      type="checkbox"
-                      name="goodFaithDeclaration"
-                      checked={formData.goodFaithDeclaration}
-                      onChange={handleChange}
-                      className="mt-1 accent-[#9A1C27]"
-                    />
-
-                    <p className="text-gray-700 leading-7">
-                      I also affirm that the information I have provided is
-                      true and accurate to the best of my knowledge and is
-                      submitted in good faith.
-                    </p>
-
-                  </label>
-
-                </div>
-
-              </section>
+</section>  
 
               {/* =====================================================
                   RESPONSE AND FOLLOW-UP
               ===================================================== */}
 
-              <div className="bg-[#FAEAEA] border border-[#9A1C27]/30 rounded-2xl p-5 md:p-6">
+              <div className="bg-[#FAEAEA]/35 border border-[#9A1C27]/30 rounded-2xl p-5 md:p-6">
 
                 <h3 className="font-semibold text-[#5E1017]">
                   Response and Follow-Up

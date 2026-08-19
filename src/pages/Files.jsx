@@ -44,14 +44,14 @@ function Files() {
   return (
     <PublicLayout>
 
-      <section className="bg-red-900 text-white">
+     <section className="bg-[#5E1017] text-white">
   <div className="max-w-7xl mx-auto px-6 py-10 md:py-8 min-h-[180px] md:min-h-[190px] flex flex-col justify-center">
     <h1 className="text-3xl md:text-4xl font-bold">
       Files
     </h1>
 
     <p className="mt-4 max-w-2xl text-red-200 text-base md:text-lg leading-7 md:leading-8">
-      Download official forms, memoranda, templates, and other documents published by the Local Student Council.
+     Access the official documents of student guidelines and policies that will empower you as a BulSUan.
     </p>
   </div>
 </section>
@@ -136,7 +136,7 @@ function Files() {
   href={getGoogleDrivePreview(file.url)}
   target="_blank"
   rel="noopener noreferrer"
-  className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-xl transition inline-flex items-center gap-2"
+  className="bg-[#9A1C27]/80 hover:bg-[#5E1017]/80 text-white px-5 py-2 rounded-xl transition inline-flex items-center gap-2"
 >
   <FaEye aria-hidden="true" />
   Preview
@@ -144,7 +144,7 @@ function Files() {
 
                   <a
   href={getGoogleDriveDownload(file.url)}
-  className="bg-red-700 hover:bg-red-800 text-white px-5 py-2 rounded-xl transition inline-flex items-center gap-2"
+  className="bg-[#9A1C27] hover:bg-[#5E1017] text-white px-5 py-2 rounded-xl transition inline-flex items-center gap-2"
 >
   <FaDownload aria-hidden="true" />
   Download

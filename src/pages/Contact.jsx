@@ -54,13 +54,13 @@ function Contact() {
 
       {/* HERO */}
 
-      <section className="bg-red-900 text-white">
+      <section className="bg-[#5E1017] text-white">
   <div className="max-w-7xl mx-auto px-6 py-10 md:py-8 min-h-[180px] md:min-h-[190px] flex flex-col justify-center">
     <h1 className="text-3xl md:text-4xl font-bold">
       Contact Us
     </h1>
 
-    <p className="mt-4 max-w-2xl text-red-200 text-base md:text-lg leading-7 md:leading-8">
+    <p className="mt-4 max-w-2xl text-[#FAEAEA] text-base md:text-lg leading-7 md:leading-8">
       Get in touch with the Local Student Council through our official communication channels.
     </p>
   </div>
@@ -72,7 +72,7 @@ function Contact() {
 
         <div className="mb-12">
 
-          <h2 className="text-3xl font-bold text-gray-900 mb-5">
+          <h2 className="text-3xl font-bold text-[#5E1017] mb-6">
             About
           </h2>
 
@@ -86,7 +86,7 @@ function Contact() {
 
 <div className="mb-12">
 
-  <h2 className="text-3xl font-bold text-gray-900 mb-6">
+  <h2 className="text-3xl font-bold text-[#5E1017] mb-6">
     Need Assistance?
   </h2>
 
@@ -104,10 +104,10 @@ function Contact() {
         md:p-8
 
         border
-        border-gray-300/90
+        border-[#9A1C27]/15
 
-        shadow-sm
-        hover:shadow-lg
+        shadow-[0_15px_40px_-25px_rgba(94,16,23,0.35)]
+hover:shadow-[0_20px_50px_-20px_rgba(94,16,23,0.40)]
 
         transition-all
         duration-300
@@ -132,7 +132,7 @@ function Contact() {
 
           rounded-2xl
 
-          bg-red-100
+          bg-[#FAEAEA]
 
           flex
           items-center
@@ -144,7 +144,7 @@ function Contact() {
       >
 
         <ChatBubbleLeftRightIcon
-          className="w-11 h-11 md:w-8 md:h-8 text-red-700"
+          className="w-11 h-11 md:w-8 md:h-8 text-[#9A1C27]"
         />
 
       </div>
@@ -152,10 +152,10 @@ function Contact() {
       <h3
         className="
           text-base
-          md:text-2xl
+          md:text-3xl
 
           font-semibold
-          text-gray-900
+          text-[#5E1017]
 
           mb-3
         "
@@ -178,11 +178,11 @@ function Contact() {
 
           rounded-xl
 
-          bg-red-700
+          bg-[#5E1017]
 
           text-white
           font-semibold
-
+hover:bg-[#9A1C27] transition
           px-6
           py-3
         "
@@ -204,10 +204,10 @@ function Contact() {
         md:p-8
 
         border
-        border-gray-300/90
+        border-[#9A1C27]/15
 
-        shadow-sm
-        hover:shadow-lg
+        shadow-[0_15px_40px_-25px_rgba(94,16,23,0.35)]
+hover:shadow-[0_20px_50px_-20px_rgba(94,16,23,0.40)]
 
         transition-all
         duration-300
@@ -232,7 +232,7 @@ function Contact() {
 
           rounded-2xl
 
-          bg-blue-100
+          bg-[#FAEAEA]
 
           flex
           items-center
@@ -244,24 +244,31 @@ function Contact() {
       >
 
         <MagnifyingGlassCircleIcon
-          className="w-11 h-11 md:w-8 md:h-8 text-blue-700"
-        />
+  className="w-14 h-14 md:w-10 md:h-9 text-[#9A1C27]"
+/>
 
       </div>
 
       <h3
-        className="
-          text-base
-          md:text-2xl
+  className="
+    text-base
+    md:text-3xl
+    font-semibold
+    text-[#5E1017]
+    mb-3
+    leading-tight
+  "
+>
+  <span className="md:hidden">
+    Track a
+    <br />
+    Concern
+  </span>
 
-          font-semibold
-          text-gray-900
-
-          mb-3
-        "
-      >
-        Track a Concern
-      </h3>
+  <span className="hidden md:inline">
+    Track a Concern
+  </span>
+</h3>
 
       <p className="hidden md:block text-gray-600 leading-7 mb-8">
         Already submitted a concern? Use your reference number to check its
@@ -278,11 +285,11 @@ function Contact() {
 
           rounded-xl
 
-          bg-blue-600
+          bg-[#9A1C27]
 
           text-white
           font-semibold
-
+hover:bg-[#5E1017]
           px-6
           py-3
         "
@@ -300,7 +307,7 @@ function Contact() {
 
 <div className="mb-12">
 
-  <h2 className="text-3xl font-bold text-gray-900 mb-6">
+  <h2 className="text-3xl font-bold text-[#5E1017] mb-6">
     Contact Information
   </h2>
 
@@ -326,7 +333,7 @@ function Contact() {
       "
     >
 
-      <h3 className="text-2xl font-semibold text-gray-900 mb-8">
+      <h3 className="text-2xl font-semibold text-[#5E1017] mb-8">
         Get in Touch
       </h3>
 
@@ -343,7 +350,7 @@ function Contact() {
 
               rounded-xl
 
-              bg-red-100
+              bg-[#FAEAEA]
 
               flex
               items-center
@@ -353,7 +360,7 @@ function Contact() {
             "
           >
 
-            <EnvelopeIcon className="w-6 h-6 text-red-700" />
+            <EnvelopeIcon className="w-6 h-6 text-[#9A1C27]" />
 
           </div>
 
@@ -369,7 +376,7 @@ function Contact() {
                 font-semibold
                 text-gray-800
 
-                hover:text-red-700
+                hover:text-[#9A1C27]
                 transition
               "
             >
@@ -391,7 +398,7 @@ function Contact() {
 
               rounded-xl
 
-              bg-green-100
+              bg-[#FAEAEA]
 
               flex
               items-center
@@ -401,7 +408,7 @@ function Contact() {
             "
           >
 
-            <PhoneIcon className="w-6 h-6 text-green-700" />
+            <PhoneIcon className="w-6 h-6 text-[#9A1C27]" />
 
           </div>
 
@@ -417,7 +424,7 @@ function Contact() {
                 font-semibold
                 text-gray-800
 
-                hover:text-red-700
+                hover:text-[#9A1C27]
                 transition
               "
             >
@@ -439,7 +446,7 @@ function Contact() {
 
               rounded-xl
 
-              bg-blue-100
+              bg-[#FAEAEA]
 
               flex
               items-center
@@ -449,7 +456,7 @@ function Contact() {
             "
           >
 
-            <ArrowTopRightOnSquareIcon className="w-6 h-6 text-blue-700" />
+            <ArrowTopRightOnSquareIcon className="w-6 h-6 text-[#9A1C27]" />
 
           </div>
 
@@ -466,7 +473,7 @@ function Contact() {
               className="
                 font-semibold
 
-                text-red-700
+                text-[#9A1C27]
                 hover:underline
               "
             >
@@ -501,7 +508,7 @@ function Contact() {
       "
     >
 
-      <h3 className="text-2xl font-semibold text-gray-900 mb-8">
+      <h3 className="text-2xl font-semibold text-[#5E1017] mb-8">
         Office Information
       </h3>
 
@@ -518,7 +525,7 @@ function Contact() {
 
               rounded-xl
 
-              bg-gray-100
+              bg-[#FAEAEA]
 
               flex
               items-center
@@ -528,7 +535,7 @@ function Contact() {
             "
           >
 
-            <BuildingOffice2Icon className="w-6 h-6 text-gray-700" />
+            <BuildingOffice2Icon className="w-6 h-6 text-[#9A1C27]" />
 
           </div>
 
@@ -557,7 +564,7 @@ function Contact() {
 
               rounded-xl
 
-              bg-red-100
+              bg-[#FAEAEA]
 
               flex
               items-center
@@ -567,7 +574,7 @@ function Contact() {
             "
           >
 
-            <MapPinIcon className="w-6 h-6 text-red-700" />
+            <MapPinIcon className="w-6 h-6 text-[#9A1C27]" />
 
           </div>
 
@@ -596,7 +603,7 @@ function Contact() {
 
               rounded-xl
 
-              bg-amber-100
+              bg-[#FAEAEA]
 
               flex
               items-center
@@ -606,7 +613,7 @@ function Contact() {
             "
           >
 
-            <ClockIcon className="w-6 h-6 text-amber-700" />
+            <ClockIcon className="w-6 h-6 text-[#9A1C27]" />
 
           </div>
 

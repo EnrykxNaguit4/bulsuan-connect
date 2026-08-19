@@ -10,7 +10,7 @@ function Home() {
           LOGO AREA
       ========================================================== */}
 
-      <section className="relative overflow-hidden bg-[#FAEAEA]">
+      <section className="relative overflow-hidden bg-white">
 
         {/* Animated decorative shapes */}
 
@@ -76,7 +76,7 @@ function Home() {
               "
             >
               <img
-                src="cssp lsc logo.png"
+                src="https://cdn.phototourl.com/free/2026-08-19-de319f57-aaab-4802-8cad-d2b5e33d1cef.png"
                 alt="CSSP Local Student Council Logo"
                 className="h-30 sm:h-28 md:h-50 w-auto object-contain"
               />
@@ -96,7 +96,7 @@ function Home() {
               "
             >
               <img
-                src="srw logo.png"
+                src="https://cdn.phototourl.com/free/2026-08-19-17173090-0d4a-4d1f-8a28-3b0c5ebaaee3.png"
                 alt="Students' Rights and Welfare Committee Logo"
                 className="h-30 sm:h-28 md:h-50 w-auto object-contain"
               />
@@ -126,7 +126,7 @@ function Home() {
             h-80
             w-80
             -translate-x-1/2
-            rounded-full
+            rounded-full 
             bg-[#FAEAEA]/80
             blur-3xl
             animate-[pulse_7s_ease-in-out_infinite]
@@ -177,7 +177,7 @@ function Home() {
                 rounded-3xl
                 border
                 border-[#9A1C27]/10
-                bg-[#FAEAEA]/55
+                bg-[#FAEAEA]/35
                 px-5
                 py-6
                 sm:px-7
@@ -407,7 +407,7 @@ function Home() {
                   text-center
                   min-h-[60px]
                   overflow-hidden
-                  bg-[#FAEAEA]
+                  bg-[#9A1C27]
                   border
                   border-[#9A1C27]/15
                   rounded-2xl
@@ -415,13 +415,13 @@ function Home() {
                   py-4
                   text-sm
                   sm:text-base
-                  text-[#5E1017]
+                  text-white
                   font-semibold
                   transition
                   duration-300
                   hover:-translate-y-0.5
                   hover:border-[#9A1C27]
-                  hover:bg-white
+                  hover:bg-[#5E1017]
                   hover:shadow-[0_12px_35px_-18px_rgba(94,16,23,0.45)]
                 "
               >
@@ -463,7 +463,7 @@ function Home() {
                   text-center
                   min-h-[60px]
                   overflow-hidden
-                  bg-[#FAEAEA]
+                  bg-[#9A1C27]
                   border
                   border-[#9A1C27]/15
                   rounded-2xl
@@ -471,13 +471,13 @@ function Home() {
                   py-4
                   text-sm
                   sm:text-base
-                  text-[#5E1017]
+                  text-white
                   font-semibold
                   transition
                   duration-300
                   hover:-translate-y-0.5
                   hover:border-[#9A1C27]
-                  hover:bg-white
+                  hover:bg-[#5E1017]
                   hover:shadow-[0_12px_35px_-18px_rgba(94,16,23,0.45)]
                 "
               >

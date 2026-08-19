@@ -177,8 +177,10 @@ function TrackConcernResult({
           mt-12
           border-2
           border-[#5E1017]
-          text-[#5E1017]
-          hover:bg-[#FAEAEA]
+          text-white
+          bg-[#9A1C27]
+          hover:bg-[#5E1017] 
+         
           rounded-xl
           py-4
           font-semibold

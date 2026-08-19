@@ -24,26 +24,27 @@ async function generateReferenceNumber() {
 
   const q = query(
     collection(db, "concerns"),
-    orderBy("referenceNumber", "desc")
+    orderBy("referenceNumber", "desc"),
+    limit(1)
   );
 
   const snapshot = await getDocs(q);
 
   if (snapshot.empty) {
-    return `LSC-${currentYear}-0001`;
+    return `CSSP-LSC-${currentYear}-0001`;
   }
 
   const latestReference =
     snapshot.docs[0].data().referenceNumber;
 
   const latestNumber = parseInt(
-    latestReference.split("-")[2],
+    latestReference.split("-")[3],
     10
   );
 
   const nextNumber = latestNumber + 1;
 
-  return `LSC-${currentYear}-${String(nextNumber).padStart(4, "0")}`;
+  return `CSSP-LSC-${currentYear}-${String(nextNumber).padStart(4, "0")}`;
 }
 
 /*

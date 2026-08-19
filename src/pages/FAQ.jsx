@@ -16,9 +16,9 @@ function FAQ() {
 
   const faqs = [
     {
-      question: "What is BulSUan Connect?",
+      question: "What is SANDIGAN Channel?",
       answer:
-        "BulSUan Connect is the official student council website for Bulacan State University. It provides announcements, events, downloadable files, and concern tracking services.",
+        "SANDIGAN Channel is the official website of the CSSP LSC - SRW Committee. It provides concern submission, access of official files, and concern tracking services.",
     },
     {
       question: "How do I submit a concern?",
@@ -30,11 +30,7 @@ function FAQ() {
       answer:
         "Go to the Track a Concern page and enter your reference number together with your student number to view the latest status of your concern.",
     },
-    {
-      question: "Where can I find announcements and events?",
-      answer:
-        "Announcements are available on the Announcements page, while upcoming activities and programs are posted on the Events page.",
-    },
+   
     {
       question: "How do I download official files?",
       answer:
@@ -64,7 +60,7 @@ function FAQ() {
 
       {/* HERO */}
 
-      <section className="bg-red-900 text-white">
+      <section className="bg-[#5E1017] text-white">
         <div className="max-w-7xl mx-auto px-6 py-10 md:py-8 min-h-[180px] md:min-h-[190px] flex flex-col justify-center">
           <h1 className="text-3xl md:text-4xl font-bold">
             FAQs
@@ -233,9 +229,7 @@ function FAQ() {
 
   rounded-3xl
 
-  bg-gradient-to-r
-  from-red-700
-  to-red-800
+  bg-[#5E1017]
 
   px-6
   py-8

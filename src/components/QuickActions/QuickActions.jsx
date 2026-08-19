@@ -26,8 +26,8 @@ const quickActions = [
     badge: "Track",
   },
   {
-    title: "Browse Files",
-    mobileTitle: "Files",
+    title: "Access Files",
+    mobileTitle: "Access",
     description:
       "Download official forms, memoranda, and documents published by the student council.",
     icon: FaFileAlt,
@@ -45,16 +45,16 @@ function QuickActions() {
       <div className="mb-6 sm:mb-8 text-center">
 
         <p className="text-xs sm:text-sm uppercase tracking-[0.3em] font-semibold text-[#9A1C27]">
-          Quick Actions
+          ACCESS
         </p>
 
         <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl font-bold text-[#5E1017]">
-          Access SANDIGAN services
+        SANDIGAN Services
         </h2>
 
         <p className="mt-2 max-w-2xl mx-auto text-sm sm:text-base text-gray-600 leading-7">
-          Submit or track a concern and access official student council
-          documents through these quick links.
+          Submit or track a concern and access the official documents
+          of student guidelines and policies through these quick actions.
         </p>
 
       </div>
