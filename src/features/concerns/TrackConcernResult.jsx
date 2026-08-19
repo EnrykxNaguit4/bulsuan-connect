@@ -8,7 +8,7 @@ function TrackConcernResult({
     if (!date) return "Not Available";
 
     const d =
-      typeof date.toDate === "function"
+      typeof date?.toDate === "function"
         ? date.toDate()
         : new Date(date);
 
@@ -24,13 +24,13 @@ function TrackConcernResult({
   function getStatusStyle(status) {
     switch (status) {
       case "Pending":
-        return "bg-yellow-100 text-yellow-800";
+        return "bg-[#FAEAEA] text-[#9A1C27]";
 
       case "In Progress":
-        return "bg-blue-100 text-blue-800";
+        return "bg-[#FAEAEA] text-[#9A1C27]";
 
       case "Resolved":
-        return "bg-green-100 text-green-800";
+        return "bg-[#5E1017] text-white";
 
       default:
         return "bg-gray-100 text-gray-700";
@@ -38,17 +38,20 @@ function TrackConcernResult({
   }
 
   return (
-    <div className="bg-white rounded-3xl shadow-lg border p-10">
+    <div className="bg-white rounded-3xl shadow-lg border border-[#9A1C27]/20 p-10">
 
       {/* Header */}
 
       <div className="text-center">
 
-        <div className="mx-auto inline-flex h-20 w-20 items-center justify-center rounded-full bg-green-100 text-green-700">
-          <CheckCircleIcon className="w-10 h-10" aria-hidden="true" />
+        <div className="mx-auto inline-flex h-20 w-20 items-center justify-center rounded-full bg-[#FAEAEA] text-[#9A1C27]">
+          <CheckCircleIcon
+            className="w-10 h-10"
+            aria-hidden="true"
+          />
         </div>
 
-        <h1 className="text-4xl font-bold mt-4">
+        <h1 className="text-4xl font-bold mt-4 text-[#5E1017]">
           Concern Found
         </h1>
 
@@ -69,7 +72,7 @@ function TrackConcernResult({
             Reference Number
           </p>
 
-          <p className="font-bold text-xl mt-2">
+          <p className="font-bold text-xl mt-2 text-[#9A1C27]">
             {concern.referenceNumber}
           </p>
 
@@ -94,11 +97,11 @@ function TrackConcernResult({
         <div>
 
           <p className="text-sm text-gray-500">
-            Category
+            Nature of Concern
           </p>
 
           <p className="font-semibold mt-2">
-            {concern.category}
+            {concern.natureOfConcern || "Not Available"}
           </p>
 
         </div>
@@ -110,7 +113,7 @@ function TrackConcernResult({
           </p>
 
           <p className="font-semibold mt-2">
-            {concern.subject}
+            {concern.subject || "Not Available"}
           </p>
 
         </div>
@@ -121,11 +124,11 @@ function TrackConcernResult({
 
       <div className="mt-10">
 
-        <h2 className="font-semibold text-lg">
+        <h2 className="font-semibold text-lg text-[#5E1017]">
           Latest Update
         </h2>
 
-        <div className="bg-gray-50 rounded-2xl p-6 mt-4 whitespace-pre-wrap leading-7">
+        <div className="bg-[#FAEAEA] border border-[#9A1C27]/10 rounded-2xl p-6 mt-4 whitespace-pre-wrap leading-7">
 
           {concern.statusRemarks
             ? concern.statusRemarks
@@ -169,7 +172,18 @@ function TrackConcernResult({
 
       <button
         onClick={onTrackAnother}
-        className="w-full mt-12 border-2 border--700 text-green-700 hover:bg-green-50 rounded-xl py-4 font-semibold transition"
+        className="
+          w-full
+          mt-12
+          border-2
+          border-[#5E1017]
+          text-[#5E1017]
+          hover:bg-[#FAEAEA]
+          rounded-xl
+          py-4
+          font-semibold
+          transition
+        "
       >
         Track Another Concern
       </button>

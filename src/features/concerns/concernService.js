@@ -64,16 +64,14 @@ export async function createConcern(data) {
     referenceNumber,
 
     status: "Pending",
+    statusRemarks: "",
 
-statusRemarks: "",
+    updatedBy: "",
 
-updatedBy: "",
+    createdAt: now,
+    lastUpdatedAt: now,
 
-createdAt: now,
-
-lastUpdatedAt: now,
-
-resolvedAt: null
+    resolvedAt: null,
   });
 
   return referenceNumber;
@@ -106,12 +104,30 @@ export async function getConcerns() {
 */
 
 export async function updateConcern(id, data) {
+  const updateData = {
+    ...data,
+    lastUpdatedAt: new Date(),
+  };
+
+  /*
+  |--------------------------------------------------------------------------
+  | Resolution Timestamp
+  |--------------------------------------------------------------------------
+  |
+  | When a concern becomes Resolved, record the current time.
+  | If it is moved away from Resolved, clear the resolution timestamp.
+  |
+  */
+
+  if (data.status === "Resolved") {
+    updateData.resolvedAt = new Date();
+  } else if (data.status) {
+    updateData.resolvedAt = null;
+  }
+
   await updateDoc(
     doc(db, "concerns", id),
-    {
-      ...data,
-      lastUpdatedAt: new Date(),
-    }
+    updateData
   );
 }
 
@@ -141,8 +157,13 @@ export async function getConcernCount() {
   return snapshot.size;
 }
 
-export async function getPendingConcernCount() {
+/*
+|--------------------------------------------------------------------------
+| Pending Concern Count
+|--------------------------------------------------------------------------
+*/
 
+export async function getPendingConcernCount() {
   const q = query(
     collection(db, "concerns"),
     where("status", "==", "Pending")
@@ -151,12 +172,13 @@ export async function getPendingConcernCount() {
   const snapshot = await getDocs(q);
 
   return snapshot.size;
-
 }
 
-/* -------------------------------------------------------------------------- */
-/* Track Concern                                                              */
-/* -------------------------------------------------------------------------- */
+/*
+|--------------------------------------------------------------------------
+| Track Concern
+|--------------------------------------------------------------------------
+*/
 
 export async function trackConcern(
   referenceNumber,
@@ -164,8 +186,16 @@ export async function trackConcern(
 ) {
   const q = query(
     collection(db, "concerns"),
-    where("referenceNumber", "==", referenceNumber),
-    where("studentNumber", "==", studentNumber),
+    where(
+      "referenceNumber",
+      "==",
+      referenceNumber
+    ),
+    where(
+      "studentNumber",
+      "==",
+      studentNumber
+    ),
     limit(1)
   );
 
@@ -181,8 +211,13 @@ export async function trackConcern(
   };
 }
 
-export async function getRecentConcerns() {
+/*
+|--------------------------------------------------------------------------
+| Get Recent Concerns
+|--------------------------------------------------------------------------
+*/
 
+export async function getRecentConcerns() {
   const q = query(
     collection(db, "concerns"),
     orderBy("createdAt", "desc"),
@@ -195,5 +230,4 @@ export async function getRecentConcerns() {
     id: docSnap.id,
     ...docSnap.data(),
   }));
-
 }

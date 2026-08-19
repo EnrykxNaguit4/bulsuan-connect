@@ -10,12 +10,12 @@ function getStatusBadge(status) {
             inline-flex
             items-center
             rounded-full
-            bg-yellow-100
+            bg-[#FAEAEA]
             px-3
             py-1
             text-[13px]
             font-semibold
-            text-yellow-800
+            text-[#5E1017]
           "
         >
           Pending
@@ -29,12 +29,12 @@ function getStatusBadge(status) {
             inline-flex
             items-center
             rounded-full
-            bg-blue-100
+            bg-[#9A1C27]/15
             px-3
             py-1
             text-[13px]
             font-semibold
-            text-blue-800
+            text-[#5E1017]
           "
         >
           In Progress
@@ -48,12 +48,12 @@ function getStatusBadge(status) {
             inline-flex
             items-center
             rounded-full
-            bg-green-100
+            bg-[#5E1017]
             px-3
             py-1
             text-[13px]
             font-semibold
-            text-green-800
+            text-white
           "
         >
           Resolved
@@ -75,7 +75,7 @@ function getStatusBadge(status) {
             text-gray-700
           "
         >
-          {status}
+          {status || "Unknown"}
         </span>
       );
   }
@@ -99,9 +99,7 @@ function ConcernTable({
   concerns,
   onView,
 }) {
-
   return (
-
     <AdminTable
       columns={[
         {
@@ -115,8 +113,8 @@ function ConcernTable({
           className: "text-left",
         },
         {
-          label: "Category",
-          width: "170px",
+          label: "Nature",
+          width: "200px",
           className: "text-center",
         },
         {
@@ -136,61 +134,51 @@ function ConcernTable({
         },
       ]}
     >
-
       {concerns.length === 0 ? (
-
         <tr>
-
           <td
             colSpan={6}
             className="py-14 text-center text-gray-500"
           >
             No submitted concerns.
           </td>
-
         </tr>
-
       ) : (
-
         concerns.map((concern) => (
-
           <tr
             key={concern.id}
             className="
               border-b
               border-gray-200/70
               last:border-b-0
-              hover:bg-red-50/40
+              hover:bg-[#FAEAEA]
               transition-colors
             "
           >
-
             {/* Reference */}
 
             <td className="px-6 py-5">
-
               <span
-  className="
-    font-mono
-    text-sm
-    text-gray-700
+                className="
+                  font-mono
+                  text-sm
+                  font-medium
+                  text-[#5E1017]
 
-    block
-    overflow-hidden
-    whitespace-nowrap
-    text-ellipsis
-  "
-  title={concern.referenceNumber}
->
+                  block
+                  overflow-hidden
+                  whitespace-nowrap
+                  text-ellipsis
+                "
+                title={concern.referenceNumber}
+              >
                 {concern.referenceNumber}
               </span>
-
             </td>
 
             {/* Student */}
 
             <td className="px-6 py-5">
-
               <div
                 className="
                   overflow-hidden
@@ -204,74 +192,65 @@ function ConcernTable({
               >
                 {concern.fullName}
               </div>
-
             </td>
 
-            {/* Category */}
+            {/* Nature */}
 
             <td className="px-6 py-5 text-center">
-
               <span
                 className="
                   inline-block
-
+                  max-w-[190px]
+                  overflow-hidden
+                  text-ellipsis
+                  whitespace-nowrap
                   rounded-full
-
-                  bg-slate-100
-
+                  bg-[#FAEAEA]
+                  border
+                  border-[#9A1C27]/30
                   px-3
                   py-1
-
                   text-sm
-
-                  text-gray-700
+                  text-[#5E1017]
                 "
+                title={
+                  concern.natureOfConcern ||
+                  concern.nature ||
+                  "Not specified"
+                }
               >
-                {concern.category}
+                {concern.natureOfConcern ||
+                  concern.nature ||
+                  "Not specified"}
               </span>
-
             </td>
 
             {/* Status */}
 
             <td className="px-6 py-5 text-center">
-
               {getStatusBadge(concern.status)}
-
             </td>
 
             {/* Submitted */}
 
             <td className="px-6 py-5 text-center">
-
               <span className="whitespace-nowrap text-sm text-gray-600">
-
                 {formatDate(concern.createdAt)}
-
               </span>
-
             </td>
 
             {/* Actions */}
 
             <td className="px-6 py-5">
-
               <TableActions
                 onView={() => onView(concern)}
               />
-
             </td>
-
           </tr>
-
         ))
-
       )}
-
     </AdminTable>
-
   );
-
 }
 
 export default ConcernTable;

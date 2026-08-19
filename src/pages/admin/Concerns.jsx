@@ -19,11 +19,33 @@ function Concerns() {
   const [showModal, setShowModal] =
     useState(false);
 
+  const [isLoading, setIsLoading] =
+    useState(true);
+
   async function loadConcerns() {
 
-    const data = await getConcerns();
+    try {
 
-    setConcerns(data);
+      setIsLoading(true);
+
+      const data = await getConcerns();
+
+      setConcerns(data);
+
+    } catch (error) {
+
+      console.error(
+        "Failed to load concerns:",
+        error
+      );
+
+      setConcerns([]);
+
+    } finally {
+
+      setIsLoading(false);
+
+    }
 
   }
 
@@ -40,16 +62,32 @@ function Concerns() {
       description="Review, manage, and update submitted student concerns."
     >
 
-      <ConcernTable
-        concerns={concerns}
-        onView={(concern) => {
+      {isLoading ? (
 
-          setSelectedConcern(concern);
+        <div className="bg-white border rounded-2xl p-14 text-center">
 
-          setShowModal(true);
+          <div className="mx-auto h-10 w-10 rounded-full border-4 border-[#FAEAEA] border-t-[#9A1C27] animate-spin" />
 
-        }}
-      />
+          <p className="mt-4 text-gray-500">
+            Loading submitted concerns...
+          </p>
+
+        </div>
+
+      ) : (
+
+        <ConcernTable
+          concerns={concerns}
+          onView={(concern) => {
+
+            setSelectedConcern(concern);
+
+            setShowModal(true);
+
+          }}
+        />
+
+      )}
 
       {showModal && (
 
