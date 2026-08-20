@@ -107,7 +107,7 @@ async function handleTrack() {
           <div className="bg-white rounded-3xl shadow-lg border p-10">
 
             <div className="text-center">
-              <div className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-[#9A1C27]/60 text-[#9A1C27] mx-auto text-4xl">
+              <div className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-[#9A1C27] text-white mx-auto text-4xl">
                 <FaSearch aria-hidden="true" />
               </div> 
             </div>
