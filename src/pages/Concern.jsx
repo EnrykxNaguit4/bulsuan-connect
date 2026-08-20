@@ -632,84 +632,123 @@ function Concern() {
 
               </section>
 
-                            {/* =====================================================
-                  CONFIRMATION MODAL
-              ===================================================== */}
+                    {/* =====================================================
+    CONFIRMATION MODAL
+===================================================== */}
 
-              {showConfirmModal && (
+{showConfirmModal && (
 
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
+  <div
+    className="
+      fixed
+      inset-0
+      z-[9999]
+      w-screen
+      h-screen
+      min-h-screen
+      bg-black/60
+      flex
+      items-center
+      justify-center
+      px-4
+      py-6
+      overflow-y-auto
+    "
+  >
 
-                  <div className="w-full max-w-lg rounded-2xl bg-white shadow-xl">
+    <div className="relative w-full max-w-lg rounded-2xl bg-white shadow-2xl">
 
-                    <div className="p-6 md:p-8">
+      <div className="p-6 md:p-8">
 
-                      <h2 className="text-xl md:text-2xl font-bold text-[#5E1017]">
-                        Confirm Submission
-                      </h2>
+        <h2 className="text-xl md:text-2xl font-bold text-[#5E1017]">
+          Confirm Submission
+        </h2>
 
-                      <p className="mt-4 text-gray-600 leading-7">
-                        Please review your information before submitting your
-                        concern. Once submitted, your concern will be recorded
-                        and forwarded to the appropriate office when necessary.
-                      </p>
+        <p className="mt-4 text-gray-600 leading-7">
+          Please review your information before submitting your
+          concern. Once submitted, your concern will be recorded
+          and forwarded to the appropriate office when necessary.
+        </p>
 
-                      <div className="mt-5 rounded-xl bg-[#FAEAEA] border border-[#9A1C27]/20 p-4">
+        <div className="mt-5 rounded-xl bg-[#FAEAEA] border border-[#9A1C27]/20 p-4">
 
-                        <p className="text-sm text-gray-700 leading-6">
-                          <strong className="text-[#5E1017]">
-                            Confidentiality Preference:
-                          </strong>{" "}
-                          {formData.disclosurePreference}
-                        </p>
+          <p className="text-sm text-gray-700 leading-6">
+            <strong className="text-[#5E1017]">
+              Confidentiality Preference:
+            </strong>{" "}
+            {formData.disclosurePreference}
+          </p>
 
-                        <p className="mt-2 text-sm text-gray-700 leading-6">
-                          <strong className="text-[#5E1017]">
-                            Nature of Concern:
-                          </strong>{" "}
-                          {formData.natureOfConcern}
-                        </p>
+          <p className="mt-2 text-sm text-gray-700 leading-6">
+            <strong className="text-[#5E1017]">
+              Nature of Concern:
+            </strong>{" "}
+            {formData.natureOfConcern}
+          </p>
 
-                        <p className="mt-2 text-sm text-gray-700 leading-6">
-                          <strong className="text-[#5E1017]">
-                            Subject:
-                          </strong>{" "}
-                          {formData.subject}
-                        </p>
+          <p className="mt-2 text-sm text-gray-700 leading-6">
+            <strong className="text-[#5E1017]">
+              Subject:
+            </strong>{" "}
+            {formData.subject}
+          </p>
 
-                      </div>
+        </div>
 
-                      <p className="mt-5 text-sm text-gray-500 leading-6">
-                        Are you sure you want to submit this concern?
-                      </p>
+        <p className="mt-5 text-sm text-gray-500 leading-6">
+          Are you sure you want to submit this concern?
+        </p>
 
-                    </div>
+      </div>
 
-                    <div className="flex flex-col-reverse sm:flex-row sm:justify-end gap-3 border-t border-gray-100 p-5 md:px-8 md:py-5">
+      <div className="flex flex-col-reverse sm:flex-row sm:justify-end gap-3 border-t border-gray-100 p-5 md:px-8 md:py-5">
 
-                      <button
-                        type="button"
-                        onClick={() => setShowConfirmModal(false)}
-                        className="w-full sm:w-auto rounded-xl border border-gray-300 px-6 py-3 font-semibold text-gray-700 hover:bg-gray-50 transition"
-                      >
-                        Go Back
-                      </button>
+        <button
+          type="button"
+          onClick={() => setShowConfirmModal(false)}
+          className="
+            w-full
+            sm:w-auto
+            rounded-xl
+            border
+            border-gray-300
+            px-6
+            py-3
+            font-semibold
+            text-gray-700
+            hover:bg-gray-50
+            transition
+          "
+        >
+          Go Back
+        </button>
 
-                      <button
-                        type="button"
-                        onClick={handleSubmitConcern}
-                        className="w-full sm:w-auto rounded-xl bg-[#5E1017] px-6 py-3 font-semibold text-white hover:bg-[#9A1C27] transition"
-                      >
-                        Confirm Submission
-                      </button>
+        <button
+          type="button"
+          onClick={handleSubmitConcern}
+          className="
+            w-full
+            sm:w-auto
+            rounded-xl
+            bg-[#5E1017]
+            px-6
+            py-3
+            font-semibold
+            text-white
+            hover:bg-[#9A1C27]
+            transition
+          "
+        >
+          Confirm Submission
+        </button>
 
-                    </div>
+      </div>
 
-                  </div>
+    </div>
 
-                </div>
+  </div>
 
-              )}
+)}
 
               {/* =====================================================
                   SUCCESS MODAL

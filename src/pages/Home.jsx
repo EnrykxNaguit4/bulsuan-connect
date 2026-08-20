@@ -7,7 +7,7 @@ function Home() {
     <PublicLayout>
 
       {/* ==========================================================
-          LOGO AREA
+          LOGO + WELCOME SECTION
       ========================================================== */}
 
       <section className="relative overflow-hidden bg-white">
@@ -59,9 +59,13 @@ function Home() {
           "
         />
 
-        <div className="relative max-w-5xl mx-auto px-6 pt-16 pb-7 sm:pt-20 md:pt-24 md:pb-10">
+        {/* ======================================================
+            LOGOS
+        ====================================================== */}
 
-          <div className="flex items-center justify-center gap-8 sm:gap-12 md:gap-20">
+        <div className="relative max-w-5xl mx-auto px-6 pt-12 pb-1 sm:pt-20 sm:pb-4 md:pt-24 md:pb-4">
+
+          <div className="flex items-center justify-center gap-2 sm:gap-12 md:gap-10">
 
             {/* LOGO 1 */}
 
@@ -78,7 +82,7 @@ function Home() {
               <img
                 src="https://cdn.phototourl.com/free/2026-08-19-de319f57-aaab-4802-8cad-d2b5e33d1cef.png"
                 alt="CSSP Local Student Council Logo"
-                className="h-30 sm:h-28 md:h-50 w-auto object-contain"
+                className="h-32 sm:h-28 md:h-55 w-auto object-contain"
               />
             </div>
 
@@ -98,7 +102,7 @@ function Home() {
               <img
                 src="https://cdn.phototourl.com/free/2026-08-19-17173090-0d4a-4d1f-8a28-3b0c5ebaaee3.png"
                 alt="Students' Rights and Welfare Committee Logo"
-                className="h-30 sm:h-28 md:h-50 w-auto object-contain"
+                className="h-32 sm:h-28 md:h-55 w-auto object-contain"
               />
             </div>
 
@@ -106,48 +110,12 @@ function Home() {
 
         </div>
 
-      </section>
 
+        {/* ======================================================
+            WELCOME CONTENT
+        ====================================================== */}
 
-      {/* ==========================================================
-          WELCOME SECTION
-      ========================================================== */}
-
-      <section className="relative overflow-hidden bg-white">
-
-        {/* Animated background glow */}
-
-        <div
-          className="
-            pointer-events-none
-            absolute
-            left-1/2
-            top-0
-            h-80
-            w-80
-            -translate-x-1/2
-            rounded-full 
-            bg-[#FAEAEA]/80
-            blur-3xl
-            animate-[pulse_7s_ease-in-out_infinite]
-          "
-        />
-
-        <div
-          className="
-            pointer-events-none
-            absolute
-            -right-32
-            bottom-0
-            h-64
-            w-64
-            rounded-full
-            bg-[#9A1C27]/5
-            blur-3xl
-          "
-        />
-
-        <div className="relative max-w-6xl mx-auto px-5 sm:px-8 md:px-10 py-8 sm:py-10 md:py-12">
+        <div className="relative max-w-6xl mx-auto px-5 sm:px-8 md:px-10 pt-11 sm:pt-12 pb-8 sm:pb-10 md:pb-12">
 
           <div className="max-w-4xl mx-auto">
 

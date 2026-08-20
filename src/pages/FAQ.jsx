@@ -304,7 +304,7 @@ md:text-base
 
 font-semibold
 
-text-red-700
+text-[#5E1017]
 
 transition
 
@@ -342,7 +342,7 @@ text-white
 transition
 
 hover:bg-white
-hover:text-red-700
+hover:text-[#5E1017]
 "
             >
               Submit a Concern
